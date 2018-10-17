@@ -42,6 +42,14 @@ mat-card.list-group-item img {
   float: left;
 }
 
+.list mat-card {
+  width: 100%;
+}
+
+.list img {
+  width: 20%;
+}
+
 mat-card.list-group-item:after {
   clear: both;
 }

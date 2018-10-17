@@ -27,16 +27,20 @@
   <!--</div>-->
 
   <div id="view" class="btn-group">
+    <span id="grid_view" (click)="switchToGridView()">
     <i class="material-icons">
       view_module
     </i><span>Grid</span>
+    </span>
+    <span id="list_view" (click)="switchToListView()">
     <i class="material-icons">
       view_list
     </i><span>List</span>
+    </span>
   </div>
 
-  <div fxLayout="row wrap"
-       fxLayoutAlign="start center">
+  <div id="products" fxLayout="row wrap"
+       fxLayoutAlign="start center" ngClass="{'list': !gridViewIsActive}">
     <ng-container *ngFor="let user of users">
       <mat-card
         fxFlex="0 0 calc(25% - 32px)"

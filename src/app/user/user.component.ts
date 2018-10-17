@@ -11,6 +11,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 })
 export class UserComponent implements OnInit {
 
+  gridViewIsActive: boolean = true;
   users: User[];
   currentPage: number = 0;
   pageSize: number = 2;
@@ -63,5 +64,14 @@ export class UserComponent implements OnInit {
       })
     );
   }
+
+  switchToGridView(): void {
+    this.gridViewIsActive = true;
+  }
+
+  switchToListView(): void {
+    this.gridViewIsActive = false;
+  }
+
 
 }
