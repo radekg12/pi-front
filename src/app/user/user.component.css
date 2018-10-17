@@ -1,0 +1,47 @@
+mat-card {
+  border: 0;
+  box-shadow: none;
+}
+
+.glyphicon {
+  margin-right: 5px;
+}
+
+mat-card.list-group-item {
+  float: none;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+mat-card.list-group-item:nth-of-type(odd):hover, mat-card.list-group-item:hover {
+  box-shadow: 0px 1px 25px #ccc;
+}
+
+mat-card.list-group-item .list-group-image {
+  margin-right: 5px;
+
+}
+
+mat-card.list-group-item .thumbnail {
+  margin-bottom: 0px;
+
+}
+
+mat-card.list-group-item .caption {
+  padding: 9px 9px 0px 9px;
+
+}
+
+mat-card.list-group-item:before, mat-card.list-group-item:after {
+  display: table;
+  content: " ";
+}
+
+mat-card.list-group-item img {
+  float: left;
+}
+
+mat-card.list-group-item:after {
+  clear: both;
+}

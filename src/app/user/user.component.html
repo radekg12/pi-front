@@ -1,78 +1,91 @@
 <!--<div class="col-md-6">-->
 <div class="row">
-  <h2>User Details</h2>
+  <!--<h2>User Details</h2>-->
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="hidden">Id</th>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Email</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users">
-      <td class="hidden">{{user.id}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.email}}</td>
-      <td>
-        <button class="btn btn-danger" (click)="deleteUser(user)">Delete User</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+  <!--<table class="table table-striped">-->
+  <!--<thead>-->
+  <!--<tr>-->
+  <!--<th class="hidden">Id</th>-->
+  <!--<th>FirstName</th>-->
+  <!--<th>LastName</th>-->
+  <!--<th>Email</th>-->
+  <!--<th>Action</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr *ngFor="let user of users">-->
+  <!--<td class="hidden">{{user.id}}</td>-->
+  <!--<td>{{user.firstName}}</td>-->
+  <!--<td>{{user.lastName}}</td>-->
+  <!--<td>{{user.email}}</td>-->
+  <!--<td>-->
+  <!--<button class="btn btn-danger" (click)="deleteUser(user)">Delete User</button>-->
+  <!--</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+  <!--</table>-->
+  <!--</div>-->
 
-<div fxLayout="row wrap"
-     fxLayoutAlign="start center">
-  <ng-container *ngFor="let user of users">
-    <mat-card
-      fxFlex="0 0 calc(25% - 32px)"
-      fxFlex.md="0 0 calc(33.3% - 32px)"
-      fxFlex.lt-md="0 0 calc(50% - 32px)"
-      style="margin: 16px; box-sizing: border-box">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <h4>{{user.firstName}}</h4>
-        <span class="right">{{user.id}} zł</span>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>BUY</button>
-        <button mat-button>ADD TO WISHLIST</button>
-        <button mat-icon-button color="warn">
-          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-container>
-</div>
-
-<div class="row">
-
-  <div class="col">
-    <mat-form-field>
-      <mat-select [(value)]="pageSize">
-        <mat-option *ngFor="let option of pageSizeOptions" value="option">{{option}} items per page</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <ngb-pagination class="d-flex justify-content-end" [collectionSize]="totalElements" [(page)]="currentPage"
-                    [pageSize]="pageSize" [maxSize]="6" (pageChange)="changePage()"></ngb-pagination>
+  <div id="view" class="btn-group">
+    <i class="material-icons">
+      view_module
+    </i><span>Grid</span>
+    <i class="material-icons">
+      view_list
+    </i><span>List</span>
   </div>
 
-</div>
+  <div fxLayout="row wrap"
+       fxLayoutAlign="start center">
+    <ng-container *ngFor="let user of users">
+      <mat-card
+        fxFlex="0 0 calc(25% - 32px)"
+        fxFlex.md="0 0 calc(33.3% - 32px)"
+        fxFlex.lt-md="0 0 calc(50% - 32px)"
+        style="margin: 16px; box-sizing: border-box"
+        class="list-group-item">
+        <img mat-card-image
+             src="https://stat-m2.ms-online.pl/media/cache/gallery/rc/cfcrh0yi/images/20/20716176/microsoft-surface-laptop-platinum-2.jpg"
+             alt="Photo of a Shiba Inu"
+             class="list-group-image">
+        <mat-card-content>
+          <h4>{{user.firstName}}</h4>
+          <span class="right">{{user.id}} zł</span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>BUY</button>
+          <button mat-button>ADD TO WISHLIST</button>
+          <button mat-icon-button color="warn">
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <mat-form-field>
+        <mat-select [(value)]="pageSize">
+          <mat-option *ngFor="let option of pageSizeOptions" value="option">{{option}} items per page</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <ngb-pagination class="d-flex justify-content-end" [collectionSize]="totalElements" [(page)]="currentPage"
+                      [pageSize]="pageSize" [maxSize]="6" (pageChange)="changePage()"></ngb-pagination>
+    </div>
+
+  </div>
 
 
-<div class="row">
-  <mat-paginator [length]="totalElements"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 [pageIndex]="currentPage"
-                 (page)="pageEvent = $event">
+  <div class="row">
+    <mat-paginator [length]="totalElements"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   [pageIndex]="currentPage"
+                   (page)="pageEvent = $event">
 
-  </mat-paginator>
-</div>
-<!--</div>-->
+    </mat-paginator>
+  </div>
+  <!--</div>-->
