@@ -1,55 +1,36 @@
-mat-card {
-  border: 0;
-  box-shadow: none;
+
+.wrapper {
+  width: 80%;
+  margin: auto;
+  /*background: ghostwhite;*/
 }
 
-.glyphicon {
-  margin-right: 5px;
+@media screen and (max-width: 599px) {
+  .wrapper {
+    width: 98%;
+  }
 }
 
-mat-card.list-group-item {
-  float: none;
-  width: 100%;
-  background-color: #fff;
-  margin-bottom: 10px;
+.list-view {
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
 }
 
-mat-card.list-group-item:nth-of-type(odd):hover, mat-card.list-group-item:hover {
-  box-shadow: 0px 1px 25px #ccc;
+.right {
+  float: right;
 }
 
-mat-card.list-group-item .list-group-image {
-  margin-right: 5px;
-
+.mat-select-panel .mat-option,
+.mat-option.ng-star-inserted {
+  height: 2.5em;
 }
 
-mat-card.list-group-item .thumbnail {
-  margin-bottom: 0px;
-
+.mat-form-field {
+  font-size: 14px;
 }
 
-mat-card.list-group-item .caption {
-  padding: 9px 9px 0px 9px;
-
-}
-
-mat-card.list-group-item:before, mat-card.list-group-item:after {
-  display: table;
-  content: " ";
-}
-
-mat-card.list-group-item img {
-  float: left;
-}
-
-.list mat-card {
-  width: 100%;
-}
-
-.list img {
-  width: 20%;
-}
-
-mat-card.list-group-item:after {
-  clear: both;
+.options {
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
 }

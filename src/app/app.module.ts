@@ -13,13 +13,21 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {ProductCardComponent} from './product-card/product-card.component';
+import {MenuComponent} from './menu/menu.component';
+import {ProductDetailsComponent} from './product-details/product-details.component';
+import {ButtonComponent} from './button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     AddUserComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductCardComponent,
+    MenuComponent,
+    ProductDetailsComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

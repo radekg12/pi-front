@@ -1,0 +1,12 @@
+<div class="my-card" [class.card_list]="listView">
+  <div class="card__image">
+    <img
+      src={{imageSrc}}>
+  </div>
+  <div class="card__details">
+    <div class="card__details__title">{{title}}</div>
+    <div class="card__details__description">{{description}}</div>
+    <div class="card__details__price">{{price | currency: ''}} zł</div>
+  </div>
+</div>
+<mat-divider *ngIf="!last"></mat-divider>

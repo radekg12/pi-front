@@ -1,0 +1,61 @@
+.button-primary, .button-secondary, .button-inverted, .button-inverted:hover {
+  width: 200px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 5px;
+  border: solid 1px #4a4f54;
+  background-color: #4a4f54;
+  cursor: pointer;
+
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.button-primary:not(:hover) {
+  transition: 0.3s;
+}
+
+.button-primary.button-xl {
+  width: 290px;
+  margin-bottom: 37px;
+}
+
+.button-primary:hover, .button-inverted {
+  background-color: #ffffff;
+  color: #4a4f54;
+  border: solid 1px #4a4f54;
+}
+
+.button-primary:disabled, .button-inverted:disabled {
+  border-color: rgba(74, 79, 84, .0);
+  background-color: rgba(74, 79, 84, .2);
+  color: #4a4f54;
+  cursor: default;
+}
+
+.button-secondary {
+  border-color: #7db2dd;
+  background-color: #7db2dd;
+  color: #4a4f54;
+}
+
+.button-secondary:hover {
+  background-color: #ffffff;
+  color: #4a4f54;
+  border: solid 1px #7db2dd;
+}
+
+.button-secondary:disabled {
+  border-color: rgba(125, 178, 221, 0);
+  background-color: rgba(125, 178, 221, .2);
+  color: #4a4f54;
+  cursor: default;
+}

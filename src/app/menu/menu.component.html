@@ -1,0 +1,43 @@
+<div class="menu">
+  <header id="menu-banner" [class.active]="categoriesIsActive" role="banner">
+    <div class="menu-bar">
+      <div class="menu-container">
+        <ul class="left">
+          <li>
+            <a href="#" id="menuButton" [class.active]="categoriesIsActive" (click)="openCategoryMenu($event)">
+              Categories
+            </a>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <a href="#">Support</a>
+          </li>
+          <li>
+            <a href="#">Card</a>
+          </li>
+          <li>
+            <a href="#">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="mega-menu-panel" [class.active]="categoriesIsActive">
+      <nav id="mega-menu" role="navigation" [class.active]="categoriesIsActive">
+        <div class="mega-menu__submenu" *ngFor="let group of categoryGroups; index as i"
+             [style.animation-delay.s]="i/10"
+             [fxFlex.lt-sm]="100"
+             [fxFlex.sm]="50"
+             [fxFlex.md]="33.3"
+             [fxFlex]="25">
+          <h4>{{group.name}}</h4>
+          <ul>
+            <li class="mega-menu__submenu__menu-item" *ngFor="let category of group.categories">
+              <a [routerLink]="['/users']" (click)="goToCategory($event)">{{category.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>

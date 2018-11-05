@@ -2,6 +2,7 @@ import {Injectable, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {Observable} from "rxjs";
+import {PageEvent} from "@angular/material";
 
 const header = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -29,12 +30,32 @@ export class UserService implements OnInit {
   }
 
 
-  getUsers(page: number, perPage: number, sortBy: string): Observable<User[]> {
-    const params = new HttpParams()
-      .set("page", String(page - 1))
-      .set("per_page", String(perPage))
-      .set("sort_by", sortBy);
+  getUsers(event?: PageEvent): Observable<User[]> {
+    if (event) return this.getUserss(event.pageIndex, event.pageSize);
+    else return this.getUserss();
+
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(this.userUrl + '/' + id, {headers: header});
+
+  }
+
+  getUserss(page?: number, per_page?: number, sort_by?: string): Observable<User[]> {
+    const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
+    console.log("+++ HTTP.get<User[]> : ");
+    console.log({url: this.userUrl, params: params});
     return this.http.get<User[]>(this.userUrl, {params: params, headers: header});
   }
 
+  createHttpParams(params: {}): HttpParams {
+    let httpParams: HttpParams = new HttpParams();
+    Object.keys(params).forEach(param => {
+      if (params[param]) {
+        httpParams = httpParams.set(param, params[param]);
+      }
+    });
+
+    return httpParams;
+  }
 }
