@@ -3,12 +3,12 @@
 
   <form>
     <div class="form-group">
-      <label for="email">Email address:</label>
+      <label for="email">Adres email:</label>
       <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" class="form-control" id="email">
     </div>
 
     <div class="form-group">
-      <label for="firstName">First Name:</label>
+      <label for="firstName">Imię:</label>
       <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
     </div>
 
@@ -19,4 +19,32 @@
 
     <button class="btn btn-success" (click)="createUser()">Create</button>
   </form>
+
+  <div>
+    <form action="https://secure.payu.com/api/v2_1/orders" id="payu-payment-form" method="post">
+      <input name="continueUrl" type="hidden" value="http://shop.url/continue">
+      <input name="currencyCode" type="hidden" value="PLN">
+      <input name="customerIp" type="hidden" value="123.123.123.123">
+      <input name="description" type="hidden" value="Order description">
+      <input name="merchantPosId" type="hidden" value="145227">
+      <input name="notifyUrl" type="hidden" value="http://shop.url/notify">
+      <input name="products[0].name" type="hidden" value="Product 1">
+      <input name="products[0].quantity" type="hidden" value="1">
+      <input name="products[0].unitPrice" type="hidden" value="1000">
+      <input name="totalAmount" type="hidden" value="1000">
+      <input name="OpenPayu-Signature" type="hidden"
+             value="sender=145227;algorithm=SHA-256;signature=bc94a8026d6032b5e216be112a5fb7544e66e23e68d44b4283ff495bdb3983a8">
+      <button formtarget="_blank" type="submit">Pay with PayU</button>
+    </form>
+
+    <button (click)="payForShopping()">Rad_pay</button>
+    <button (click)="payForShoppingX()">Rad_pay_AFTER</button>
+  </div>
 </div>
+
+<input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
+<h2 *ngIf="paypalLoadS">Paypal button is loading</h2>
+<div id="paypal-checkout-btnS"></div>
+
+<h2 *ngIf="paypalLoadC">Paypal button is loading</h2>
+<div id="paypal-checkout-btnC"></div>

@@ -4,10 +4,12 @@ import {
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
+  MatDialogModule,
   MatDividerModule,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
+  MatInputModule,
   MatMenuModule,
   MatOptionModule,
   MatPaginatorModule,
@@ -25,12 +27,14 @@ import {
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     MatOptionModule,
     MatSelectModule,
     MatPaginatorModule,
     MatGridListModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -40,12 +44,14 @@ import {
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     MatOptionModule,
     MatSelectModule,
     MatPaginatorModule,
     MatGridListModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {

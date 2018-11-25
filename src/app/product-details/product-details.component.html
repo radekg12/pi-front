@@ -1,35 +1,31 @@
-<div class="my-card">
-  <div class="card__details">
-    <div class="card__details__title">Surface Laptop - 128 GB / Intel Core i5 / 4GB RAM - Platinum</div>
-  </div>
-</div>
-<div class="my-card card_list">
-  <div class="card__image">
-    <img
-      src="https://stat-m2.ms-online.pl/media/cache/gallery/rc/cfcrh0yi/images/20/20716176/microsoft-surface-laptop-platinum-2.jpg">
-  </div>
-  <div class="card__details">
-    <div class="card__details__description">Surface Laptop to dopełnienie stylu dzięki klawiaturze pokrytej tkaniną
-      Alcantara, wyświetlaczowi PixelSense i możliwości szybkiego ładowania — w smukłym, eleganckim i niezwykle lekkim
-      laptopie
+<mat-card>
+  <div class="text-title">Surface Laptop - 128 GB / Intel Core i5 / 4GB RAM - Platinum</div>
+  <div class="my-card">
+    <div class="card__image">
+      <img
+        src="https://stat-m2.ms-online.pl/media/cache/gallery/rc/cfcrh0yi/images/20/20716176/microsoft-surface-laptop-platinum-2.jpg">
     </div>
-    <div class="card__details__price">3 850 PLN</div>
-    <div class="card__details_button">
-      <app-button></app-button>
+    <div class="card__details">
+      <div class="card__details__description">Surface Laptop to dopełnienie stylu dzięki klawiaturze pokrytej tkaniną
+        Alcantara, wyświetlaczowi PixelSense i możliwości szybkiego ładowania — w smukłym, eleganckim i niezwykle lekkim
+        laptopie
+      </div>
+      <div class="card__details__price">3 850 zł</div>
+      <div class="card__details_button">
+        <app-button></app-button>
+      </div>
     </div>
+
   </div>
+</mat-card>
 
-</div>
 
-<div class="my-card">
-  <div class="card__details">
-    <div class="card__details__title">Specyfikacja</div>
-  </div>
-</div>
+<div class="text-title">Specyfikacja</div>
 
-<div>
 
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-card>
+
+  <mat-table id="specification" [dataSource]="dataSource">
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
@@ -44,9 +40,8 @@
     </ng-container>
 
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-</div>
+</mat-card>
 
 

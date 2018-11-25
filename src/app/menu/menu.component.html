@@ -5,19 +5,19 @@
         <ul class="left">
           <li>
             <a href="#" id="menuButton" [class.active]="categoriesIsActive" (click)="openCategoryMenu($event)">
-              Categories
+              Produkty
             </a>
           </li>
         </ul>
         <ul class="right">
           <li>
-            <a href="#">Support</a>
+            <a href="#">Wsparcie</a>
           </li>
           <li>
-            <a href="#">Card</a>
+            <a [routerLink]="['/cart']">Koszyk</a>
           </li>
           <li>
-            <a href="#">Login</a>
+            <a [routerLink]="['/account']">Zaloguj</a>
           </li>
         </ul>
       </div>

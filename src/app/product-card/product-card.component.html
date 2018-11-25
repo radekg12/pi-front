@@ -1,12 +1,11 @@
 <div class="my-card" [class.card_list]="listView">
-  <div class="card__image">
+  <a [routerLink]="['/users', id]" class="card__image">
     <img
-      src={{imageSrc}}>
-  </div>
+      (click)="goToDetail()" src={{imageSrc}}>
+  </a>
   <div class="card__details">
-    <div class="card__details__title">{{title}}</div>
+    <a (click)="goToDetail()" [routerLink]="['/users', id]" class="card__details__title">{{title}}</a>
     <div class="card__details__description">{{description}}</div>
-    <div class="card__details__price">{{price | currency: ''}} zł</div>
+    <div class="card__details__price">{{price | number: '1.2-2'}} zł</div>
   </div>
 </div>
-<mat-divider *ngIf="!last"></mat-divider>

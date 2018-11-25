@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -8,11 +8,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 
 export class ProductCardComponent implements OnInit {
+  @Input() id: number;
   @Input() title: string;
   @Input() description: string;
   @Input() price: number;
   @Input() imageSrc: string;
   @Input() listView: boolean;
+  @Output() clickOnDetail = new EventEmitter();
 
 
   constructor() {
@@ -21,4 +23,7 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToDetail() {
+    this.clickOnDetail.emit();
+  }
 }

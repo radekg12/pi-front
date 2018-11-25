@@ -1,6 +1,4 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400i,600|Roboto:100,100i,300,300i,400,400i,500,500i');
 
 :root {
   --dark-grey: #4a4f54;
@@ -13,6 +11,40 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  background: #f8f8f8;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  object-fit: contain;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  color: var(--dark-grey);
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.mat-card {
+  margin-bottom: 30px;
+}
+
+.text-title {
+  margin: 15px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+button,
+.mat-button:focus,
+.mat-icon-button:focus,
+.mat-button-wrapper:focus {
+  outline: none !important;
+}
+
+.product-quantity .mat-form-field-infix {
+  max-width: 50px !important;
+  text-align: center !important;
 }
 

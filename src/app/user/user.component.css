@@ -1,10 +1,4 @@
 
-.wrapper {
-  width: 80%;
-  margin: auto;
-  /*background: ghostwhite;*/
-}
-
 @media screen and (max-width: 599px) {
   .wrapper {
     width: 98%;
@@ -33,4 +27,21 @@
   margin: 0;
   padding: 0;
   justify-content: space-between;
+}
+
+.options {
+  padding: 0 16px;
+}
+
+.options .material-icons {
+  padding: 2px;
+}
+
+.options .material-icons:hover {
+  cursor: pointer !important;
+}
+
+.mat-card {
+  padding-left: 0;
+  padding-right: 0;
 }

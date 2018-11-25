@@ -17,6 +17,10 @@ import {ProductCardComponent} from './product-card/product-card.component';
 import {MenuComponent} from './menu/menu.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {ButtonComponent} from './button/button.component';
+import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
+import {MyAccountComponent} from './my-account/my-account.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import {ButtonComponent} from './button/button.component';
     ProductCardComponent,
     MenuComponent,
     ProductDetailsComponent,
-    ButtonComponent
+    ButtonComponent,
+    ShoppingCartComponent,
+    MyAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ import {ButtonComponent} from './button/button.component';
     NgbModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

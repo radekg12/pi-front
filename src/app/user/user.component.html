@@ -1,22 +1,24 @@
-<div class="wrapper">
+<mat-card>
 
   <div class="row col options">
-    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="gridViewIsActive" (change)="switchView($event)">
-      <mat-button-toggle value="true" [checked]="true">
-        <mat-icon>view_module</mat-icon>
-      </mat-button-toggle>
-      <mat-button-toggle value="false">
-        <mat-icon>view_list</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-
-    <mat-form-field class="right">
-      <mat-select placeholder="Sort by" [value]="sortBy" (selectionChange)="changePageSorting($event)">
+    <mat-form-field class="left">
+      <mat-select (selectionChange)="changePageSorting($event)" [value]="sortBy" placeholder="Sortuj wg">
         <mat-option *ngFor="let sort of sortByOptions" [value]="sort.value">
           {{sort.viewValue}}
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <div class="right">
+      Widok:
+      <div class="btn-group" id="view">
+        <button (click)="switchToGridView()" mat-button mat-icon-button>
+          <mat-icon>view_module</mat-icon>
+        </button>
+        <button (click)="switchToListView()" mat-button mat-icon-button>
+          <mat-icon>view_list</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 
   <div id="products" fxLayout="row wrap" fxFlexAlign="space-between">
@@ -25,17 +27,17 @@
                       [fxFlex]="25"
                       [fxFlex.md]="33.3"
                       [fxFlex.lt-md]="50"
+                      [id]="user.id"
                       title={{user.firstName}}
                       description={{user.email}}
                       [price]="user.id"
                       imageSrc="https://stat-m2.ms-online.pl/media/cache/gallery/rc/cfcrh0yi/images/20/20716176/microsoft-surface-laptop-platinum-2.jpg"
-                      [listView]="!gridViewIsActive"
-                      [routerLink]="[ '/users', user.id]">
+                      [listView]="!gridViewIsActive">
     </app-product-card>
   </div>
 
 
-  <div class="right">
+  <div>
     <mat-paginator #paginator
                    [length]="totalElements"
                    [pageSize]="pageSize"
@@ -45,5 +47,5 @@
 
     </mat-paginator>
   </div>
-</div>
+</mat-card>
 <!--<h2>{{currentPage}}</h2>-->

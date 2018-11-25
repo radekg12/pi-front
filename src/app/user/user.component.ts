@@ -1,16 +1,12 @@
 import {User} from "../models/user.model";
 import {UserService} from "./user.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {MatButtonToggleChange, MatSelectChange, PageEvent} from "@angular/material";
-import {Component, Input, OnInit} from "@angular/core";
+import {MatButtonToggleChange, MatPaginator, MatSelectChange, PageEvent} from "@angular/material";
+import {Component, Input, OnInit, ViewChild} from "@angular/core";
 
 export interface SortByOption {
   value: string;
   viewValue: string;
-}
-
-{
-
 }
 
 @Component({
@@ -22,12 +18,12 @@ export class UserComponent implements OnInit {
 
   pageSizeOptions: number[] = [2, 3, 5];
   sortByOptions: SortByOption[] = [
-    {value: 'id_asc', viewValue: 'Price: Low to High'},
-    {value: 'id_desc', viewValue: 'Price: High to Low'},
-    {value: 'firstName_asc', viewValue: 'Name: Low to High'},
-    {value: 'firstName_desc', viewValue: 'Name: High to Low'},
-    {value: 'email_asc', viewValue: 'Brand name: Low to High'},
-    {value: 'email_desc', viewValue: 'Brand name: High to Low'}
+    {value: 'id_asc', viewValue: 'Cena: od najniższej'},
+    {value: 'id_desc', viewValue: 'Cena: od najwyższej'},
+    {value: 'firstName_asc', viewValue: 'Nazwa: A-Z'},
+    {value: 'firstName_desc', viewValue: 'Nazwa: Z-A'},
+    {value: 'email_asc', viewValue: 'Marka: A-Z'},
+    {value: 'email_desc', viewValue: 'Marka: Z-A'}
   ];
   defaultPage: number = 0;
   defaultPageSize: number = this.pageSizeOptions[0];
@@ -47,7 +43,10 @@ export class UserComponent implements OnInit {
               private userService: UserService) {
   }
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   ngOnInit() {
+    this.initPaginator();
     console.log(this.route.snapshot);
     this.setParams();
   };
@@ -94,9 +93,10 @@ export class UserComponent implements OnInit {
       () => console.log("COMPLETE"))
   }
 
-  changePage(event?: PageEvent) {
+  changePage(event?: PageEvent): PageEvent {
     if (event.pageIndex != this.currentPage) this.changePageNumber(event);
     else if (event.pageSize != this.pageSize) this.changePageSize(event);
+    return event;
   }
 
   identify(index, item) {
@@ -105,6 +105,17 @@ export class UserComponent implements OnInit {
 
   switchView($event: MatButtonToggleChange) {
     this.gridViewIsActive = $event.value === "true";
+  }
+
+  switchToGridView(): void {
+    this.gridViewIsActive = true;
+    console.log("switchToGridView");
+  }
+
+  switchToListView(): void {
+    this.gridViewIsActive = false;
+    console.log("switchToListView");
+
   }
 
   changePageSorting($event: MatSelectChange) {
@@ -139,5 +150,20 @@ export class UserComponent implements OnInit {
       queryParamsHandling: "merge",
       relativeTo: this.route
     });
+  }
+
+  showDetails(userId: number | string) {
+    this.router.navigate(['./', userId], {relativeTo: this.route})
+  }
+
+  private initPaginator(): void {
+    this.paginator._intl.itemsPerPageLabel = 'Produktów na stronie';
+    this.paginator._intl.lastPageLabel = 'Ostatnia strona';
+    this.paginator._intl.firstPageLabel = 'Pierwsza strona';
+    this.paginator._intl.nextPageLabel = 'Następna strona';
+    this.paginator._intl.previousPageLabel = 'Poprzednia strona';
+    this.paginator._intl.getRangeLabel = () => {
+      return `${this.paginator.pageIndex + 1}  z  ${Math.ceil(this.paginator.length / this.paginator.pageSize)}`;
+    };
   }
 }

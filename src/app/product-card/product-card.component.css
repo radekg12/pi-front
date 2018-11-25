@@ -3,6 +3,7 @@
 }
 
 .my-card {
+  position: relative;
   display: inline-block;
   padding: 20px;
   /*background: ghostwhite;*/
@@ -10,23 +11,29 @@
   height: 100%;
   box-sizing: border-box;
   background: white;
-
+  z-index: 0;
+  border: 1px solid #f8f8f8;
   /*border: 1px solid #b2bec5;*/
   /*transition: 0.3s;*/
 }
 
 .my-card.card_list {
   width: 100%;
-  height: 200px;
+  padding: 10px;
+  height: 160px;
   display: flex;
   flex-direction: row;
 }
 
 .my-card:hover {
-  box-shadow: 0 1px 25px #ccc;
-  transform: scale(1.01, 1.01);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  /*transform: scale(1.01, 1.01);*/
   z-index: 1;
   transition: 0.3s;
+}
+
+.my-card * {
+  z-index: 1
 }
 
 .my-card:not(:hover) {
@@ -44,12 +51,13 @@
 
 .my-card.card_list .card__image {
   /*background-color: #cccccc;*/
-  width: auto;
+  /*width: auto;*/
+  max-height: 100%;
   height: 100%;
   margin: 0;
-  max-width: 40%;
-  min-width: 25%;
-  text-align: left;
+  /*max-width: 40%;*/
+  /*min-width: 25%;*/
+  width: 40%;
 }
 
 .my-card .card__image img {
@@ -59,6 +67,10 @@
   height: auto;
   object-fit: contain;
   border: 0;
+}
+
+.my-card .card__image img:hover {
+  cursor: pointer
 }
 
 .my-card .card__image img[src=""],
@@ -119,6 +131,11 @@
 .my-card .card__details .card__details__title {
   font-size: 20px;
   line-height: 1.35;
+}
+
+.my-card .card__details .card__details__title:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .my-card .card__details .card__details__title:empty {

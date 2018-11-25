@@ -1,3 +1,23 @@
+
+.wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .wrapper {
+    width: 98%;
+    margin: auto;
+  }
+}
+
 .right {
   float: right;
 }
