@@ -131,6 +131,7 @@
 .my-card .card__details .card__details__title {
   font-size: 20px;
   line-height: 1.35;
+  text-align: left;
 }
 
 .my-card .card__details .card__details__title:hover {

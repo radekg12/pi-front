@@ -1,8 +1,8 @@
-import {CategoryGroup} from "../models/category-group.model";
+import {Category} from "../models/category-group.model";
 
-export const CATEGORY_GROUPS: CategoryGroup[] = [
+export const CATEGORY_GROUPS: Category[] = [
   {
-    id: 1, name: "Komputery stacjonarne", categories: [
+    id: 1, name: "Komputery stacjonarne", subcategories: [
       {id: 1, name: "Komputery/Serwery"},
       {id: 2, name: "Monitory"},
       {id: 3, name: "Akcesoria komputerowe"},
@@ -10,7 +10,7 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     ]
   },
   {
-    id: 2, name: "Laptopy i tablety", categories: [
+    id: 2, name: "Laptopy i tablety", subcategories: [
       {id: 1, name: "Laptopy/Notebooki/Ultrabooki"},
       {id: 2, name: "Laptopy 2 w 1"},
       {id: 3, name: "Tablety"},
@@ -18,7 +18,7 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     ]
   },
   {
-    id: 2, name: "Akcesoria", categories: [
+    id: 2, name: "Akcesoria", subcategories: [
       {id: 1, name: "Głośniki"},
       {id: 2, name: "Laptopy 2 w 1"},
       {id: 3, name: "Tablety"},
@@ -28,7 +28,7 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     ]
   },
   {
-    id: 2, name: "Akcesoria", categories: [
+    id: 2, name: "Akcesoria", subcategories: [
       {id: 1, name: "Głośniki"},
       {id: 2, name: "Tablety"},
       {id: 3, name: "Pamięć flash"},

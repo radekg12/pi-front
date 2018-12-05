@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CATEGORY_GROUPS} from "../mock/mock-category-group";
-import {CategoryGroup} from "../models/category-group.model";
+import {Category} from "../models/category-group.model";
+import {MenuService} from "../services/menu.service";
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +9,14 @@ import {CategoryGroup} from "../models/category-group.model";
 })
 
 export class MenuComponent implements OnInit {
-  categoryGroups: CategoryGroup[] = CATEGORY_GROUPS;
+  categories: Category[];
   categoriesIsActive: boolean = false;
 
-  constructor() {
+  constructor(private menuService: MenuService) {
   }
 
   ngOnInit() {
+    this.getCategories();
     this.categoriesIsActive = false;
   }
 
@@ -33,5 +34,15 @@ export class MenuComponent implements OnInit {
     this.categoriesIsActive = false;
     console.log("isActive? " + this.categoriesIsActive);
     event.preventDefault();
+  }
+
+  getCategories(): void {
+    this.menuService.getMenuCategories().subscribe(
+      data => {
+        console.log("getCategories");
+        this.categories = data
+      },
+      e => console.log('error - menu categories')
+    );
   }
 }

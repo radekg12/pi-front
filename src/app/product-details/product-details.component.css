@@ -63,6 +63,7 @@
   letter-spacing: normal;
   width: 100%;
   color: var(--charcoal-grey);
+  white-space: pre-line;
 }
 
 .card__details__title:empty,
@@ -91,6 +92,7 @@
 
 .card__details__price {
   text-align: center;
+  font-weight: 400;
 }
 
 .card__details__price:empty {
@@ -114,10 +116,14 @@
 
   .card__image {
     max-width: 100%;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .card__details {
     max-width: 100%;
     padding-left: 0;
   }
+
 }

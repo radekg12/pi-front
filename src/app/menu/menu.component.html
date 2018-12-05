@@ -24,16 +24,16 @@
     </div>
     <div id="mega-menu-panel" [class.active]="categoriesIsActive">
       <nav id="mega-menu" role="navigation" [class.active]="categoriesIsActive">
-        <div class="mega-menu__submenu" *ngFor="let group of categoryGroups; index as i"
+        <div *ngFor="let category of categories; index as i" class="mega-menu__submenu"
              [style.animation-delay.s]="i/10"
              [fxFlex.lt-sm]="100"
              [fxFlex.sm]="50"
              [fxFlex.md]="33.3"
              [fxFlex]="25">
-          <h4>{{group.name}}</h4>
+          <h4>{{category.name}}</h4>
           <ul>
-            <li class="mega-menu__submenu__menu-item" *ngFor="let category of group.categories">
-              <a [routerLink]="['/users']" (click)="goToCategory($event)">{{category.name}}</a>
+            <li *ngFor="let subcategory of category.subcategories" class="mega-menu__submenu__menu-item">
+              <a (click)="goToCategory($event)" [routerLink]="['/products']">{{subcategory.name}}</a>
             </li>
           </ul>
         </div>

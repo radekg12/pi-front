@@ -1,18 +1,16 @@
 <mat-card>
-  <div class="text-title">Surface Laptop - 128 GB / Intel Core i5 / 4GB RAM - Platinum</div>
+  <div class="text-title">{{product.name}}</div>
   <div class="my-card">
     <div class="card__image">
       <img
-        src="https://stat-m2.ms-online.pl/media/cache/gallery/rc/cfcrh0yi/images/20/20716176/microsoft-surface-laptop-platinum-2.jpg">
+        (load)="loadImg()" [src]="product.imageUrl">
     </div>
     <div class="card__details">
-      <div class="card__details__description">Surface Laptop to dopełnienie stylu dzięki klawiaturze pokrytej tkaniną
-        Alcantara, wyświetlaczowi PixelSense i możliwości szybkiego ładowania — w smukłym, eleganckim i niezwykle lekkim
-        laptopie
+      <div class="card__details__description">{{product.description}}
       </div>
-      <div class="card__details__price">3 850 zł</div>
-      <div class="card__details_button">
-        <app-button></app-button>
+      <div class="card__details__price">{{product.unityPrice | plnCurrency}}</div>
+      <div (click)="addProductToCart()" class="card__details_button">
+        <app-button message="Dodaj do koszyka"></app-button>
       </div>
     </div>
 
@@ -36,12 +34,13 @@
     <!-- Detail Column -->
     <ng-container matColumnDef="detail">
       <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.detail}}</mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>
     </ng-container>
 
 
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </mat-card>
+
 
 

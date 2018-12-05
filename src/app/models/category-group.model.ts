@@ -1,7 +1,7 @@
-import {Category} from "./category.model";
+import {Subcategory} from "./category.model";
 
-export class CategoryGroup {
+export class Category {
   id: number;
   name: string;
-  categories: Category[];
+  subcategories: Subcategory[];
 }

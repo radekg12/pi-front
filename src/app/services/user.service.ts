@@ -11,7 +11,7 @@ const header = new HttpHeaders({'Content-Type': 'application/json'});
 })
 export class UserService implements OnInit {
 
-  private userUrl = 'api/users';
+  private baseUrl = 'api/products';
 
   constructor(private http: HttpClient) {
   }
@@ -22,11 +22,11 @@ export class UserService implements OnInit {
   }
 
   deleteUser(user: User): Observable<User> {
-    return this.http.delete<User>(this.userUrl + "/" + user.id);
+    return this.http.delete<User>(`${this.baseUrl}/${user.id}`);
   }
 
   public createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.userUrl, user)
+    return this.http.post<User>(this.baseUrl, user)
   }
 
 
@@ -37,15 +37,15 @@ export class UserService implements OnInit {
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.userUrl + '/' + id, {headers: header});
+    return this.http.get<User>(`${this.baseUrl}/${id}`, {headers: header});
 
   }
 
   getUserss(page?: number, per_page?: number, sort_by?: string): Observable<User[]> {
     const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
     console.log("+++ HTTP.get<User[]> : ");
-    console.log({url: this.userUrl, params: params});
-    return this.http.get<User[]>(this.userUrl, {params: params, headers: header});
+    console.log({url: this.baseUrl, params: params});
+    return this.http.get<User[]>(this.baseUrl, {params: params, headers: header});
   }
 
   createHttpParams(params: {}): HttpParams {

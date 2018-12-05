@@ -1,0 +1,20 @@
+.mat-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.mat-radio-button {
+  margin: 5px;
+}
+
+#address {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

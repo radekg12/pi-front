@@ -3,19 +3,17 @@ import {User} from "../models/user.model";
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {MatDialog} from "@angular/material";
+import {Observable} from "rxjs";
 
 declare let paypal: any;
 
-// declare let paypal: any;
-
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
-export class AddUserComponent implements OnInit, AfterViewChecked {
+export class AddProductComponent implements OnInit, AfterViewChecked {
   user: User = new User();
   addScriptS: boolean = false;
   addScriptC: boolean = false;
@@ -82,6 +80,10 @@ export class AddUserComponent implements OnInit, AfterViewChecked {
       });
     }
   };
+  private url = 'api/';
+
+  constructor(private router: Router, private userService: UserService, private http: HttpClient, public dialog: MatDialog) {
+  }
 
   createUser(): void {
     this.userService.createUser(this.user).subscribe(
@@ -91,11 +93,6 @@ export class AddUserComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-  }
-
-  private url = 'api/';
-
-  constructor(private router: Router, private userService: UserService, private http: HttpClient, public dialog: MatDialog) {
   }
 
   ngAfterViewChecked(): void {
@@ -261,5 +258,6 @@ export class AddUserComponent implements OnInit, AfterViewChecked {
       document.body.appendChild(scripttagElement);
     })
   }
+
 
 }

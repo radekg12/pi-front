@@ -1,13 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
 import {AddUserComponent} from './user/add-user.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app.routing.module";
 import {HttpClientModule} from "@angular/common/http";
-import {UserService} from "./user/user.service";
+import {UserService} from "./services/user.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -21,6 +21,15 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {MyAccountComponent} from './my-account/my-account.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {AddProductComponent} from './add-product/add-product.component';
+import {ProductListComponent} from './product-list/product-list.component';
+import {ProductService} from "./services/product.service";
+import {registerLocaleData} from "@angular/common";
+import localePl from '@angular/common/locales/pl';
+import {PlnCurrencyPipe} from "./pln-currency.pipe";
+import {PaymentComponent} from './payment/payment.component';
+
+registerLocaleData(localePl, 'pl');
 
 @NgModule({
   declarations: [
@@ -34,6 +43,10 @@ import {environment} from '../environments/environment';
     ButtonComponent,
     ShoppingCartComponent,
     MyAccountComponent,
+    AddProductComponent,
+    ProductListComponent,
+    PlnCurrencyPipe,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +57,14 @@ import {environment} from '../environments/environment';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    ProductService,
+    {provide: LOCALE_ID, useValue: 'pl'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

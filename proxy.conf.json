@@ -7,14 +7,14 @@
     "pathRewrite": {
       "^/api": ""
     }
-  },
-  "/pay": {
-    "target": "https://secure.snd.payu.com/pl",
-    "secure": true,
-    "logLevel": "debug",
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/pay": ""
-    }
   }
+  //  "/pay": {
+  //    "target": "https://secure.snd.payu.com/pl",
+  //    "secure": true,
+  //    "logLevel": "debug",
+  //    "changeOrigin": true,
+  //    "pathRewrite": {
+  //      "^/pay": ""
+  //    }
+  //  }
 }

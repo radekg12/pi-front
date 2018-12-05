@@ -36,6 +36,14 @@ body * {
   line-height: 1.35;
 }
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
 button,
 .mat-button:focus,
 .mat-icon-button:focus,
@@ -46,5 +54,31 @@ button,
 .product-quantity .mat-form-field-infix {
   max-width: 50px !important;
   text-align: center !important;
+}
+
+.mat-table .mat-row .mat-cell {
+  white-space: pre-line !important;
+  padding: 5px;
+}
+
+
+.mat-snack-bar-container {
+  background: rgba(74, 79, 84, .8) !important;
+  border-radius: 30px !important;
+  padding: 0 30px !important;
+  max-width: 100% !important;
+  min-width: 320px !important;
+  width: 40% !important;
+  color: aliceblue !important;
+  text-align: center !important;
+}
+
+.mat-snack-bar-container .mat-button-wrapper {
+  color: aliceblue !important;
+}
+
+.mat-simple-snackbar, .mat-simple-snackbar * {
+  text-align: center !important;
+  color: aliceblue !important;
 }
 

@@ -1,4 +1,4 @@
-export class Category {
+export class Subcategory {
   id: number;
   name: string;
 
