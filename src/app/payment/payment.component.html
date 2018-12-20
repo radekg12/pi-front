@@ -14,18 +14,16 @@
           <mat-radio-group id="delivery" name="delivery" #delivery formControlName="deliveryCtrl"
                            required>
             <mat-radio-button *ngFor="let delivery of deliveryTypes; first as firstRadioButton;"
-                              ngDefaultControl="firstRadioButton"
                               [value]="delivery.id">{{delivery.name}}
               - {{delivery.price | plnCurrency}}</mat-radio-button>
-          </mat-radio-group>
-          <div>invalid? {{deliveryCtrl.invalid}}</div>
-          <div *ngIf="d.deliveryCtrl.invalid && (d.deliveryCtrl.dirty || d.deliveryCtrl.touched)"
-               class="alert alert-danger">
 
-            <div *ngIf="d.deliveryCtrl.errors.required">
-              Delivery is required.
+            <div *ngIf="d.deliveryCtrl.invalid && (d.deliveryCtrl.dirty || d.deliveryCtrl.touched)">
+              <mat-error *ngIf="d.deliveryCtrl.errors?.required">
+                Wybierz rodzaj dostawy.
+              </mat-error>
             </div>
-          </div>
+          </mat-radio-group>
+
         </div>
         <div class="right">
           <button mat-button matStepperNext>Dalej</button>
@@ -33,93 +31,92 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="paymentFormGroup">
-      <form [formGroup]="paymentFormGroup">
-        <ng-template matStepLabel>Sposób płatności</ng-template>
-        <div>
-          <div>
-            <label>Wybierz sposób płatności: </label>
-          </div>
-          <mat-radio-group formControlName="paymentCtrl" required>
-            <mat-radio-button *ngFor="let payment of paymentMethods;"
-                              [value]="payment.id">{{payment.name}} - {{payment.price | plnCurrency}}</mat-radio-button>
-          </mat-radio-group>
-          <div>invalid? {{p.paymentCtrl.invalid}}</div>
-          <div *ngIf="p.paymentCtrl.invalid && (p.paymentCtrl.dirty || p.paymentCtrl.touched)"
-               class="alert alert-danger">
 
-            <div *ngIf="p.paymentCtrl.errors.required">
-              Payment is required.
-            </div>
-          </div>
-          <div class="right">
-            <button mat-button matStepperPrevious>Wstecz</button>
-            <button mat-button matStepperNext>Dalej</button>
-          </div>
-        </div>
-      </form>
-    </mat-step>
+    <!--<mat-step [stepControl]="paymentFormGroup">-->
+    <!--<form [formGroup]="paymentFormGroup">-->
+    <!--<ng-template matStepLabel>Sposób płatności</ng-template>-->
+    <!--<div>-->
+    <!--<div>-->
+    <!--<label>Wybierz sposób płatności: </label>-->
+    <!--</div>-->
+    <!--<mat-radio-group formControlName="paymentCtrl" required>-->
+    <!--<mat-radio-button *ngFor="let payment of paymentMethods;"-->
+    <!--[value]="payment.id">{{payment.name}} - {{payment.price | plnCurrency}}</mat-radio-button>-->
+
+    <!--<div *ngIf="p.paymentCtrl.invalid && (p.paymentCtrl.dirty || p.paymentCtrl.touched)">-->
+
+    <!--<mat-error *ngIf="p.paymentCtrl.errors?.required">-->
+    <!--Wybierz rodzaj płatności-->
+    <!--</mat-error>-->
+    <!--</div>-->
+    <!--</mat-radio-group>-->
+
+    <!--<div class="right">-->
+    <!--<button mat-button matStepperPrevious>Wstecz</button>-->
+    <!--<button mat-button matStepperNext>Dalej</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</mat-step>-->
+
 
     <mat-step [stepControl]="addressFormGroup">
       <ng-template matStepLabel>Dane do wysyłki</ng-template>
       <form [formGroup]="addressFormGroup">
         <div id="address">
-          <mat-form-field>
-            <input type="text" matInput placeholder="Adres" formControlName="streetCtrl" required>
-          </mat-form-field>
-          <div *ngIf="a.streetCtrl.invalid && (a.streetCtrl.dirty || a.streetCtrl.touched)"
-               class="alert alert-danger">
 
-            <div *ngIf="a.streetCtrl.errors.required">
-              Street is required.
-            </div>
-          </div>
           <mat-form-field>
-            <input type="number" matInput placeholder="Kod pocztowy" formControlName="postcodeCtrl" required>
-          </mat-form-field>
-          <div *ngIf="a.postcodeCtrl.invalid && (a.postcodeCtrl.dirty || a.postcodeCtrl.touched)"
-               class="alert alert-danger">
+            <input type="text" matInput placeholder="Adres" formControlName="streetCtrl" required maxlength="45">
+            <mat-error
+              *ngIf="a.streetCtrl.errors?.required && a.streetCtrl.invalid && (a.streetCtrl.dirty || a.streetCtrl.touched)">
+              Wprowadź adres
+            </mat-error>
 
-            <div *ngIf="a.postcodeCtrl.errors.required">
-              Postcode is required.
-            </div>
-            <div *ngIf="a.postcodeCtrl.errors.pattern">
-              Postcode pattern is incorrect.
-            </div>
-          </div>
+          </mat-form-field>
+
           <mat-form-field>
-            <input type="text" matInput placeholder="Miejscowość" formControlName="cityCtrl" required>
+            <input type="text" matInput placeholder="Kod pocztowy" formControlName="postcodeCtrl" required
+                   maxlength="6">
+            <mat-error
+              *ngIf="a.postcodeCtrl.errors?.required && a.postcodeCtrl.invalid && (a.postcodeCtrl.dirty || a.postcodeCtrl.touched)">
+              Wprowadź 5-cyfrowy kod pocztowy (np. 02-823)
+            </mat-error>
+            <mat-error
+              *ngIf="a.postcodeCtrl.errors?.pattern && a.postcodeCtrl.invalid && (a.postcodeCtrl.dirty || a.postcodeCtrl.touched)">
+              Kod pocztowy jest niepoprawny
+            </mat-error>
           </mat-form-field>
-          <div *ngIf="a.cityCtrl.invalid && (a.cityCtrl.dirty || a.cityCtrl.touched)"
-               class="alert alert-danger">
 
-            <div *ngIf="a.cityCtrl.errors.required">
-              Postcode is required.
-            </div>
-            <div *ngIf="a.cityCtrl.errors.pattern">
-              Postcode pattern is incorrect.
-            </div>
-          </div>
-          <div class="right">
-            <button mat-button matStepperPrevious>Wstecz</button>
-            <button mat-button matStepperNext>Dalej</button>
-          </div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Miejscowość" formControlName="cityCtrl" required maxlength="45">
+            <mat-error
+              *ngIf="a.cityCtrl.errors?.required && a.cityCtrl.invalid && (a.cityCtrl.dirty || a.cityCtrl.touched)">
+              Wprowadź miejscowość
+            </mat-error>
+          </mat-form-field>
         </div>
+
+        <div class="right">
+          <button mat-button matStepperPrevious>Wstecz</button>
+          <button mat-button matStepperNext>Dalej</button>
+        </div>
+
       </form>
     </mat-step>
 
     <mat-step [stepControl]="summaryFormGroup">
       <ng-template matStepLabel>Podsumowanie</ng-template>
       <form [formGroup]="summaryFormGroup">
-
-        <div class="right">
+        <app-order-summary [positions]="positions" [deliveryType]="getDeliveryType()"></app-order-summary>
+        <div class="left">
           <button mat-button matStepperPrevious>Wstecz</button>
-          <button mat-button (click)="stepper.reset()">Wypełnij jeszcze raz</button>
+          <!--<button mat-button (click)="stepper.reset()">Wypełnij jeszcze raz</button>-->
         </div>
       </form>
     </mat-step>
-
   </mat-horizontal-stepper>
 
-
 </mat-card>
+<div class="right">
+  <app-button *ngIf="stepper.selectedIndex == 2" message="Zatwierdź" (click)="payForOrder()"></app-button>
+</div>

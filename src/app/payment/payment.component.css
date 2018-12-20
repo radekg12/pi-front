@@ -18,3 +18,12 @@ form {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mat-radio-group {
+  width: 100%;
+}

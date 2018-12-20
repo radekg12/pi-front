@@ -1,0 +1,47 @@
+#myAccountWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#accountPanel {
+  width: 25%;
+}
+
+#stickyAccountPanel {
+  position: sticky;
+  top: 50px;
+  width: 100%;
+  min-height: 200px;
+}
+
+#stickyAccountPanel ul {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 1em;
+}
+
+#stickyAccountPanel li {
+  margin-bottom: 0.3125em;
+}
+
+#stickyAccountPanel li a {
+  color: var(--light-grey);
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+}
+
+#stickyAccountPanel .mat-divider {
+  position: inherit;
+}
+
+#stickyAccountPanel li a:hover,
+#stickyAccountPanel li a:focus {
+  color: var(--dark-grey);
+  transition: 0.4s;
+}
+
+#accountDetails {
+  width: 70%;
+  min-height: 1000px;
+}

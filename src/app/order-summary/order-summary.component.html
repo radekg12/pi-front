@@ -1,0 +1,36 @@
+<mat-table [dataSource]="positions" id="prodPositions">
+
+  <!-- Product name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef fxFlex="45">Produkt</mat-header-cell>
+    <mat-cell *matCellDef="let element" fxFlex="45">
+      <a [routerLink]="['/product/detail', element.product.id]">{{element?.product.name}}</a></mat-cell>
+    <mat-footer-cell *matFooterCellDef fxFlex="45"></mat-footer-cell>
+  </ng-container>
+
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef fxFlex="15">Ilość</mat-header-cell>
+    <mat-cell *matCellDef="let element" fxFlex="15"> {{element?.quantity}}</mat-cell>
+    <mat-footer-cell *matFooterCellDef fxFlex="15"></mat-footer-cell>
+  </ng-container>
+
+  <!-- Unity Price Column -->
+  <ng-container matColumnDef="unitPrice">
+    <mat-header-cell *matHeaderCellDef fxFlex="20">Cena</mat-header-cell>
+    <mat-cell *matCellDef="let element" fxFlex="20"> {{element?.product.unitPrice | plnCurrency}}</mat-cell>
+    <mat-footer-cell *matFooterCellDef fxFlex="20">Razem:</mat-footer-cell>
+  </ng-container>
+
+  <!-- Subtotal Column -->
+  <ng-container matColumnDef="subtotal">
+    <mat-header-cell *matHeaderCellDef fxFlex="20">Razem</mat-header-cell>
+    <mat-cell *matCellDef="let element"
+              fxFlex="20"> {{(element?.quantity * +element?.product.unitPrice) | plnCurrency}}</mat-cell>
+    <mat-footer-cell *matFooterCellDef fxFlex="20">{{getTotalCost() | plnCurrency}}</mat-footer-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-footer-row *matFooterRowDef="displayedColumns" mat-footer-row></mat-footer-row>
+</mat-table>

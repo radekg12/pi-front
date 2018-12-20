@@ -60,6 +60,10 @@
   background: none;
 }
 
+#menuButton {
+  cursor: pointer;
+}
+
 #mega-menu {
   width: 90%;
   margin-left: auto;

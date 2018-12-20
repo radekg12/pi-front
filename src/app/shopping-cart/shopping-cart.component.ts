@@ -19,14 +19,20 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService, public snackBar: MatSnackBar) {
   }
 
-
   ngOnInit() {
+    console.log("getProduct");
+    this.getProducts();
+    console.log("getProduct_2");
+    console.log(this.cartItems);
+  }
+
+  getProducts() {
     this.shoppingCartService.getProducts().subscribe(data => this.cartItems = data);
   }
 
   increaseQuantity(item: ShoppingCartPosition) {
     console.log("increase quantity: " + item.quantity + "; ");
-    this.shoppingCartService.updateProduct(+item.productByProductId.id, ++item.quantity).subscribe(data => {
+    this.shoppingCartService.updateProduct(+item.product.id, ++item.quantity).subscribe(data => {
       console.log("increaseQuantity");
       item.quantity = data.quantity;
       this.showMessage("Zmieniono zawartość koszyka");
@@ -35,7 +41,7 @@ export class ShoppingCartComponent implements OnInit {
 
   decreaseQuantity(item: ShoppingCartPosition) {
     console.log("reduce quantity: " + item.quantity + "; ");
-    this.shoppingCartService.updateProduct(+item.productByProductId.id, --item.quantity).subscribe(data => {
+    this.shoppingCartService.updateProduct(+item.product.id, --item.quantity).subscribe(data => {
       console.log("decreaseQuantity");
       item.quantity = data.quantity;
       this.showMessage("Zmieniono zawartość koszyka");
@@ -44,14 +50,14 @@ export class ShoppingCartComponent implements OnInit {
 
   removeItem(item: ShoppingCartPosition) {
     this.cartItems = this.cartItems.filter(i => i !== item);
-    this.shoppingCartService.deleteProduct(+item.productByProductId.id).subscribe(data => this.cartItems = this.cartItems.filter(i => i !== data));
+    this.shoppingCartService.deleteProduct(+item.product.id).subscribe(data => this.cartItems = this.cartItems.filter(i => i !== data));
     console.log("remove item ");
     this.showMessage("Usunięto produkt z koszyka");
   }
 
   getSumPrice(): number {
     let sum: number = 0;
-    this.cartItems.forEach(i => sum += (+i.productByProductId.unityPrice * i.quantity));
+    this.cartItems.forEach(i => sum += (+i.product.unitPrice * i.quantity));
     console.log("calculate sum: " + sum);
     return sum;
   }

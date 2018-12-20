@@ -1,0 +1,36 @@
+<div class="text-title">Zamówienia</div>
+
+
+<!--<mat-card>-->
+
+<mat-table id="specification" [dataSource]="orders">
+
+  <!-- OrderId Column -->
+  <ng-container matColumnDef="orderId">
+    <mat-header-cell *matHeaderCellDef> Numer zamówienia</mat-header-cell>
+    <mat-cell *matCellDef="let element"><a [routerLink]="['./', element.id]">{{element.id}}</a></mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Data</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dateOfOrder | date}}</mat-cell>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Wartość</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.totalAmount | plnCurrency}}</mat-cell>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.orderStatus.name}}</mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<!--</mat-card>-->

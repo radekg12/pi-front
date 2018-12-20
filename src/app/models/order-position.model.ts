@@ -1,8 +1,9 @@
 import {Product} from "./product.model";
 
-export class ShoppingCartPosition {
-
-  id: string;
+export class OrderPosition {
+  id: number;
   quantity: number;
+  unitPrice: number;
   product: Product;
+
 }

@@ -26,7 +26,7 @@ export class ProductService implements OnInit {
   }
 
   public createProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product)
+    return this.http.post<Product>(`this.baseUrl/detail`, product)
   }
 
 
@@ -38,15 +38,15 @@ export class ProductService implements OnInit {
 
   getProduct(id: number): Observable<Product> {
     console.log("ProdService getProduct(id)");
-    return this.http.get<Product>(`${this.baseUrl}/${id}`, {headers: header});
+    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`, {headers: header});
 
   }
 
-  getProductss(page?: number, per_page?: number, sort_by?: string): Observable<Product[]> {
+  getProductss(subcategoryId?: number, page?: number, per_page?: number, sort_by?: string): Observable<Product[]> {
     const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
     console.log("+++ HTTP.get<Product[]> : ");
     console.log({url: this.baseUrl, params: params});
-    return this.http.get<Product[]>(this.baseUrl, {params: params, headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/${subcategoryId || ""}`, {params: params, headers: header});
   }
 
   createHttpParams(params: {}): HttpParams {

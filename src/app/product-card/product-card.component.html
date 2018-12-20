@@ -1,10 +1,10 @@
 <div class="my-card" [class.card_list]="listView">
-  <a [routerLink]="['/products', id]" class="card__image">
-    <img
+  <a [routerLink]="['/products/detail', id]" class="card__image">
+    <img alt="product image"
       (click)="goToDetail()" src={{imageSrc}}>
   </a>
   <div class="card__details">
-    <a (click)="goToDetail()" [routerLink]="['/products', id]" class="card__details__title">{{title}}</a>
+    <a (click)="goToDetail()" [routerLink]="['/products/detail', id]" class="card__details__title">{{title}}</a>
     <div class="card__details__description">{{description}}</div>
     <div class="card__details__price">{{price | plnCurrency}}</div>
   </div>

@@ -2,13 +2,13 @@
   <div class="text-title">{{product.name}}</div>
   <div class="my-card">
     <div class="card__image">
-      <img
-        (load)="loadImg()" [src]="product.imageUrl">
+      <img alt="product image"
+           (load)="loadImg()" [src]="product.imageUrl">
     </div>
     <div class="card__details">
       <div class="card__details__description">{{product.description}}
       </div>
-      <div class="card__details__price">{{product.unityPrice | plnCurrency}}</div>
+      <div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>
       <div (click)="addProductToCart()" class="card__details_button">
         <app-button message="Dodaj do koszyka"></app-button>
       </div>

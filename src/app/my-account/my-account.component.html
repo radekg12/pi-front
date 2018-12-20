@@ -1,3 +1,21 @@
-<p>
-  my-account works!
-</p>
+<div class="text-title">Twoje konto</div>
+<div id="myAccountWrapper">
+  <div id="accountPanel">
+    <mat-card id="stickyAccountPanel">
+      <ul>
+        <li>Imie Nazwisko</li>
+      </ul>
+
+      <mat-divider></mat-divider>
+
+      <ul>
+        <li><a [routerLink]="['./personal-info']">Twoje dane</a></li>
+        <li><a [routerLink]="['./orders']">Twoje zamówienia</a></li>
+      </ul>
+    </mat-card>
+  </div>
+
+  <mat-card id="accountDetails">
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>

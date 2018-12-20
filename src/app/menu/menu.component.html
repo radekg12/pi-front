@@ -4,20 +4,20 @@
       <div class="menu-container">
         <ul class="left">
           <li>
-            <a href="#" id="menuButton" [class.active]="categoriesIsActive" (click)="openCategoryMenu($event)">
+            <a (click)="openCategoryMenu($event)" [class.active]="categoriesIsActive" id="menuButton">
               Produkty
             </a>
           </li>
         </ul>
         <ul class="right">
           <li>
-            <a href="#">Wsparcie</a>
+            <a (click)="goToPage($event)" [routerLink]="['/support']">Wsparcie</a>
           </li>
           <li>
-            <a [routerLink]="['/cart']">Koszyk</a>
+            <a (click)="goToPage($event)" [routerLink]="['/cart']">Koszyk</a>
           </li>
           <li>
-            <a [routerLink]="['/account']">Zaloguj</a>
+            <a (click)="goToPage($event)" [routerLink]="['/account']">Zaloguj</a>
           </li>
         </ul>
       </div>
@@ -30,10 +30,10 @@
              [fxFlex.sm]="50"
              [fxFlex.md]="33.3"
              [fxFlex]="25">
-          <h4>{{category.name}}</h4>
+          <h4 (click)="goToCategory($event)" [routerLink]="['/products', category.id]">{{category.name}}</h4>
           <ul>
             <li *ngFor="let subcategory of category.subcategories" class="mega-menu__submenu__menu-item">
-              <a (click)="goToCategory($event)" [routerLink]="['/products']">{{subcategory.name}}</a>
+              <a (click)="goToCategory($event)" [routerLink]="['/products', subcategory.id]">{{subcategory.name}}</a>
             </li>
           </ul>
         </div>

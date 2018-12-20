@@ -18,12 +18,12 @@ export class ProductListComponent implements OnInit {
 
   pageSizeOptions: number[] = [2, 3, 5];
   sortByOptions: SortByOption[] = [
-    {value: 'id_asc', viewValue: 'Cena: od najniższej'},
-    {value: 'id_desc', viewValue: 'Cena: od najwyższej'},
-    {value: 'firstName_asc', viewValue: 'Nazwa: A-Z'},
-    {value: 'firstName_desc', viewValue: 'Nazwa: Z-A'},
-    {value: 'email_asc', viewValue: 'Marka: A-Z'},
-    {value: 'email_desc', viewValue: 'Marka: Z-A'}
+    {value: 'unitPrice_asc', viewValue: 'Cena: od najniższej'},
+    {value: 'unitPrice_desc', viewValue: 'Cena: od najwyższej'},
+    {value: 'name_asc', viewValue: 'Nazwa: A-Z'},
+    {value: 'name_desc', viewValue: 'Nazwa: Z-A'},
+    {value: 'company_asc', viewValue: 'Marka: A-Z'},
+    {value: 'company_desc', viewValue: 'Marka: Z-A'}
   ];
   defaultPage: number = 0;
   defaultPageSize: number = this.pageSizeOptions[0];
@@ -33,6 +33,7 @@ export class ProductListComponent implements OnInit {
   pageSize: number = this.defaultPageSize;
   totalElements: number = 0;
   sortBy: string = this.defaultSortBy;
+  subcategoryId: number;
   pageEvent: PageEvent;
   paramMap: ParamMap;
   sub;
@@ -51,6 +52,12 @@ export class ProductListComponent implements OnInit {
   };
 
   setParams() {
+
+    this.sub = this.route.params.subscribe(params => {
+      this.subcategoryId = +params['subcategoryId'];
+      console.log("producy id = " + this.subcategoryId);
+    });
+
     console.log(this.route.queryParamMap);
     this.route.queryParamMap.subscribe(
       (params: ParamMap) => {
@@ -79,7 +86,7 @@ export class ProductListComponent implements OnInit {
 
   getProducts(): void {
     console.log("GET_PRODUCTS()");
-    this.productService.getProductss(this.currentPage, this.pageSize, this.sortBy).subscribe(
+    this.productService.getProductss(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
       data => {
         console.log("NEXT");
         this.products = data['content'];

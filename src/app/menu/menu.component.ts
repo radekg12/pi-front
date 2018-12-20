@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import {Category} from "../models/category-group.model";
 import {MenuService} from "../services/menu.service";
 
@@ -12,7 +12,16 @@ export class MenuComponent implements OnInit {
   categories: Category[];
   categoriesIsActive: boolean = false;
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService,
+              private eRef: ElementRef) {
+  }
+
+  @HostListener('document:click', ['$event']) clickedOutside($event) {
+    if (this.eRef.nativeElement.contains(event.target)) {
+      console.log(event.target);
+    } else {
+      this.categoriesIsActive = false;
+    }
   }
 
   ngOnInit() {
@@ -44,5 +53,9 @@ export class MenuComponent implements OnInit {
       },
       e => console.log('error - menu categories')
     );
+  }
+
+  goToPage($event: MouseEvent) {
+    this.categoriesIsActive = false;
   }
 }

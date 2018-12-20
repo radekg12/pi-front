@@ -28,6 +28,10 @@ import {registerLocaleData} from "@angular/common";
 import localePl from '@angular/common/locales/pl';
 import {PlnCurrencyPipe} from "./pln-currency.pipe";
 import {PaymentComponent} from './payment/payment.component';
+import {OrderSummaryComponent} from './order-summary/order-summary.component';
+import {PersonalInfoComponent} from './my-account/personal-info/personal-info.component';
+import {MyOrdersComponent} from './my-account/my-orders/my-orders.component';
+import {OrderDetailComponent} from './my-account/order-detail/order-detail.component';
 
 registerLocaleData(localePl, 'pl');
 
@@ -46,7 +50,11 @@ registerLocaleData(localePl, 'pl');
     AddProductComponent,
     ProductListComponent,
     PlnCurrencyPipe,
-    PaymentComponent
+    PaymentComponent,
+    OrderSummaryComponent,
+    PersonalInfoComponent,
+    MyOrdersComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
