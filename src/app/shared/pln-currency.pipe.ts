@@ -10,4 +10,8 @@ export class PlnCurrencyPipe implements PipeTransform {
     return new CurrencyPipe('pl').transform(value / 100, 'PLN', 'symbol', '1.2-2', 'pl');
   }
 
+  parse(value: string): string {
+    return value.replace(/\D/g, "");
+  }
+
 }

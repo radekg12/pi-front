@@ -1,0 +1,15 @@
+a {
+  color: inherit;
+}
+
+.table-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.table-header > * {
+  width: 100%;
+  margin: 5px;
+}
+

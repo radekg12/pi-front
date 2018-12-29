@@ -12,6 +12,7 @@ import {OrderSummaryComponent} from "./order-summary/order-summary.component";
 import {PersonalInfoComponent} from "./my-account/personal-info/personal-info.component";
 import {MyOrdersComponent} from "./my-account/my-orders/my-orders.component";
 import {OrderDetailComponent} from "./my-account/order-detail/order-detail.component";
+import {SupportComponent} from "./support/support.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/products', pathMatch: 'full'},
@@ -21,17 +22,28 @@ const routes: Routes = [
   {path: 'products/detail/:id', component: ProductDetailsComponent},
   {path: 'cart', component: ShoppingCartComponent},
   {
-    path: 'account', component: MyAccountComponent, children: [{
-      path: 'personal-info', component: PersonalInfoComponent
-    }, {
-      path: 'orders', component: MyOrdersComponent
-    }, {
-      path: 'orders/:id', component: OrderDetailComponent
-    }]
+    path: 'account', component: MyAccountComponent,
+    children: [
+      {
+        path: '', redirectTo: 'orders', pathMatch: 'full'
+      },
+      {
+        path: 'personal-info', component: PersonalInfoComponent
+      }, {
+        path: 'orders', component: MyOrdersComponent
+      }, {
+        path: 'orders/:id', component: OrderDetailComponent
+      }]
   },
   {path: 'payment', component: PaymentComponent},
   {path: 'order-summary', component: OrderSummaryComponent},
   {path: 'add', component: AddProductComponent, pathMatch: 'prefix'},
+  {path: 'support', component: SupportComponent},
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+    // canLoad: [AuthGuard]
+  },
   {path: '**', component: PageNotFoundComponent}
 ];
 

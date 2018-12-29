@@ -82,3 +82,31 @@ button,
   color: aliceblue !important;
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.mat-chip {
+  font-weight: 400;
+}
+
+.text-description {
+  font-family: 'Roboto', sans-serif;
+  object-fit: contain;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  width: 100%;
+  color: var(--charcoal-grey);
+  white-space: pre-line;
+}
+
+#product-details div.mat-form-field-underline {
+  height: 0 !important;
+}
+
+

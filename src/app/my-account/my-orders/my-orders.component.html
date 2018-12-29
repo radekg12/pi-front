@@ -3,30 +3,35 @@
 
 <!--<mat-card>-->
 
-<mat-table id="specification" [dataSource]="orders">
+<mat-table matSort id="specification" [dataSource]="dataSource">
 
   <!-- OrderId Column -->
-  <ng-container matColumnDef="orderId">
-    <mat-header-cell *matHeaderCellDef> Numer zamówienia</mat-header-cell>
+  <ng-container matColumnDef="id">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Numer zamówienia</mat-header-cell>
     <mat-cell *matCellDef="let element"><a [routerLink]="['./', element.id]">{{element.id}}</a></mat-cell>
   </ng-container>
 
   <!-- Date Column -->
-  <ng-container matColumnDef="date">
-    <mat-header-cell *matHeaderCellDef> Data</mat-header-cell>
+  <ng-container matColumnDef="dateOfOrder">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Data złożenia</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.dateOfOrder | date}}</mat-cell>
   </ng-container>
 
   <!-- Price Column -->
-  <ng-container matColumnDef="price">
-    <mat-header-cell *matHeaderCellDef> Wartość</mat-header-cell>
+  <ng-container matColumnDef="totalAmount">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Wartość</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.totalAmount | plnCurrency}}</mat-cell>
   </ng-container>
 
   <!-- Status Column -->
-  <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.orderStatus.name}}</mat-cell>
+  <ng-container matColumnDef="orderStatus.name">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Status</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-chip-list>
+        <mat-chip [style.background-color]="getColor(element)">{{element.orderStatus.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-cell>
   </ng-container>
 
 

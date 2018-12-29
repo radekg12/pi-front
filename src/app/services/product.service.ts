@@ -26,7 +26,15 @@ export class ProductService implements OnInit {
   }
 
   public createProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`this.baseUrl/detail`, product)
+    return this.http.post<Product>(`${this.baseUrl}/detail`, product)
+  }
+
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/all`, {headers: header});
+  }
+
+  getAllProductsBySubcategory(subcategoryId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`, {headers: header});
   }
 
 

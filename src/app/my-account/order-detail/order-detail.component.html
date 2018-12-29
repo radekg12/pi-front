@@ -1,12 +1,65 @@
-<div class="left">
-  <div class="btn-group" id="view">
-    <button [routerLink]="['/account/orders']" mat-button mat-icon-button>
-      <mat-icon>arrow_back_ios</mat-icon>
-    </button>
+<div class="header">
+  <div class="left">
+    <div class="btn-group" id="view">
+      <button [routerLink]="['/account/orders']" mat-button mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+    </div>
   </div>
+  <div class="text-title">Zamówienie nr {{id}}:</div>
 </div>
 
-<div class="text-title">Zamówienie nr {{id}}:</div>
+<mat-table id="specification" [dataSource]="dataSource">
+
+  <!-- OrderId Column -->
+  <ng-container matColumnDef="orderId">
+    <mat-header-cell *matHeaderCellDef> Numer zamówienia</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Data złożenia</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dateOfOrder | date}}</mat-cell>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Wartość</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.totalAmount | plnCurrency}}</mat-cell>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-chip-list>
+        <mat-chip [style.background-color]="getColor(element)">{{element.orderStatus.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="ordersColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ordersColumns;"></mat-row>
+</mat-table>
+
+<div class="other_details">
+  <div>
+    <div class="bold">Adres dostawy:</div>
+    <div>{{order.address.street}}</div>
+    <div>{{order.address.postcode | postcode}} {{order.address.city}}</div>
+  </div>
+
+  <div>
+    <div class="bold">Sposób płatności:</div>
+    <div>
+      {{order.paymentMethod.name}} ({{order.paymentMethod.price | plnCurrency}})
+    </div>
+  </div>
+
+</div>
 
 <mat-table id="prodPositions" [dataSource]="order?.orderPositions">
 
@@ -14,7 +67,8 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef fxFlex="45">Produkt</mat-header-cell>
     <mat-cell *matCellDef="let element" fxFlex="45">
-      <a [routerLink]="['/products/detail', element.product.id]">{{element?.product.name}}</a></mat-cell>
+      <a [routerLink]="['/products/detail', element.product.id]"
+         [class.disabled]="!element.product.id">{{element?.product.name}}</a></mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="45"></mat-footer-cell>
   </ng-container>
 
@@ -36,7 +90,7 @@
   <ng-container matColumnDef="subtotal">
     <mat-header-cell *matHeaderCellDef fxFlex="20">Razem</mat-header-cell>
     <mat-cell fxFlex="20"
-              *matCellDef="let element"> {{(element?.quantity * +element?.product.unitPrice) | plnCurrency}}</mat-cell>
+              *matCellDef="let element"> {{(element?.quantity * +element?.unitPrice) | plnCurrency}}</mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="20">{{getTotalCost() | plnCurrency}}</mat-footer-cell>
   </ng-container>
 

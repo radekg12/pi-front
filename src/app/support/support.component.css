@@ -1,0 +1,29 @@
+.support-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.support-full-width {
+  width: 100%;
+}
+
+.text-title {
+  margin-left: 0;
+}
+
+.text-description {
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+app-button {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+mat-card {
+  display: flex;
+  justify-content: center;
+}

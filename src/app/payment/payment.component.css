@@ -7,7 +7,7 @@
   margin: 5px;
 }
 
-#address {
+#address-fields {
   display: flex;
   flex-direction: column;
   max-width: 420px;

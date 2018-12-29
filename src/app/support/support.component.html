@@ -1,0 +1,43 @@
+<div class="text-title">Wsparcie</div>
+
+<div class="text-description">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<mat-card>
+
+  <form name="supportForm" class="support-form" (ngSubmit)="sendMail(ngForm)" #myForm="ngForm">
+
+
+    <mat-form-field class="support-full-width" appearance="outline">
+      <mat-label>Od</mat-label>
+      <input matInput placeholder="Od " type="email" disabled value="{{support.mailFrom}}">
+    </mat-form-field>
+
+
+    <mat-form-field class="support-full-width" appearance="outline">
+      <mat-label>Do</mat-label>
+      <input matInput placeholder="Do " type="email" disabled value="{{support.mailTo}}">
+    </mat-form-field>
+
+    <mat-form-field class="support-full-width" appearance="fill">
+      <mat-label>Temat</mat-label>
+      <input matInput placeholder="Temat " type="text" [(ngModel)]="support.mailTitle" name="mailTitle">
+    </mat-form-field>
+
+    <mat-form-field class="support-full-width" hintLabel="Maksymalnie 1000 znaków" appearance="fill">
+      <mat-label>Treść</mat-label>
+      <textarea matInput placeholder="Treść" cdkTextareaAutosize cdkAutosizeMinRows="10"
+                maxlength="1000" #textarea [(ngModel)]="support.mailContent" name="mailContent"
+      ></textarea>
+      <mat-hint align="end">{{textarea.value?.length || 0}} / 1 000</mat-hint>
+    </mat-form-field>
+
+    <div>
+      <app-button [message]="'Wyślij'" class="right" [type]="submit"></app-button>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,47 @@
+<div class="text-title">Produkty</div>
+
+
+<!--<mat-card>-->
+<div class="table-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrowanie">
+  </mat-form-field>
+</div>
+
+<mat-table matSort id="specification" [dataSource]="dataSource">
+
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Numer produktu</mat-header-cell>
+    <mat-cell *matCellDef="let element"><a [routerLink]="['./', element.id]">{{element.id}}</a></mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Nazwa</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+  </ng-container>
+
+  <!-- Company Column -->
+  <ng-container matColumnDef="company">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Marka</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.company}}</mat-cell>
+  </ng-container>
+
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="unitPrice">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Cena</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.unitPrice | plnCurrency}}</mat-cell>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="quantityInStock">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Ilość</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.quantityInStock}}</mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<!--</mat-card>-->

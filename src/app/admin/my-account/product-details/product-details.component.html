@@ -1,0 +1,145 @@
+<div id="product-details">
+  <div class="header-all">
+    <div class="header">
+      <div class="left">
+        <div class="btn-group" id="view">
+          <button [routerLink]="['../']" mat-button mat-icon-button>
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+        </div>
+      </div>
+      <!--<div class="text-title">Produkt nr: {{productId}}</div>-->
+      <div class="text-title">Produkt nr:
+        <span>
+    <mat-form-field>
+      <input [formControl]="id" matInput>
+      <mat-error *ngIf="id.hasError('required')">
+        Wprowadź id produktu
+      </mat-error>
+    </mat-form-field>
+  </span>
+      </div>
+    </div>
+
+    <div class="header-select">
+      <mat-form-field>
+        <mat-select [formControl]="category" placeholder="Kategoria" required>
+          <mat-option *ngFor="let categoryy of categories" [value]="categoryy">
+            {{categoryy.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="category.hasError('required')">Wybierz kategorię</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [formControl]="subcategory" placeholder="Podkategoria" required>
+          <mat-option (selectstart)="onSelectstart($event)" *ngFor="let subcategoryy of category.value.subcategories"
+                      [disabled]="category.invalid" [value]="subcategoryy">
+            {{subcategoryy.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="subcategory.hasError('required')">Wybierz podkategorię</mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+  <div class="group">
+
+    <!--<div class="text-title">{{product.name}}</div>-->
+    <div class="text-title">
+      <mat-form-field>
+        <input [formControl]="name" matInput placeholder="Nazwa">
+        <mat-error *ngIf="name.hasError('required')">
+          Wprowadź nazwę produktu
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="header-all">
+      <!--<div class="text-title">{{product.company}}</div>-->
+      <div class="text-description">
+        <mat-form-field>
+          <input [formControl]="company" matInput placeholder="Marka">
+          <mat-error *ngIf="company.hasError('required')">
+            Wprowadź markę produktu
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="text-description">
+        <mat-form-field>
+          <input [formControl]="quantityInStock" matInput placeholder="Ilość dostępnych produktów" type="number">
+          <mat-error *ngIf="quantityInStock.hasError('required')">
+            Wprowadź dostępność ilość produktów
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div class="my-card">
+      <div class="card__image">
+        <img [src]="imageUrl.value" alt="product image">
+        <div class="text-description">
+          <mat-form-field>
+            <input [formControl]="imageUrl" matInput placeholder="Ścieżka do zdjęcia" type="url">
+            <mat-error *ngIf="imageUrl.hasError('required')">
+              Wprowadź ścieżkę do zdjęcia
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="card__details">
+        <!--<div class="card__details__description">{{product.description}}-->
+        <!--</div>-->
+        <div class="card__details__description">
+          <mat-form-field>
+            <textarea [formControl]="description" cdkAutosizeMinRows="14" cdkTextareaAutosize matInput
+                      placeholder="Opis"></textarea>
+            <mat-error *ngIf="description.hasError('required')">
+              Wprowadź opis produktu
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!--<div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>-->
+
+        <div class="card__details__price">
+          <mat-form-field>
+            <input [formControl]="unitPrice" appMyCurrencyFormatter matInput placeholder="Cena">
+            <mat-error *ngIf="unitPrice.hasError('required')">
+              Wprowadź cenę produktu
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!--<div class="card__details_button">-->
+        <!--<app-button message="Dodaj do koszyka"></app-button>-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+
+    <div class="text-title" id="specification-title">Specyfikacja</div>
+    <mat-table [dataSource]="dataSource" id="specification">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+      </ng-container>
+
+      <!-- Detail Column -->
+      <ng-container matColumnDef="detail">
+        <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>
+      </ng-container>
+
+
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <div>{{productFormGroup.value | json}}</div>
+</div>

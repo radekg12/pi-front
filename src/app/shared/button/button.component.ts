@@ -9,6 +9,8 @@ export class ButtonComponent implements OnInit {
 
 
   @Input() public message: string;
+  @Input() public disabled: boolean = false;
+  @Input() public type: 'submit' | 'button' | 'reset' = "button";
 
   constructor() {
   }

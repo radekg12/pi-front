@@ -1,3 +1,11 @@
+<div id="breadcrumbs">
+  <a [routerLink]="['/products']" class="breadcrumbs">Produkty</a>
+  <span class="breadcrumbs">/</span>
+  <a [routerLink]="['/products', product.subcategory.id]" class="breadcrumbs">{{product.subcategory.name}}</a>
+  <span class="breadcrumbs">/</span>
+  <a class="breadcrumbs active">{{product.name}}</a>
+</div>
+
 <mat-card>
   <div class="text-title">{{product.name}}</div>
   <div class="my-card">

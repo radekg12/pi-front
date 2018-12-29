@@ -1,0 +1,19 @@
+<div class="text-title">Panel Administratora</div>
+<div id="myAccountWrapper">
+  <div id="accountPanel">
+    <mat-card id="stickyAccountPanel">
+      <ul>
+        <li><a [routerLink]="['./personal-info']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+true}">Klienci</a></li>
+        <li><a [routerLink]="['./orders']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+true}">Zamówienia</a></li>
+        <li><a [routerLink]="['./products']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+true}">Produkty</a></li>
+      </ul>
+    </mat-card>
+  </div>
+
+  <mat-card id="accountDetails">
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>

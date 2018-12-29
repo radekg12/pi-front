@@ -94,7 +94,7 @@ export class PaymentComponent implements OnInit {
       id: null,
       street: this.a.streetCtrl.value,
       city: this.a.cityCtrl.value,
-      postcode: this.a.postcodeCtrl.value
+      postcode: this.a.postcodeCtrl.value.replace(/\D/g, "")
     };
 
 

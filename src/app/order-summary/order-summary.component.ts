@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DeliveryType} from "../models/delivery-type.model";
 import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
 
@@ -7,7 +7,13 @@ import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
   templateUrl: './order-summary.component.html',
   styleUrls: ['./order-summary.component.css']
 })
-export class OrderSummaryComponent implements OnInit, OnChanges {
+export class OrderSummaryComponent implements OnInit {
+
+  private _positions: ShoppingCartPosition[];
+
+  get positions(): ShoppingCartPosition[] {
+    return this._positions;
+  }
 
   displayedColumns: string[] = ["name", "quantity", "unitPrice", "subtotal"];
   deliveryPosition: ShoppingCartPosition;
@@ -15,10 +21,17 @@ export class OrderSummaryComponent implements OnInit, OnChanges {
   constructor() {
   }
 
-  private _positions: ShoppingCartPosition[];
 
-  get positions(): ShoppingCartPosition[] {
-    return this._positions;
+  ngOnInit() {
+
+    console.log("deliveryPosition");
+    console.log(this.deliveryPosition);
+  }
+
+  getTotalCost() {
+    return this._positions
+      .map(p => p.quantity * +p.product.unitPrice)
+      .reduce((x, y) => x + y, 0);
   }
 
   @Input()
@@ -40,33 +53,11 @@ export class OrderSummaryComponent implements OnInit, OnChanges {
     this.setDeliveryPosition();
   }
 
-  ngOnInit() {
-
-    console.log("deliveryPosition");
-    console.log(this.deliveryPosition);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
-
-  getTotalCost() {
-    return this._positions
-      .map(p => p.quantity * +p.product.unitPrice)
-      .reduce((x, y) => x + y, 0);
-  }
-
   setDeliveryPosition() {
     this.deliveryPosition = {
-      id: "",
+      id: null,
       quantity: 1,
       product: {
-        id: "",
-        description: "",
-        imageUrl: "",
-        company: "",
-        quantityInStock: "",
-        subcategory: null,
-        specificationPositions: [],
         name: `Dostawa - ${this.deliveryType.name}`,
         unitPrice: `${this.deliveryType.price}`
       }

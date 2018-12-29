@@ -1,0 +1,76 @@
+<div class="text-title">Zamówienia</div>
+
+
+<!--<mat-card>-->
+<div class="table-header">
+  <mat-form-field>
+    <input type="number" matInput (keyup)="applyFilter($event.target.value)" placeholder="Nr zamówienia">
+  </mat-form-field>
+
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let status of orderStatuses"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(status)"
+        [style.background-color]="getStatusColor(status)">
+        {{status.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Status zamówienia"
+        #statusInput
+        [formControl]="statusCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <!--<mat-optgroup *ngFor="let statusGroup of filteredStatuses" [label]="statusGroup.orderStatusCategory.name">-->
+      <mat-option *ngFor="let status of filteredStatuses | async" [value]="status">
+        {{status.name}}
+      </mat-option>
+      <!--</mat-optgroup>-->
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+
+<mat-table matSort id="specification" [dataSource]="dataSource">
+
+  <!-- OrderId Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Numer zamówienia</mat-header-cell>
+    <mat-cell *matCellDef="let element"><a [routerLink]="['./', element.id]">{{element.id}}</a></mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="dateOfOrder">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Data złożenia</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dateOfOrder | date}}</mat-cell>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="totalAmount">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Wartość</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.totalAmount | plnCurrency}}</mat-cell>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="orderStatus.name">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> Status</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-chip-list>
+        <mat-chip [style.background-color]="getColor(element)">{{element.orderStatus.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<!--</mat-card>-->

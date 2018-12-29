@@ -52,7 +52,8 @@
 .title,
 .card__details__title,
 .card__details__description,
-.card__details__price {
+.card__details__price,
+.breadcrumb {
   font-family: 'Roboto', sans-serif;
   object-fit: contain;
   font-size: 16px;
@@ -106,6 +107,28 @@
 
 .card__details > div {
   margin: 15px 0;
+}
+
+#breadcrumbs {
+  margin: 6px 2px;
+}
+
+.breadcrumbs {
+  margin: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--light-grey);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.breadcrumbs:hover {
+  color: inherit;
+}
+
+.breadcrumbs.active {
+  color: inherit;
 }
 
 

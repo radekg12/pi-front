@@ -16,7 +16,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {ProductCardComponent} from './product-card/product-card.component';
 import {MenuComponent} from './menu/menu.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
-import {ButtonComponent} from './button/button.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {MyAccountComponent} from './my-account/my-account.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
@@ -26,12 +25,14 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {ProductService} from "./services/product.service";
 import {registerLocaleData} from "@angular/common";
 import localePl from '@angular/common/locales/pl';
-import {PlnCurrencyPipe} from "./pln-currency.pipe";
 import {PaymentComponent} from './payment/payment.component';
 import {OrderSummaryComponent} from './order-summary/order-summary.component';
 import {PersonalInfoComponent} from './my-account/personal-info/personal-info.component';
 import {MyOrdersComponent} from './my-account/my-orders/my-orders.component';
 import {OrderDetailComponent} from './my-account/order-detail/order-detail.component';
+import {SupportComponent} from './support/support.component';
+import {SharedModule} from "./shared/shared.module";
+
 
 registerLocaleData(localePl, 'pl');
 
@@ -44,17 +45,16 @@ registerLocaleData(localePl, 'pl');
     ProductCardComponent,
     MenuComponent,
     ProductDetailsComponent,
-    ButtonComponent,
     ShoppingCartComponent,
     MyAccountComponent,
     AddProductComponent,
     ProductListComponent,
-    PlnCurrencyPipe,
     PaymentComponent,
     OrderSummaryComponent,
     PersonalInfoComponent,
     MyOrdersComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +66,7 @@ registerLocaleData(localePl, 'pl');
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [

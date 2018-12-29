@@ -1,0 +1,274 @@
+:root {
+  display: flex;
+  flex-direction: column;
+  --charcoal-grey: #4a4f54;
+}
+
+.group {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+#address-fields, #login-fields, #addressGroup {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button-primary {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.mat-icon {
+  cursor: default;
+}
+
+
+a {
+  color: inherit;
+}
+
+.text-title > span {
+  display: inline-block;
+}
+
+.header-all,
+.header,
+.header-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  object-fit: contain;
+}
+
+.header {
+  justify-content: flex-start;
+}
+
+.header-select {
+  justify-content: flex-end;
+}
+
+.header-select > * {
+  margin-right: 20px;
+}
+
+.other_details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 0 40px;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+.empty {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.my-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.card__image {
+  /*background-color: #cccccc;*/
+  width: 40%;
+  max-height: 100%;
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.card__image img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.card__image img[src=""],
+.card__image img[src="#"],
+.card__image img:not([src]) {
+  background: ghostwhite;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  min-width: 100px;
+  border-radius: 1em;
+  border: 0;
+}
+
+.card__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70px;
+  padding-top: 0;
+  padding-left: 20px;
+  max-width: 60%;
+  width: 100%;
+}
+
+.title,
+.card__details__title,
+.card__details__description,
+.card__details__price,
+.breadcrumb {
+  font-family: 'Roboto', sans-serif;
+  object-fit: contain;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  width: 100%;
+  color: var(--charcoal-grey);
+  white-space: pre-line;
+}
+
+.card__details__title:empty,
+.card__details__description:empty,
+.card__details__price:empty {
+  height: 16px;
+  background: ghostwhite;
+  border-radius: 1em;
+  width: 75%;
+}
+
+.card__details__title {
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+
+.card__details__description {
+  text-align: justify;
+}
+
+.card__details__title:empty {
+  width: 50%;
+  height: 20px;
+}
+
+.card__details__price {
+  text-align: center;
+  font-weight: 400;
+}
+
+.card__details__price:empty {
+  align-self: flex-end;
+  width: 20%;
+}
+
+.card__details_button {
+  text-align: center;
+}
+
+.card__details > div {
+  margin: 15px 0;
+}
+
+#breadcrumbs {
+  margin: 6px 2px;
+}
+
+.breadcrumbs {
+  margin: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--light-grey);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.breadcrumbs:hover {
+  color: inherit;
+}
+
+.breadcrumbs.active {
+  color: inherit;
+}
+
+
+@media screen and (max-width: 599px) {
+  .my-card {
+    flex-direction: column;
+  }
+
+  .card__image {
+    max-width: 100%;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .card__details {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+}
+
+div.mat-form-field-underline {
+  height: 0 !important;
+}
+
+.mat-form-field {
+  object-fit: contain;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-stretch: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-overflow: inherit;
+  overflow: inherit;
+  white-space: inherit;
+  text-align: inherit;
+  width: 100%;
+}
+
+#product-details .text-title {
+  margin: 0;
+}
+
+.text-title > .mat-form-field,
+.card__image .mat-form-field {
+  width: 100%;
+}
+
+.card__details__description .mat-form-field {
+  width: 95%;
+}
+
+#specification-title {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+
+

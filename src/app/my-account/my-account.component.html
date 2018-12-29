@@ -3,14 +3,16 @@
   <div id="accountPanel">
     <mat-card id="stickyAccountPanel">
       <ul>
-        <li>Imie Nazwisko</li>
+        <li>{{customer?.firstName}} {{customer?.lastName}}</li>
       </ul>
 
       <mat-divider></mat-divider>
 
       <ul>
-        <li><a [routerLink]="['./personal-info']">Twoje dane</a></li>
-        <li><a [routerLink]="['./orders']">Twoje zamówienia</a></li>
+        <li><a [routerLink]="['./personal-info']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+true}">Twoje dane</a></li>
+        <li><a [routerLink]="['./orders']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+true}">Twoje zamówienia</a></li>
       </ul>
     </mat-card>
   </div>

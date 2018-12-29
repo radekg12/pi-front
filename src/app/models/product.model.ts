@@ -3,14 +3,14 @@ import {SpecificationPosition} from "./specification-position.model";
 
 export class Product {
 
-  id: string;
+  id?: string;
   name: string;
-  description: string;
-  company: string;
-  quantityInStock: string;
+  description?: string;
+  company?: string;
+  quantityInStock?: string;
   unitPrice: string;
-  imageUrl: string;
+  imageUrl?: string;
 
-  subcategory: Subcategory;
-  specificationPositions: SpecificationPosition[];
+  subcategory?: Subcategory;
+  specificationPositions?: SpecificationPosition[];
 }

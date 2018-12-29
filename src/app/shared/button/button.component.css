@@ -38,6 +38,7 @@
   border-color: rgba(74, 79, 84, .0);
   background-color: rgba(74, 79, 84, .2);
   color: #4a4f54;
+  -webkit-appearance: none !important;
   cursor: default;
 }
 

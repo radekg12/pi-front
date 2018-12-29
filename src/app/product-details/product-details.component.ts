@@ -77,7 +77,7 @@ export class ProductDetailsComponent implements OnInit {
   private showMessage() {
     this.snackBar
       .open("Dodano produkt do koszyka", "Przejdź do koszyka",
-        {duration: 50000,})
+        {duration: 5000,})
       .onAction()
       .subscribe(() => this.goToShoppingCart());
   }

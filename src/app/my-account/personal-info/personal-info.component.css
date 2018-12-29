@@ -1,0 +1,41 @@
+:root {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#address-fields, #login-fields, #addressGroup {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button-primary {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.mat-icon {
+  cursor: default;
+}
+
+.eye-icon {
+  cursor: pointer;
+}
+
+
