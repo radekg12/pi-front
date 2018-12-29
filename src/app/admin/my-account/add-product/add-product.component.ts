@@ -97,9 +97,9 @@ export class AddProductComponent implements OnInit {
 
       specificationPositions: this.formBuilder.array([
         this.formBuilder.group({
-          id: '',
-          name: '',
-          value: ''
+          id: ['', Validators.required],
+          name: ['', Validators.required],
+          value: ['', Validators.required]
         })
       ])
     });
@@ -108,9 +108,9 @@ export class AddProductComponent implements OnInit {
 
   initSpecificationPosition(): FormGroup {
     return this.formBuilder.group({
-      id: '',
-      name: '',
-      value: ''
+      id: ['', Validators.required],
+      name: ['', Validators.required],
+      value: ['', Validators.required]
     });
   }
 

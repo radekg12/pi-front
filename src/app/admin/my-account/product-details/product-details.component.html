@@ -147,16 +147,16 @@
             <div class="text-description">
               <mat-form-field>
                 <input formControlName="name" matInput placeholder="Nazwa">
-                <mat-error *ngIf="name.hasError('required')">
-                  Wprowadź nazwę produktu
+                <mat-error *ngIf="productFormGroup.get(['specificationPositions', i, 'name']).hasError('required')">
+                  Wprowadź nazwę
                 </mat-error>
               </mat-form-field>
             </div>
             <div class="text-description">
               <mat-form-field>
                 <textarea formControlName="value" matInput matTextareaAutosize placeholder="Wartość"></textarea>
-                <mat-error *ngIf="value.hasError('required')">
-                  Wprowadź nazwę produktu
+                <mat-error *ngIf="productFormGroup.get(['specificationPositions', i, 'value']).hasError('required')">
+                  Wprowadź wartość
                 </mat-error>
               </mat-form-field>
             </div>

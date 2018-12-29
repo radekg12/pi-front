@@ -121,7 +121,7 @@ export class ProductDetailsComponent implements OnInit {
     return this.formBuilder.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
-      value: ['', Validators.required],
+      value: ['', Validators.required]
     });
   }
 
