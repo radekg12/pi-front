@@ -12,6 +12,7 @@ import {SharedModule} from "../shared/shared.module";
 import {CustomersComponent} from './my-account/customers/customers.component';
 import {ProductListComponent} from './my-account/product-list/product-list.component';
 import {ProductDetailsComponent} from './my-account/product-details/product-details.component';
+import {AddProductComponent} from './my-account/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ProductDetailsComponent} from './my-account/product-details/product-deta
     MyAccountComponent,
     CustomersComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,

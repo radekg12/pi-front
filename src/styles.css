@@ -1,5 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 :root {
   --dark-grey: #4a4f54;
   --light-grey: #9b9b9b;;
@@ -106,7 +107,11 @@ a.disabled {
 }
 
 #product-details div.mat-form-field-underline {
-  height: 0 !important;
+  height: 0;
+}
+
+#product-details #specification-table .mat-form-field-underline {
+  height: 1px;
 }
 
 

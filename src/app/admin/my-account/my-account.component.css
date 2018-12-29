@@ -21,6 +21,10 @@
   margin-top: 1em;
 }
 
+#stickyAccountPanel ul:first-of-type {
+  margin-top: 0;
+}
+
 #stickyAccountPanel li {
   margin-bottom: 0.3125em;
 }
@@ -48,4 +52,18 @@
 
 .active {
   color: var(--dark-grey) !important;
+}
+
+.logo {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 auto;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }

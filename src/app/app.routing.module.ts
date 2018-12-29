@@ -13,9 +13,11 @@ import {PersonalInfoComponent} from "./my-account/personal-info/personal-info.co
 import {MyOrdersComponent} from "./my-account/my-orders/my-orders.component";
 import {OrderDetailComponent} from "./my-account/order-detail/order-detail.component";
 import {SupportComponent} from "./support/support.component";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomePageComponent},
   {path: 'users', component: UserComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'products/:subcategoryId', component: ProductListComponent},

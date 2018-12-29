@@ -55,6 +55,10 @@ a {
   object-fit: contain;
 }
 
+.header-all > * {
+  margin: 5px;
+}
+
 .specification-group > * {
   margin: 0 5px;
 }
@@ -285,7 +289,7 @@ div.mat-form-field-underline {
   width: 100%;
 }
 
-#product-details .text-title {
+#product-details-new .text-title {
   margin: 0;
 }
 

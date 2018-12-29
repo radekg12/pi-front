@@ -1,4 +1,4 @@
-<div id="product-details">
+<div id="product-details-new">
   <form (ngSubmit)="onSubmit(productFormGroup)" [formGroup]="productFormGroup">
     <div class="header-all">
       <div class="header">
@@ -10,16 +10,7 @@
           </div>
         </div>
         <!--<div class="text-title">Produkt nr: {{productId}}</div>-->
-        <div class="text-title">Produkt nr:
-          <span>
-    <mat-form-field>
-      <input [formControl]="id" matInput>
-      <mat-error *ngIf="id.hasError('required')">
-        Wprowadź id produktu
-      </mat-error>
-    </mat-form-field>
-  </span>
-        </div>
+        <div class="text-title">Utwórz nowy produkt</div>
       </div>
 
       <div class="header-select">
@@ -34,7 +25,7 @@
 
         <mat-form-field>
           <mat-select [formControl]="subcategory" placeholder="Podkategoria" required>
-            <mat-option (selectstart)="onSelectstart($event)" *ngFor="let subcategoryy of category.value.subcategories"
+            <mat-option *ngFor="let subcategoryy of category.value.subcategories"
                         [disabled]="category.invalid" [value]="subcategoryy">
               {{subcategoryy.name}}
             </mat-option>
@@ -72,7 +63,7 @@
           <mat-form-field>
             <input [formControl]="quantityInStock" matInput placeholder="Ilość dostępnych produktów" type="number">
             <mat-error *ngIf="quantityInStock.hasError('required')">
-              Wprowadź dostępność ilość produktów
+              Wprowadź dostępną ilość produktów
             </mat-error>
           </mat-form-field>
         </div>
@@ -96,14 +87,13 @@
           <!--</div>-->
           <div class="card__details__description">
             <mat-form-field>
-            <textarea [formControl]="description" cdkAutosizeMinRows="14" cdkTextareaAutosize matInput
+            <textarea [formControl]="description" cdkAutosizeMinRows="9" cdkTextareaAutosize matInput
                       placeholder="Opis"></textarea>
               <mat-error *ngIf="description.hasError('required')">
                 Wprowadź opis produktu
               </mat-error>
             </mat-form-field>
           </div>
-          <!--<div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>-->
 
           <div class="card__details__price">
             <mat-form-field>
@@ -114,32 +104,12 @@
             </mat-form-field>
           </div>
 
-          <!--<div class="card__details_button">-->
-          <!--<app-button message="Dodaj do koszyka"></app-button>-->
-          <!--</div>-->
         </div>
 
       </div>
 
 
       <div class="text-title" id="specification-title">Specyfikacja</div>
-      <!--<mat-table [dataSource]="dataSource" id="specification">-->
-
-      <!--&lt;!&ndash; Name Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="name">-->
-      <!--<mat-header-cell *matHeaderCellDef> Name</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--&lt;!&ndash; Detail Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="detail">-->
-      <!--<mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>-->
-      <!--</ng-container>-->
-
-
-      <!--<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
-      <!--</mat-table>-->
 
       <div class="text-title" formArrayName="specificationPositions" id="specification-table">
         <div *ngFor="let spec of specificationPositions.controls; let i=index" [formGroupName]="i">
@@ -155,7 +125,7 @@
             <div class="text-description">
               <mat-form-field>
                 <textarea formControlName="value" matInput matTextareaAutosize placeholder="Wartość"></textarea>
-                <mat-error *ngIf="value.hasError('required')">
+                <mat-error *ngIf="name.hasError('required')">
                   Wprowadź nazwę produktu
                 </mat-error>
               </mat-form-field>

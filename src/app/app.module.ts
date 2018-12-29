@@ -32,6 +32,7 @@ import {MyOrdersComponent} from './my-account/my-orders/my-orders.component';
 import {OrderDetailComponent} from './my-account/order-detail/order-detail.component';
 import {SupportComponent} from './support/support.component';
 import {SharedModule} from "./shared/shared.module";
+import {HomePageComponent} from './home-page/home-page.component';
 
 
 registerLocaleData(localePl, 'pl');
@@ -54,7 +55,8 @@ registerLocaleData(localePl, 'pl');
     PersonalInfoComponent,
     MyOrdersComponent,
     OrderDetailComponent,
-    SupportComponent
+    SupportComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ProductService} from "../../../services/product.service";
 import {Product} from "../../../models/product.model";
-import {MatSnackBar} from "@angular/material";
-import {MenuService} from "../../../services/menu.service";
 import {Category} from "../../../models/category-group.model";
-import {SpecificationPosition} from "../../../models/specification-position.model";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ProductService} from "../../../services/product.service";
+import {MenuService} from "../../../services/menu.service";
+import {MatSnackBar} from "@angular/material";
 
 const columns: string[] = ['name', 'detail'];
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class AddProductComponent implements OnInit {
 
-  productId: number;
   product: Product;
   dataSource;
   displayedColumns: string[] = columns;
@@ -70,12 +68,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.productId = +params['id'];
-    });
     this.configForms();
     this.getCategories();
-    this.getProduct();
   }
 
   getCategories(): void {
@@ -103,38 +97,20 @@ export class ProductDetailsComponent implements OnInit {
 
       specificationPositions: this.formBuilder.array([
         this.formBuilder.group({
-          id: ['', Validators.required],
-          name: ['', Validators.required],
-          value: ['', Validators.required],
+          id: '',
+          name: '',
+          value: ''
         })
       ])
     });
 
   }
 
-  onSelectstart(event) {
-    console.log("onSelectstart");
-    console.log(event);
-  }
-
   initSpecificationPosition(): FormGroup {
     return this.formBuilder.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
-      value: ['', Validators.required],
-    });
-  }
-
-  private showMessage() {
-    this.snackBar
-      .open("Zapisano zmiany", null, {duration: 2000,});
-  }
-
-  initExistSpecificationPosition(specificationPosition: SpecificationPosition): FormGroup {
-    return this.formBuilder.group({
-      id: [specificationPosition.id, Validators.required],
-      name: [specificationPosition.name, Validators.required],
-      value: [specificationPosition.value, Validators.required],
+      id: '',
+      name: '',
+      value: ''
     });
   }
 
@@ -148,29 +124,6 @@ export class ProductDetailsComponent implements OnInit {
   removeSpecificationPosition(idx: number) {
     const specificationPositionsArray = <FormArray>this.specificationPositions;
     specificationPositionsArray.removeAt(idx);
-  }
-
-  clearArray() {
-    const specificationPositionsArray = <FormArray>this.specificationPositions;
-    let length: number = specificationPositionsArray.length;
-
-    for (let i = 0; i <= (length - 1); i++) {
-      specificationPositionsArray.removeAt(i);
-    }
-  }
-
-  setSpecificationPositions(specificationPositions: SpecificationPosition[]) {
-
-    // this.specificationPositions.setValue([]);
-    this.clearArray();
-
-    const specificationPositionsArray = <FormArray>this.specificationPositions;
-
-    specificationPositions.forEach(p => {
-      const newSpecificationPosition = this.initExistSpecificationPosition(p);
-
-      specificationPositionsArray.push(newSpecificationPosition);
-    });
   }
 
   onSubmit(formGroup: FormGroup) {
@@ -193,25 +146,8 @@ export class ProductDetailsComponent implements OnInit {
     this.showMessage();
   }
 
-  private getProduct() {
-    this.productService.getProduct(this.productId).subscribe(data => {
-      this.product = data;
-      this.dataSource = this.product.specificationPositions;
-
-      this.productFormGroup.patchValue(data);
-
-      this.menuService.getCategoryBySubcategoryId(this.product.subcategory.id).subscribe(data => {
-        console.log("getCategoryBySubcategoryId");
-        let categoryId = data.id;
-        console.log(this.category);
-        console.log("setCategory id=" + categoryId + " of categories");
-        console.log(this.categories);
-        this.category.setValue(this.categories.filter(c => c.id === categoryId).pop());
-
-        this.subcategory.setValue(this.categories.filter(c => c.id === categoryId).pop().subcategories.filter(s => s.id === this.product.subcategory.id).pop());
-      });
-
-      this.setSpecificationPositions(data.specificationPositions)
-    })
+  private showMessage() {
+    this.snackBar
+      .open("Dodano nowy produkt", null, {duration: 2000,});
   }
 }

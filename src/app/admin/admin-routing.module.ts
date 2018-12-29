@@ -7,8 +7,13 @@ import {OrderDetailComponent} from "./my-account/order-detail/order-detail.compo
 import {CustomersComponent} from "./my-account/customers/customers.component";
 import {ProductListComponent} from "./my-account/product-list/product-list.component";
 import {ProductDetailsComponent} from "./my-account/product-details/product-details.component";
+import {AddProductComponent} from "./my-account/add-product/add-product.component";
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
+    path: '', redirectTo: 'account', pathMatch: 'full'
+  },
+  {
   path: 'account', component: MyAccountComponent,
   children: [
     {
@@ -28,6 +33,9 @@ const routes: Routes = [{
     },
     {
       path: 'products', component: ProductListComponent
+    },
+    {
+      path: 'products/new', component: AddProductComponent
     },
     {
       path: 'products/:id', component: ProductDetailsComponent

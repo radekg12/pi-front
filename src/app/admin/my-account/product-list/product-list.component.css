@@ -18,3 +18,14 @@ a {
   overflow: hidden;
   white-space: nowrap;
 }
+
+#addSpecificationButton {
+  display: flex;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+#addSpecificationButton span {
+  margin-left: 10px;
+  font-size: 14px;
+}
