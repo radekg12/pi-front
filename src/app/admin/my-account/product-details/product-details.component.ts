@@ -61,8 +61,8 @@ export class ProductDetailsComponent implements OnInit {
     return this.productFormGroup.get('unitPrice');
   }
 
-  get specificationPositions() {
-    return this.productFormGroup.get('specificationPositions');
+  get specificationPositions(): FormArray {
+    return this.productFormGroup.get('specificationPositions') as FormArray;
   }
 
   get subcategory() {

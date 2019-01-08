@@ -20,7 +20,7 @@ const emptySupport: Support = {
 })
 export class SupportComponent implements OnInit {
   private customer: Customer;
-  private support: Support = emptySupport;
+  public support: Support = emptySupport;
   private mailTo: string;
 
   constructor(

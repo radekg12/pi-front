@@ -14,8 +14,8 @@
           <mat-radio-group id="delivery" name="delivery" #delivery formControlName="deliveryCtrl"
                            required>
             <mat-radio-button *ngFor="let delivery of deliveryTypes; first as firstRadioButton;"
-                              [value]="delivery.id">{{delivery.name}}
-              - {{delivery.price | plnCurrency}}</mat-radio-button>
+                              [value]="delivery?.id">{{delivery?.name}}
+              - {{delivery?.price | plnCurrency}}</mat-radio-button>
 
             <div *ngIf="d.deliveryCtrl.invalid && (d.deliveryCtrl.dirty || d.deliveryCtrl.touched)">
               <mat-error *ngIf="d.deliveryCtrl.errors?.required">

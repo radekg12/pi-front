@@ -52,4 +52,11 @@
   font-family: 'Comfortaa', serif;
   font-size: 45px;
   color: ghostwhite;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .text-title {
+    font-size: 28px;
+  }
 }

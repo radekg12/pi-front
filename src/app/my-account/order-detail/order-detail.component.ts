@@ -15,10 +15,10 @@ export class OrderDetailComponent implements OnInit {
   displayedColumns: string[] = ["name", "quantity", "unitPrice", "subtotal"];
   ordersColumns: string[] = ['orderId', 'date', "price", "status"];
 
-  private id: number;
-  private order: Order;
+  public id: number;
+  public order: Order;
   private orders: Order[] = [];
-  private dataSource;
+  public dataSource;
   private deliveryPosition: OrderPosition;
   private colors = OrderStatusCategoryColor;
 

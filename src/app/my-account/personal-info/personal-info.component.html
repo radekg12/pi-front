@@ -74,7 +74,8 @@
           <div *ngIf="email.errors?.email">Podany email jest nieprawidłowy</div>
         </mat-error>
       </mat-form-field>
-      <app-button class="right" message="Zmień dane" [type]="submit" [disabled]="addressFormGroup.invalid"></app-button>
+      <app-button class="right" message="Zmień dane" [type]="'submit'"
+                  [disabled]="addressFormGroup.invalid"></app-button>
     </div>
   </form>
 </div>

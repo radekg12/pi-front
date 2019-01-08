@@ -1,10 +1,10 @@
-<mat-table [dataSource]="positions" id="prodPositions">
+<mat-table [dataSource]="dataSource" id="prodPositions">
 
   <!-- Product name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef fxFlex="45">Produkt</mat-header-cell>
     <mat-cell *matCellDef="let element" fxFlex="45">
-      <a [routerLink]="['/product/detail', element.product.id]">{{element?.product.name}}</a></mat-cell>
+      <a [routerLink]="['/product/detail', element?.product?.id]">{{element?.product?.name}}</a></mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="45"></mat-footer-cell>
   </ng-container>
 

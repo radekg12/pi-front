@@ -9,7 +9,7 @@
 
 <mat-card>
 
-  <form name="supportForm" class="support-form" (ngSubmit)="sendMail(ngForm)" #myForm="ngForm">
+  <form name="supportForm" class="support-form" (ngSubmit)="sendMail(myForm)" #myForm="ngForm">
 
 
     <mat-form-field class="support-full-width" appearance="outline">
@@ -37,7 +37,7 @@
     </mat-form-field>
 
     <div>
-      <app-button [message]="'Wyślij'" class="right" [type]="submit"></app-button>
+      <app-button [message]="'Wyślij'" class="right" [type]="'submit'"></app-button>
     </div>
   </form>
 </mat-card>

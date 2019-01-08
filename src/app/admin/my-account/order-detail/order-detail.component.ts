@@ -23,10 +23,10 @@ export class OrderDetailComponent implements OnInit {
   selectedStatusId: number;
   customer: Customer;
 
-  private id: number;
-  private order: Order;
+  public id: number;
+  public order: Order;
   private orders: Order[] = [];
-  private dataSource;
+  public dataSource;
   private deliveryPosition: OrderPosition;
   private colors = OrderStatusCategoryColor;
 
