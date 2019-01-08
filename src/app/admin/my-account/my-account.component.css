@@ -67,3 +67,17 @@ img {
   height: auto;
   object-fit: contain;
 }
+
+@media screen and (max-width: 600px) {
+  #accountDetails {
+    width: 100%;
+  }
+
+  #accountPanel {
+    width: 100%;
+  }
+
+  #myAccountWrapper {
+    flex-direction: column;
+  }
+}
