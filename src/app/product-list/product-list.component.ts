@@ -43,6 +43,7 @@ export class ProductListComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private productService: ProductService) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit() {
@@ -52,7 +53,6 @@ export class ProductListComponent implements OnInit {
   };
 
   setParams() {
-
     this.sub = this.route.params.subscribe(params => {
       this.subcategoryId = +params['subcategoryId'];
       console.log("producy id = " + this.subcategoryId);

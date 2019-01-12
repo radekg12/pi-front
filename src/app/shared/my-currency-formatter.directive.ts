@@ -28,5 +28,4 @@ export class MyCurrencyFormatterDirective implements OnInit {
   onBlur(value) {
     this.el.value = this.currencyPipe.transform(value);
   }
-
 }

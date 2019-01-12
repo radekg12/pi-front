@@ -18,7 +18,8 @@ export class MyAccountComponent implements OnInit {
   }
 
   private getCustomer() {
-    this.customerService.getCustomer().subscribe(data => this.customer = data
+    this.customerService.getCustomer().subscribe(
+      data => this.customer = data
     );
   }
 
