@@ -50,6 +50,15 @@
   color: var(--dark-grey) !important;
 }
 
+.logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   #accountDetails {
     width: 100%;

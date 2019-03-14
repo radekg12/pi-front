@@ -119,7 +119,7 @@ export class ProductDetailsComponent implements OnInit {
 
   initSpecificationPosition(): FormGroup {
     return this.formBuilder.group({
-      id: ['', Validators.required],
+      id: [''],
       name: ['', Validators.required],
       value: ['', Validators.required]
     });

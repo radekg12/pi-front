@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {OrderStatus} from "../models/order-status.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderStatusService implements OnInit {
 
-  private baseURL = 'api/status';
+  private baseURL = `${environment.apiUrl}/status`;
 
   constructor(private http: HttpClient) {
   }

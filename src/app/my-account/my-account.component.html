@@ -3,7 +3,12 @@
   <div id="accountPanel">
     <mat-card id="stickyAccountPanel">
       <ul>
-        <li>{{customer?.firstName}} {{customer?.lastName}}</li>
+        <li class="logout">
+          {{customer?.firstName}} {{customer?.lastName}}
+          <span>
+        <mat-icon (click)="logout()">power_settings_new</mat-icon>
+      </span>
+        </li>
       </ul>
 
       <mat-divider></mat-divider>

@@ -16,7 +16,7 @@ export interface SortByOption {
 })
 export class ProductListComponent implements OnInit {
 
-  pageSizeOptions: number[] = [2, 3, 5];
+  pageSizeOptions: number[] = [4, 8, 16];
   sortByOptions: SortByOption[] = [
     {value: 'unitPrice_asc', viewValue: 'Cena: od najniższej'},
     {value: 'unitPrice_desc', viewValue: 'Cena: od najwyższej'},
@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
     {value: 'company_desc', viewValue: 'Marka: Z-A'}
   ];
   defaultPage: number = 0;
-  defaultPageSize: number = this.pageSizeOptions[0];
+  defaultPageSize: number = this.pageSizeOptions[1];
   defaultSortBy: string = this.sortByOptions[0].value;
   currentPage: number = this.defaultPage;
   products: Product[];

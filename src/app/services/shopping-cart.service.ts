@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService implements OnInit {
 
-  private baseURL = 'api/shoppingCart';
+  private baseURL = `${environment.apiUrl}/shoppingCart`;
 
   constructor(private http: HttpClient) {
   }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerService} from "../services/customer.service";
 import {Customer} from "../models/customer.model";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-my-account',
@@ -10,7 +11,8 @@ import {Customer} from "../models/customer.model";
 export class MyAccountComponent implements OnInit {
   public customer: Customer;
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -23,4 +25,7 @@ export class MyAccountComponent implements OnInit {
     );
   }
 
+  logout() {
+    this.authenticationService.logout();
+  }
 }

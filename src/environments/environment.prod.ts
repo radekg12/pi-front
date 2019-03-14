@@ -1,4 +1,4 @@
 export const environment = {
-  apiUtl: 'http://localhost:8080/user-portal',
+  apiUrl: 'https://userportal.radekg96.com',
   production: true
 };

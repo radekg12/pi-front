@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ShoppingCartService} from "../services/shopping-cart.service";
 import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
 import {MatSnackBar} from "@angular/material";
+import {AuthenticationService} from "../services/authentication.service";
+import {User} from "../models/user.model";
 
 const columns = ["name", "price", "quantity", "subtotal"];
 
@@ -16,7 +18,12 @@ export class ShoppingCartComponent implements OnInit {
   displayedColumns: string[] = columns;
   priceSum: number;
 
-  constructor(private shoppingCartService: ShoppingCartService, public snackBar: MatSnackBar) {
+  currentUser: User;
+
+  constructor(private shoppingCartService: ShoppingCartService,
+              public snackBar: MatSnackBar,
+              private authenticationService: AuthenticationService) {
+    this.currentUser = this.authenticationService.currentUserValue;
   }
 
   ngOnInit() {

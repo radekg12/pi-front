@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {PaymentMethod} from "../models/payment-method.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentMethodService implements OnInit {
 
-  private baseURL = 'api/paymentMethod';
+  private baseURL = `${environment.apiUrl}/paymentMethod`;
 
 
   constructor(private http: HttpClient) {

@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../models/customer.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService implements OnInit {
 
-  private baseURL = 'api/customer';
+  private baseURL = `${environment.apiUrl}/customer`;
 
   constructor(private http: HttpClient) {
   }

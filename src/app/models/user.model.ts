@@ -1,7 +1,15 @@
 export class User {
-
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+  accessToken: string;
+  tokenType: string;
+  userDTO: {
+    id: number;
+    username: string;
+    password: string;
+    role: {
+      id: number;
+      name: string;
+    }
+  }
 }
+
+

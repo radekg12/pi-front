@@ -2,13 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Category} from "../models/category-group.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService implements OnInit {
 
-  private baseURL = 'api/menu';
+  private baseURL = `${environment.apiUrl}/menu`;
 
   constructor(private http: HttpClient) {
   }

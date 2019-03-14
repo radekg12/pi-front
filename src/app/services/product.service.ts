@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {PageEvent} from "@angular/material";
 import {Product} from "../models/product.model";
+import {environment} from '../../environments/environment';
 
 const header = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -11,7 +12,7 @@ const header = new HttpHeaders({'Content-Type': 'application/json'});
 })
 export class ProductService implements OnInit {
 
-  private baseUrl = 'api/products';
+  private baseUrl = `${environment.apiUrl}/products`;
 
   constructor(private http: HttpClient) {
   }

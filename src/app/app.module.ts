@@ -2,12 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {UserComponent} from './user/user.component';
-import {AddUserComponent} from './user/add-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app.routing.module";
-import {HttpClientModule} from "@angular/common/http";
-import {UserService} from "./services/user.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -20,7 +17,6 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {MyAccountComponent} from './my-account/my-account.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {AddProductComponent} from './add-product/add-product.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductService} from "./services/product.service";
 import {registerLocaleData} from "@angular/common";
@@ -33,6 +29,8 @@ import {OrderDetailComponent} from './my-account/order-detail/order-detail.compo
 import {SupportComponent} from './support/support.component';
 import {SharedModule} from "./shared/shared.module";
 import {HomePageComponent} from './home-page/home-page.component';
+import {LoginComponent} from './login/login.component';
+import {JwtInterceptor} from "./JwtInterceptor";
 
 
 registerLocaleData(localePl, 'pl');
@@ -40,15 +38,12 @@ registerLocaleData(localePl, 'pl');
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    AddUserComponent,
     PageNotFoundComponent,
     ProductCardComponent,
     MenuComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
     MyAccountComponent,
-    AddProductComponent,
     ProductListComponent,
     PaymentComponent,
     OrderSummaryComponent,
@@ -56,7 +51,8 @@ registerLocaleData(localePl, 'pl');
     MyOrdersComponent,
     OrderDetailComponent,
     SupportComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +68,9 @@ registerLocaleData(localePl, 'pl');
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
-    UserService,
     ProductService,
-    {provide: LOCALE_ID, useValue: 'pl'}
+    {provide: LOCALE_ID, useValue: 'pl'},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

@@ -5,13 +5,14 @@ import {PaymentPayUResponse} from "../models/paymentPayUResponse.model";
 import {AddressModel} from "../models/address.model";
 import {DeliveryType} from "../models/delivery-type.model";
 import {PaymentMethod} from "../models/payment-method.model";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService implements OnInit {
 
-  private baseURL = 'api/payu/make/payment';
+  private baseURL = `${environment.apiUrl}/payu/make/payment`;
 
 
   constructor(private http: HttpClient) {

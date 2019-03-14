@@ -85,7 +85,7 @@ export class AddProductComponent implements OnInit {
     this.category = new FormControl('', [Validators.required]);
 
     this.productFormGroup = this.formBuilder.group({
-      id: [{value: '', disabled: true}, Validators.required],
+      id: [{value: '', disabled: true}],
       name: ['', Validators.required],
       company: ['', Validators.required],
       description: ['', Validators.required],
@@ -97,7 +97,7 @@ export class AddProductComponent implements OnInit {
 
       specificationPositions: this.formBuilder.array([
         this.formBuilder.group({
-          id: ['', Validators.required],
+          id: [''],
           name: ['', Validators.required],
           value: ['', Validators.required]
         })
@@ -130,10 +130,10 @@ export class AddProductComponent implements OnInit {
     console.log('SUBMIT');
     console.log({value: formGroup.value, valid: formGroup.valid});
     this.product = formGroup.value;
-    this.updateProduct();
+    this.saveProduct();
   }
 
-  updateProduct(): void {
+  saveProduct(): void {
     // this.productService.saveProduct(this.product).subscribe(data => {
     //     this.product = data;
     //     console.log("updated product");
