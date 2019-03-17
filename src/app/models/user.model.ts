@@ -1,3 +1,5 @@
+import {Customer} from "./customer.model";
+
 export class User {
   accessToken: string;
   tokenType: string;
@@ -8,8 +10,7 @@ export class User {
     role: {
       id: number;
       name: string;
-    }
+    };
+    customer: Customer;
   }
 }
-
-
