@@ -12,9 +12,9 @@ import {AuthenticationService} from "../services/authentication.service";
 export class MenuComponent implements OnInit {
   categories: Category[];
   categoriesIsActive: boolean = false;
+  authenticationService: AuthenticationService;
 
   constructor(private menuService: MenuService,
-              private authenticationService: AuthenticationService,
               private eRef: ElementRef) {
   }
 
