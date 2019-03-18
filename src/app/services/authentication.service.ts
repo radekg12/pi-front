@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {Router} from "@angular/router";
 import {environment} from '../../environments/environment';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {Role} from "../models/role.model";
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +66,19 @@ export class AuthenticationService {
     return localStorage.getItem("currentUser")
   }
 
-  isLoggednIn(): boolean {
+  getRoleName() {
+    return this.currentUserValue.userDTO.role.name;
+  }
+
+  isLoggedInAsUser(): boolean {
+    return this.getToken() !== null && this.getRoleName() == Role.User;
+  }
+
+  isLoggedInAsAdmin(): boolean {
+    return this.getToken() !== null && this.getRoleName() == Role.Admin;
+  }
+
+  isLoggedIn(): boolean {
     return this.getToken() !== null;
   }
 

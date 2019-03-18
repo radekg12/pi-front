@@ -17,7 +17,14 @@
             <a (click)="goToPage($event)" [routerLink]="['/cart']">Koszyk</a>
           </li>
           <li>
-            <a (click)="goToPage($event)" [routerLink]="['/account']">Konto</a>
+            <a (click)="goToPage($event)" *ngIf="authenticationService.isLoggedInAsAdmin()" [routerLink]="['/admin']">
+              Konto
+            </a>
+            <a (click)="goToPage($event)" *ngIf="authenticationService.isLoggedInAsUser()" [routerLink]="['/account']">
+              Konto
+            </a>
+            <a (click)="goToPage($event)" *ngIf="!authenticationService.isLoggedIn()" [routerLink]="['/login']">Zaloguj
+            </a>
           </li>
         </ul>
       </div>
@@ -25,11 +32,11 @@
     <div id="mega-menu-panel" [class.active]="categoriesIsActive">
       <nav id="mega-menu" role="navigation" [class.active]="categoriesIsActive">
         <div *ngFor="let category of categories; index as i" class="mega-menu__submenu"
-             [style.animation-delay.s]="i/10"
-             [fxFlex.lt-sm]="100"
-             [fxFlex.sm]="50"
-             [fxFlex.md]="33.3"
-             [fxFlex]="25">
+          [fxFlex.lt-sm]="100"
+          [fxFlex.md]="33.3"
+          [fxFlex.sm]="50"
+          [fxFlex]="25"
+          [style.animation-delay.s]="i/10">
           <h4 (click)="goToCategory($event)" [routerLink]="['/products', category.id]">{{category.name}}</h4>
           <ul>
             <li *ngFor="let subcategory of category.subcategories" class="mega-menu__submenu__menu-item">

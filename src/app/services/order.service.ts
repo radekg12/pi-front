@@ -17,6 +17,10 @@ export class OrderService implements OnInit {
   ngOnInit(): void {
   }
 
+  getAllOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.baseURL}/all`)
+  }
+
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.baseURL)
   }

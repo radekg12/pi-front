@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import {Category} from "../models/category-group.model";
 import {MenuService} from "../services/menu.service";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-menu',
@@ -13,6 +14,7 @@ export class MenuComponent implements OnInit {
   categoriesIsActive: boolean = false;
 
   constructor(private menuService: MenuService,
+              private authenticationService: AuthenticationService,
               private eRef: ElementRef) {
   }
 

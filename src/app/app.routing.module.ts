@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard],
-    data: {roles: [Role.User]}
+    data: {roles: [Role.Admin]}
   },
   {path: '**', component: PageNotFoundComponent}
 ];

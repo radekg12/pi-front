@@ -66,6 +66,11 @@ export class ProductDetailsComponent implements OnInit {
     this.shoppingCartService.addProduct(this.id).subscribe(
       data => {
         this.showMessage();
+      },
+      error1 => {
+        if (error1.status == 401) {
+          this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.routerState.snapshot.url}});
+        }
       }
     );
   }
@@ -81,4 +86,5 @@ export class ProductDetailsComponent implements OnInit {
       .onAction()
       .subscribe(() => this.goToShoppingCart());
   }
+
 }

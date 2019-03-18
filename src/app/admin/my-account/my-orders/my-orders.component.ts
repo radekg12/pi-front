@@ -58,7 +58,7 @@ export class MyOrdersComponent implements OnInit {
   }
 
   getOrders() {
-    this.orderService.getOrders().subscribe(data => {
+    this.orderService.getAllOrders().subscribe(data => {
       this.orders = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
