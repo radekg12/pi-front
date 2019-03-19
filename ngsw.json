@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1552946989901,
+  "timestamp": 1552973220462,
   "index": "https://radekg12.github.io/pi-front/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "https://radekg12.github.io/pi-front/4.f519651c3e63040e2893.js",
         "https://radekg12.github.io/pi-front/favicon.ico",
         "https://radekg12.github.io/pi-front/index.html",
-        "https://radekg12.github.io/pi-front/main.fec706f60af9ff039576.js",
+        "https://radekg12.github.io/pi-front/main.3a06ef1dcbf46b1b4d0a.js",
         "https://radekg12.github.io/pi-front/polyfills.819076d782c4a694331a.js",
         "https://radekg12.github.io/pi-front/runtime.a47a0a001079996cd5d9.js",
         "https://radekg12.github.io/pi-front/scripts.6e01aa3d3d7f1d702677.js",
@@ -56,8 +56,8 @@
     "https://radekg12.github.io/pi-front/assets/logo.jpg": "bd5ef76d38034583fc10f9f3886f93592fa1e530",
     "https://radekg12.github.io/pi-front/assets/logo.png": "821c39ff12165895cbbedc94055adad3e94b59d6",
     "https://radekg12.github.io/pi-front/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://radekg12.github.io/pi-front/index.html": "d92f4b0531dac87c087f048d6e438ce4aada1c66",
-    "https://radekg12.github.io/pi-front/main.fec706f60af9ff039576.js": "d7cff9a09741a86d55d9c2a38f63ea5d6e6884e0",
+    "https://radekg12.github.io/pi-front/index.html": "cce235090b51722f1c25be2c0ca4f23809a46469",
+    "https://radekg12.github.io/pi-front/main.3a06ef1dcbf46b1b4d0a.js": "b725431174d2e95b30b1b3e2580b518191af4afb",
     "https://radekg12.github.io/pi-front/polyfills.819076d782c4a694331a.js": "9523895b2983416284537971454a8e67b59b13ec",
     "https://radekg12.github.io/pi-front/runtime.a47a0a001079996cd5d9.js": "691ddc69779ff6e45a36cb5dd7d6c97ef87410b9",
     "https://radekg12.github.io/pi-front/scripts.6e01aa3d3d7f1d702677.js": "1756bfce11c335d9b1ff29cab18f3fa38e4f8c8c",
