@@ -12,9 +12,9 @@ import {AuthenticationService} from "../services/authentication.service";
 export class MenuComponent implements OnInit {
   categories: Category[];
   categoriesIsActive: boolean = false;
-  authenticationService: AuthenticationService;
 
   constructor(private menuService: MenuService,
+              private _authenticationService: AuthenticationService,
               private eRef: ElementRef) {
   }
 
@@ -59,5 +59,10 @@ export class MenuComponent implements OnInit {
 
   goToPage($event: MouseEvent) {
     this.categoriesIsActive = false;
+  }
+
+
+  get authenticationService(): AuthenticationService {
+    return this._authenticationService;
   }
 }
