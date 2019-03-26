@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {PaymentMethod} from "../models/payment-method.model";
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {PaymentMethod} from '../models/payment-method.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -19,6 +19,6 @@ export class PaymentMethodService implements OnInit {
   }
 
   getPaymentMethods(): Observable<PaymentMethod[]> {
-    return this.http.get<PaymentMethod[]>(this.baseURL)
+    return this.http.get<PaymentMethod[]>(this.baseURL);
   }
 }

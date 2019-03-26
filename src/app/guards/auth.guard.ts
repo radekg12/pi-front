@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {AuthenticationService} from "../services/authentication.service";
-import {JwtHelperService} from "@auth0/angular-jwt";
+import {AuthenticationService} from '../services/authentication.service';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +22,9 @@ export class AuthGuard implements CanActivate {
       console.log('currentUser.role');
       console.log(currentUser);
       console.log(currentUser.userDTO.role.name);
-      let token = currentUser.accessToken;
-      let helper = new JwtHelperService();
-      let isExpired = helper.isTokenExpired(token);
+      const token = currentUser.accessToken;
+      const helper = new JwtHelperService();
+      const isExpired = helper.isTokenExpired(token);
       if (isExpired) {
         console.log(` isExpired? : ${isExpired}`);
         this.authenticationService.logout();

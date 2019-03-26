@@ -5,19 +5,19 @@ import {
   MatChipInputEvent,
   MatSort,
   MatTableDataSource
-} from "@angular/material";
-import {Order} from "../../../models/order.model";
-import {OrderStatusCategoryColor} from "../../../models/order-status-category.model";
-import {OrderService} from "../../../services/order.service";
-import {OrderStatusService} from "../../../services/order-status.service";
-import {OrderStatus} from "../../../models/order-status.model";
+} from '@angular/material';
+import {Order} from '../../../models/order.model';
+import {OrderStatusCategoryColor} from '../../../models/order-status-category.model';
+import {OrderService} from '../../../services/order.service';
+import {OrderStatusService} from '../../../services/order-status.service';
+import {OrderStatus} from '../../../models/order-status.model';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
-const columns: string[] = ['id', 'dateOfOrder', "totalAmount", "orderStatus.name"];
+const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
 @Component({
   selector: 'app-my-orders',
@@ -54,7 +54,7 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.getOrders();
-    this.getStatuses()
+    this.getStatuses();
   }
 
   getOrders() {
@@ -64,16 +64,16 @@ export class MyOrdersComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
 
-    console.log("orders");
+    console.log('orders');
     console.log(this.orders);
   }
 
   getColor(element: Order): string {
-    return this.colors.filter(c => c.id == element.orderStatus.orderStatusCategory.id)[0].color;
+    return this.colors.filter(c => c.id === element.orderStatus.orderStatusCategory.id)[0].color;
   }
 
   getStatusColor(status: OrderStatus): string {
-    return this.colors.filter(c => c.id == status.orderStatusCategory.id)[0].color;
+    return this.colors.filter(c => c.id === status.orderStatusCategory.id)[0].color;
   }
 
   applyFilter(filterValue: string) {
@@ -85,15 +85,15 @@ export class MyOrdersComponent implements OnInit {
   }
 
   getStatuses(): void {
-    console.log("getStatuses()");
+    console.log('getStatuses()');
     this.orderStatusService.getOrderStatuses().subscribe(data => {
       this.allStatuses = data;
-      console.log("allStatuses: ");
+      console.log('allStatuses: ');
       console.log(data);
 
 
       this.orderStatusMap = Array.from(this.groupByStatusGroup(this.allStatuses));
-      console.log("orderStatusMap");
+      console.log('orderStatusMap');
       console.log(this.orderStatusMap);
 
 
@@ -106,7 +106,7 @@ export class MyOrdersComponent implements OnInit {
     });
 
 
-    // console.log("MAPPP");
+    // console.log('MAPPP');
     // console.log(this.orderStatusMap);
   }
 
@@ -118,7 +118,9 @@ export class MyOrdersComponent implements OnInit {
       this.setFilterPredicateByStatus();
       this.filterStatus(status.id);
       this.setFilterPredicateByOrderNo();
-      if (this.orderStatuses.length == 0) this.applyFilter('');
+      if (this.orderStatuses.length === 0) {
+        this.applyFilter('');
+      }
     }
   }
 
@@ -131,7 +133,7 @@ export class MyOrdersComponent implements OnInit {
 
     this.setFilterPredicateByStatus();
     this.filterStatus(status.id);
-    this.setFilterPredicateByOrderNo()
+    this.setFilterPredicateByOrderNo();
   }
 
   add(event: MatChipInputEvent): void {
@@ -153,7 +155,7 @@ export class MyOrdersComponent implements OnInit {
         this.orderStatuses.push(value);
         this.setFilterPredicateByStatus();
         this.filterStatus(value.id);
-        this.setFilterPredicateByOrderNo()
+        this.setFilterPredicateByOrderNo();
       }
 
       // Reset the input value
@@ -167,12 +169,12 @@ export class MyOrdersComponent implements OnInit {
 
   private setFilterPredicateByOrderNo() {
     this.dataSource.filterPredicate =
-      (order: Order, filter: string) => String(order.id).indexOf(filter) != -1;
+      (order: Order, filter: string) => String(order.id).indexOf(filter) !== -1;
   }
 
   private setFilterPredicateByStatus() {
     this.dataSource.filterPredicate =
-      (order: Order, statusId: number) => this.orderStatuses.filter(s => s.id == order.orderStatus.id).length > 0;
+      (order: Order, statusId: number) => this.orderStatuses.filter(s => s.id === order.orderStatus.id).length > 0;
   }
 
   private _filter(value: string): OrderStatus[] {
@@ -182,16 +184,16 @@ export class MyOrdersComponent implements OnInit {
   }
 
   private groupByStatusGroup(list: OrderStatus[]): Map<string, OrderStatus[]> {
-    const map = new Map();
+    const statusMap = new Map();
     list.forEach((item) => {
       const key = item.orderStatusCategory.name;
-      const collection = map.get(key);
+      const collection = statusMap.get(key);
       if (!collection) {
-        map.set(key, [item]);
+        statusMap.set(key, [item]);
       } else {
         collection.push(item);
       }
     });
-    return map;
+    return statusMap;
   }
 }

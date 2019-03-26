@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../../models/product.model";
-import {Category} from "../../../models/category-group.model";
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
-import {MenuService} from "../../../services/menu.service";
-import {MatSnackBar} from "@angular/material";
+import {Product} from '../../../models/product.model';
+import {Category} from '../../../models/category-group.model';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProductService} from '../../../services/product.service';
+import {MenuService} from '../../../services/menu.service';
+import {MatSnackBar} from '@angular/material';
 
 const columns: string[] = ['name', 'detail'];
 
@@ -75,7 +75,7 @@ export class AddProductComponent implements OnInit {
   getCategories(): void {
     this.menuService.getMenuCategories().subscribe(
       data => {
-        console.log("getCategories");
+        console.log('getCategories');
         this.categories = data;
       }
     );
@@ -136,7 +136,7 @@ export class AddProductComponent implements OnInit {
   saveProduct(): void {
     // this.productService.saveProduct(this.product).subscribe(data => {
     //     this.product = data;
-    //     console.log("updated product");
+    //     console.log('updated product');
     //     console.log(this.product);
     //     this.product.patchValue(data);
     //     this.showMessage();
@@ -148,6 +148,6 @@ export class AddProductComponent implements OnInit {
 
   private showMessage() {
     this.snackBar
-      .open("Dodano nowy produkt", null, {duration: 2000,});
+      .open('Dodano nowy produkt', null, {duration: 2000});
   }
 }

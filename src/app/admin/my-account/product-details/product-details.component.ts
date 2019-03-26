@@ -81,7 +81,6 @@ export class ProductDetailsComponent implements OnInit {
   getCategories(): void {
     this.menuService.getMenuCategories().subscribe(
       data => {
-        console.log('getCategories');
         this.categories = data;
       }
     );
@@ -196,9 +195,9 @@ export class ProductDetailsComponent implements OnInit {
 
       this.productFormGroup.patchValue(data);
 
-      this.menuService.getCategoryBySubcategoryId(this.product.subcategory.id).subscribe(data => {
+      this.menuService.getCategoryBySubcategoryId(this.product.subcategory.id).subscribe(categoryData => {
         console.log('getCategoryBySubcategoryId');
-        const categoryId = data.id;
+        const categoryId = categoryData.id;
         console.log(this.category);
         console.log(`setCategory id=${categoryId} of categories`);
         console.log(this.categories);

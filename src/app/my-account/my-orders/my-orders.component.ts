@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {OrderService} from "../../services/order.service";
-import {Order} from "../../models/order.model";
-import {OrderStatusCategoryColor} from "../../models/order-status-category.model";
-import {MatSort, MatTableDataSource} from "@angular/material";
+import {OrderService} from '../../services/order.service';
+import {Order} from '../../models/order.model';
+import {OrderStatusCategoryColor} from '../../models/order-status-category.model';
+import {MatSort, MatTableDataSource} from '@angular/material';
 
-const columns: string[] = ['id', 'dateOfOrder', "totalAmount", "orderStatus.name"];
+const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
 @Component({
   selector: 'app-my-orders',
@@ -31,11 +31,11 @@ export class MyOrdersComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.orders);
       this.dataSource.sort = this.sort;
     });
-    console.log("orders");
+    console.log('orders');
     console.log(this.orders);
   }
 
   getColor(element: Order): string {
-    return this.colors.filter(c => c.id == element.orderStatus.orderStatusCategory.id)[0].color;
+    return this.colors.filter(c => c.id === element.orderStatus.orderStatusCategory.id)[0].color;
   }
 }

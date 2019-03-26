@@ -1,10 +1,10 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {PaymentPayUResponse} from "../models/paymentPayUResponse.model";
-import {AddressModel} from "../models/address.model";
-import {DeliveryType} from "../models/delivery-type.model";
-import {PaymentMethod} from "../models/payment-method.model";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {PaymentPayUResponse} from '../models/paymentPayUResponse.model';
+import {AddressModel} from '../models/address.model';
+import {DeliveryType} from '../models/delivery-type.model';
+import {PaymentMethod} from '../models/payment-method.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({

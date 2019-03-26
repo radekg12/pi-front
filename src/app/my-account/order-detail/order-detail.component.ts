@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {OrderService} from "../../services/order.service";
-import {Order} from "../../models/order.model";
-import {OrderPosition} from "../../models/order-position.model";
-import {OrderStatusCategoryColor} from "../../models/order-status-category.model";
-import {MatTableDataSource} from "@angular/material";
+import {ActivatedRoute, Router} from '@angular/router';
+import {OrderService} from '../../services/order.service';
+import {Order} from '../../models/order.model';
+import {OrderPosition} from '../../models/order-position.model';
+import {OrderStatusCategoryColor} from '../../models/order-status-category.model';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-order-detail',
@@ -12,8 +12,8 @@ import {MatTableDataSource} from "@angular/material";
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-  displayedColumns: string[] = ["name", "quantity", "unitPrice", "subtotal"];
-  ordersColumns: string[] = ['orderId', 'date', "price", "status"];
+  displayedColumns: string[] = ['name', 'quantity', 'unitPrice', 'subtotal'];
+  ordersColumns: string[] = ['orderId', 'date', 'price', 'status'];
 
   public id: number;
   public order: Order;
@@ -33,7 +33,7 @@ export class OrderDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
-    this.getOrder()
+    this.getOrder();
   }
 
   getTotalCost() {
@@ -56,7 +56,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   getColor(element: Order): string {
-    return this.colors.filter(c => c.id == element.orderStatus.orderStatusCategory.id)[0].color;
+    return this.colors.filter(c => c.id === element.orderStatus.orderStatusCategory.id)[0].color;
   }
 
   private getOrder() {
@@ -66,12 +66,12 @@ export class OrderDetailComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.orders);
       this.setDeliveryPosition();
 
-      console.log("GET ORDER_1");
+      console.log('GET ORDER_1');
       console.log(this.order);
       console.log(this.orders);
 
     });
-    console.log("GET ORDER");
+    console.log('GET ORDER');
     console.log(this.order);
     console.log(this.orders);
   }

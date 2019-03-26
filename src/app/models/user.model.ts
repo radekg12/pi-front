@@ -1,4 +1,4 @@
-import {Customer} from "./customer.model";
+import {Customer} from './customer.model';
 
 export class User {
   accessToken: string;
@@ -12,5 +12,5 @@ export class User {
       name: string;
     };
     customer: Customer;
-  }
+  };
 }

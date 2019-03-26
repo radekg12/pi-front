@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
-import {MatSelectChange, MatSnackBar, MatTableDataSource} from "@angular/material";
-import {Order} from "../../../models/order.model";
-import {OrderPosition} from "../../../models/order-position.model";
-import {OrderStatusCategoryColor} from "../../../models/order-status-category.model";
-import {OrderService} from "../../../services/order.service";
-import {OrderStatusCategoryAll} from "../../../models/order-status-category-all.model";
-import {OrderStatusCategoryService} from "../../../services/order-status-category.service";
-import {CustomerService} from "../../../services/customer.service";
-import {Customer} from "../../../models/customer.model";
+import {MatSelectChange, MatSnackBar, MatTableDataSource} from '@angular/material';
+import {Order} from '../../../models/order.model';
+import {OrderPosition} from '../../../models/order-position.model';
+import {OrderStatusCategoryColor} from '../../../models/order-status-category.model';
+import {OrderService} from '../../../services/order.service';
+import {OrderStatusCategoryAll} from '../../../models/order-status-category-all.model';
+import {OrderStatusCategoryService} from '../../../services/order-status-category.service';
+import {CustomerService} from '../../../services/customer.service';
+import {Customer} from '../../../models/customer.model';
 
 @Component({
   selector: 'app-order-detail',
@@ -17,8 +17,8 @@ import {Customer} from "../../../models/customer.model";
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-  displayedColumns: string[] = ["name", "quantity", "unitPrice", "subtotal"];
-  ordersColumns: string[] = ['orderId', 'date', "price", "status"];
+  displayedColumns: string[] = ['name', 'quantity', 'unitPrice', 'subtotal'];
+  ordersColumns: string[] = ['orderId', 'date', 'price', 'status'];
   orderStatusCategories: OrderStatusCategoryAll[];
   selectedStatusId: number;
   customer: Customer;
@@ -69,11 +69,11 @@ export class OrderDetailComponent implements OnInit {
   }
 
   getColor(element: Order): string {
-    return this.colors.filter(c => c.id == element.orderStatus.orderStatusCategory.id)[0].color;
+    return this.colors.filter(c => c.id === element.orderStatus.orderStatusCategory.id)[0].color;
   }
 
   onChange(event: MatSelectChange) {
-    console.log("on change " + event.value);
+    console.log(`on change ${event.value}`);
     console.log(event);
     console.log(this.selectedStatusId);
     this.orderService.changeOrderStatus(this.order.id, this.selectedStatusId).subscribe(data => {
@@ -96,12 +96,12 @@ export class OrderDetailComponent implements OnInit {
       this.setDeliveryPosition();
       this.selectedStatusId = this.order.orderStatus.id;
 
-      console.log("GET ORDER_1");
+      console.log('GET ORDER_1');
       console.log(this.order);
       console.log(this.orders);
 
     });
-    console.log("GET ORDER");
+    console.log('GET ORDER');
     console.log(this.order);
     console.log(this.orders);
   }
@@ -111,11 +111,11 @@ export class OrderDetailComponent implements OnInit {
   }
 
   private getCategories() {
-    this.orderStatusCategoryService.getOrderStatusCategories().subscribe(data => this.orderStatusCategories = data)
+    this.orderStatusCategoryService.getOrderStatusCategories().subscribe(data => this.orderStatusCategories = data);
   }
 
   private showMessage() {
     this.snackBar
-      .open("Zapisano zmianę statusu", null, {duration: 2000,});
+      .open('Zapisano zmianę statusu', null, {duration: 2000});
   }
 }

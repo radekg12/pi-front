@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Customer} from "../../models/customer.model";
-import {CustomerService} from "../../services/customer.service";
-import {MatSnackBar} from "@angular/material";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Customer} from '../../models/customer.model';
+import {CustomerService} from '../../services/customer.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-personal-info',
@@ -87,14 +87,14 @@ export class PersonalInfoComponent implements OnInit {
   updateCustomer(): void {
     this.customerService.saveCustomer(this.customer).subscribe(data => {
         this.customer = data;
-        console.log("updated customer");
+        console.log('updated customer');
         console.log(this.customer);
         this.addressFormGroup.patchValue(data);
         this.showMessage();
       },
       error => console.log(error),
       () => this.showMessage()
-    )
+    );
   }
 
   configForms() {
@@ -128,6 +128,6 @@ export class PersonalInfoComponent implements OnInit {
 
   private showMessage() {
     this.snackBar
-      .open("Zapisano zmiany", null, {duration: 2000,});
+      .open('Zapisano zmiany', null, {duration: 2000});
   }
 }

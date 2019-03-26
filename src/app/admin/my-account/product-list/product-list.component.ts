@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from "@angular/material";
-import {Product} from "../../../models/product.model";
-import {ProductService} from "../../../services/product.service";
+import {MatSort, MatTableDataSource} from '@angular/material';
+import {Product} from '../../../models/product.model';
+import {ProductService} from '../../../services/product.service';
 
-const columns: string[] = ['id', 'name', "company", "quantityInStock", "unitPrice"];
+const columns: string[] = ['id', 'name', 'company', 'quantityInStock', 'unitPrice'];
 
 @Component({
   selector: 'app-product-list',
@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.sort = this.sort;
     });
-    console.log("orders");
+    console.log('orders');
     console.log(this.products);
   }
 

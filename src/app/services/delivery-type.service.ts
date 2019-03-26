@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {DeliveryType} from "../models/delivery-type.model";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {DeliveryType} from '../models/delivery-type.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -17,6 +17,6 @@ export class DeliveryTypeService implements OnInit {
   }
 
   getDeliveryTypes(): Observable<DeliveryType[]> {
-    return this.http.get<DeliveryType[]>(this.baseURL)
+    return this.http.get<DeliveryType[]>(this.baseURL);
   }
 }

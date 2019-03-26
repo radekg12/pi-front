@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DeliveryType} from "../models/delivery-type.model";
-import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
-import {MatTableDataSource} from "@angular/material";
+import {DeliveryType} from '../models/delivery-type.model';
+import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-order-summary',
@@ -10,6 +10,8 @@ import {MatTableDataSource} from "@angular/material";
 })
 export class OrderSummaryComponent implements OnInit {
 
+  displayedColumns: string[] = ['name', 'quantity', 'unitPrice', 'subtotal'];
+
   private _positions: ShoppingCartPosition[];
   dataSource: MatTableDataSource<ShoppingCartPosition>;
 
@@ -17,16 +19,15 @@ export class OrderSummaryComponent implements OnInit {
     return this._positions;
   }
 
-  displayedColumns: string[] = ["name", "quantity", "unitPrice", "subtotal"];
+  private _deliveryType: DeliveryType;
   deliveryPosition: ShoppingCartPosition;
 
   constructor() {
   }
 
-
   ngOnInit() {
 
-    console.log("deliveryPosition");
+    console.log('deliveryPosition');
     console.log(this.deliveryPosition);
   }
 
@@ -43,7 +44,6 @@ export class OrderSummaryComponent implements OnInit {
     return this._deliveryType;
   }
 
-  private _deliveryType: DeliveryType;
 
   @Input()
   set deliveryType(value: DeliveryType) {

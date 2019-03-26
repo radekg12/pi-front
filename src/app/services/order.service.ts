@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Order} from "../models/order.model";
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Order} from '../models/order.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -18,19 +18,19 @@ export class OrderService implements OnInit {
   }
 
   getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.baseURL}/all`)
+    return this.http.get<Order[]>(`${this.baseURL}/all`);
   }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseURL)
+    return this.http.get<Order[]>(this.baseURL);
   }
 
   getOrder(orderId: number): Observable<Order> {
-    return this.http.get<Order>(`${this.baseURL}/${orderId}`)
+    return this.http.get<Order>(`${this.baseURL}/${orderId}`);
   }
 
   changeOrderStatus(orderId: number, statusId: number) {
-    return this.http.post<Order>(`${this.baseURL}/${orderId}`, {}, {params: new HttpParams().set('statusId', String(statusId))})
+    return this.http.post<Order>(`${this.baseURL}/${orderId}`, {}, {params: new HttpParams().set('statusId', String(statusId))});
   }
 
   getOrdersByCustomerId(customerId: number): Observable<Order[]> {

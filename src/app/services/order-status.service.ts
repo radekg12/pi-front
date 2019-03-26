@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {OrderStatus} from "../models/order-status.model";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {OrderStatus} from '../models/order-status.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class OrderStatusService implements OnInit {
   }
 
   getOrderStatuses(): Observable<OrderStatus[]> {
-    return this.http.get<OrderStatus[]>(this.baseURL)
+    return this.http.get<OrderStatus[]>(this.baseURL);
   }
 }
 

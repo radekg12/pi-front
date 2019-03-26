@@ -1,4 +1,4 @@
-import {OrderStatus} from "./order-status.model";
+import {OrderStatus} from './order-status.model';
 
 export class OrderStatusCategoryAll {
   id: number;

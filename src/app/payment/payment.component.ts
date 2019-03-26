@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PaymentMethod} from "../models/payment-method.model";
-import {DeliveryType} from "../models/delivery-type.model";
-import {PaymentMethodService} from "../services/payment-method.service";
-import {DeliveryTypeService} from "../services/delivery-type.service";
-import {PaymentService} from "../services/payment.service";
-import {Router} from "@angular/router";
-import {ShoppingCartService} from "../services/shopping-cart.service";
-import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
-import {AddressModel} from "../models/address.model";
+import {PaymentMethod} from '../models/payment-method.model';
+import {DeliveryType} from '../models/delivery-type.model';
+import {PaymentMethodService} from '../services/payment-method.service';
+import {DeliveryTypeService} from '../services/delivery-type.service';
+import {PaymentService} from '../services/payment.service';
+import {Router} from '@angular/router';
+import {ShoppingCartService} from '../services/shopping-cart.service';
+import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
+import {AddressModel} from '../models/address.model';
 
 @Component({
   selector: 'app-payment',
@@ -82,34 +82,34 @@ export class PaymentComponent implements OnInit {
   }
 
   getPaymentMethods(): void {
-    this.paymentMethodService.getPaymentMethods().subscribe(data => this.paymentMethods = data)
+    this.paymentMethodService.getPaymentMethods().subscribe(data => this.paymentMethods = data);
   }
 
   getDeliveryTypes(): void {
-    this.deliveryTypeService.getDeliveryTypes().subscribe(data => this.deliveryTypes = data)
+    this.deliveryTypeService.getDeliveryTypes().subscribe(data => this.deliveryTypes = data);
   }
 
   payForOrder() {
-    let address: AddressModel = {
+    const address: AddressModel = {
       id: null,
       street: this.a.streetCtrl.value,
       city: this.a.cityCtrl.value,
-      postcode: this.a.postcodeCtrl.value.replace(/\D/g, "")
+      postcode: this.a.postcodeCtrl.value.replace(/\D/g, '')
     };
 
 
     this.paymentService.payByPayU(address, this.getDeliveryType(), this.getPaymentMethod()).subscribe(data =>
-      window.location.href = data.redirectUri)
+      window.location.href = data.redirectUri);
   }
 
   getDeliveryType(): DeliveryType {
-    let deliveryId = this.d.deliveryCtrl.value;
-    return this.deliveryTypes.filter(t => t.id == deliveryId)[0];
+    const deliveryId = this.d.deliveryCtrl.value;
+    return this.deliveryTypes.filter(t => t.id === deliveryId)[0];
   }
 
   getPaymentMethod(): PaymentMethod {
-    console.log("getPaymentMethod");
-    console.log(this.paymentMethods.filter(m => m.id == 4)[0]);
-    return this.paymentMethods.filter(m => m.id == 4)[0];
+    console.log('getPaymentMethod');
+    console.log(this.paymentMethods.filter(m => m.id === 4)[0]);
+    return this.paymentMethods.filter(m => m.id === 4)[0];
   }
 }

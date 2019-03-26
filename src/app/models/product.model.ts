@@ -1,5 +1,5 @@
-import {Subcategory} from "./category.model";
-import {SpecificationPosition} from "./specification-position.model";
+import {Subcategory} from './category.model';
+import {SpecificationPosition} from './specification-position.model';
 
 export class Product {
 

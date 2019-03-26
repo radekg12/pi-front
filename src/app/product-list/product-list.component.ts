@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatButtonToggleChange, MatPaginator, MatSelectChange, PageEvent} from "@angular/material";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {ProductService} from "../services/product.service";
-import {Product} from "../models/product.model";
+import {MatButtonToggleChange, MatPaginator, MatSelectChange, PageEvent} from '@angular/material';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ProductService} from '../services/product.service';
+import {Product} from '../models/product.model';
 
 export interface SortByOption {
   value: string;
@@ -25,20 +25,20 @@ export class ProductListComponent implements OnInit {
     {value: 'company_asc', viewValue: 'Marka: A-Z'},
     {value: 'company_desc', viewValue: 'Marka: Z-A'}
   ];
-  defaultPage: number = 0;
+  defaultPage = 0;
   defaultPageSize: number = this.pageSizeOptions[1];
   defaultSortBy: string = this.sortByOptions[0].value;
   currentPage: number = this.defaultPage;
   products: Product[];
   pageSize: number = this.defaultPageSize;
-  totalElements: number = 0;
+  totalElements = 0;
   sortBy: string = this.defaultSortBy;
   subcategoryId: number;
   pageEvent: PageEvent;
   paramMap: ParamMap;
   sub;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @Input() private gridViewIsActive: boolean = true;
+  @Input() private gridViewIsActive = true;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -50,28 +50,28 @@ export class ProductListComponent implements OnInit {
     this.initPaginator();
     console.log(this.route.snapshot);
     this.setParams();
-  };
+  }
 
   setParams() {
     this.sub = this.route.params.subscribe(params => {
       this.subcategoryId = +params['subcategoryId'];
-      console.log("producy id = " + this.subcategoryId);
+      console.log(`producy id = ${this.subcategoryId}`);
     });
 
     console.log(this.route.queryParamMap);
     this.route.queryParamMap.subscribe(
       (params: ParamMap) => {
-        console.log("** SET_PARAMS(-1-) **");
+        console.log('** SET_PARAMS(-1-) **');
         console.log(params);
-        console.log("page=" + (+params.get('page')) + " size=" + (+params.get('per_page')) + " sort=" + (params.get('sort_by')));
+        console.log(`page=${+params.get('page')} size=${+params.get('per_page')} sort=${params.get('sort_by')}`);
 
         this.currentPage = +params.get('page') || this.defaultPage + 1;
         this.currentPage--;
         this.pageSize = +params.get('per_page') || this.defaultPageSize;
         this.sortBy = params.get('sort_by') || this.defaultSortBy;
 
-        console.log("** SET_PARAMS(-2-) **");
-        console.log('page: ' + this.currentPage + ", per_page: " + this.pageSize + ", sort_by: " + this.sortBy);
+        console.log('** SET_PARAMS(-2-) **');
+        console.log(`page: ${this.currentPage}, per_page: ${this.pageSize}, sort_by: ${this.sortBy}`);
         console.log(this.route.snapshot);
         this.getProducts();
 
@@ -80,29 +80,32 @@ export class ProductListComponent implements OnInit {
 
   deleteUser(product: Product): void {
     this.productService.deleteProduct(product).subscribe(data => {
-      this.products = this.products.filter(u => u !== product)
-    })
-  };
+      this.products = this.products.filter(u => u !== product);
+    });
+  }
 
   getProducts(): void {
-    console.log("GET_PRODUCTS()");
+    console.log('GET_PRODUCTS()');
     this.productService.getProductss(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
       data => {
-        console.log("NEXT");
+        console.log('NEXT');
         this.products = data['content'];
         this.totalElements = data['totalElements'];
         this.currentPage = data['number'];
         this.pageSize = data['size'];
-        console.log("GET_PRODUCT()");
+        console.log('GET_PRODUCT()');
         console.log(data['content']);
       },
-      () => console.log("ERRRORRRRRRRR"),
-      () => console.log("COMPLETE"))
+      () => console.log('ERRRORRRRRRRR'),
+      () => console.log('COMPLETE'));
   }
 
   changePage(event?: PageEvent): PageEvent {
-    if (event.pageIndex != this.currentPage) this.changePageNumber(event);
-    else if (event.pageSize != this.pageSize) this.changePageSize(event);
+    if (event.pageIndex !== this.currentPage) {
+      this.changePageNumber(event);
+    } else if (event.pageSize !== this.pageSize) {
+      this.changePageSize(event);
+    }
     return event;
   }
 
@@ -111,43 +114,43 @@ export class ProductListComponent implements OnInit {
   }
 
   switchView($event: MatButtonToggleChange) {
-    this.gridViewIsActive = $event.value === "true";
+    this.gridViewIsActive = $event.value === 'true';
   }
 
   switchToGridView(): void {
     this.gridViewIsActive = true;
-    console.log("switchToGridView");
+    console.log('switchToGridView');
   }
 
   switchToListView(): void {
     this.gridViewIsActive = false;
-    console.log("switchToListView");
+    console.log('switchToListView');
 
   }
 
   changePageSorting($event: MatSelectChange) {
-    console.log("changeSoring()");
+    console.log('changeSoring()');
     this.sortBy = $event.value;
     this.router.navigate(['./'], {
       queryParams: {
         page: null,
-        sort_by: $event.value == this.defaultSortBy ? null : $event.value,
+        sort_by: $event.value === this.defaultSortBy ? null : $event.value,
       },
-      queryParamsHandling: "merge",
+      queryParamsHandling: 'merge',
       relativeTo: this.route
     });
   }
 
   showDetails(productId: number | string) {
-    this.router.navigate(['./', productId], {relativeTo: this.route})
+    this.router.navigate(['./', productId], {relativeTo: this.route});
   }
 
   private changePageNumber(event?: PageEvent) {
     this.router.navigate(['./'], {
       queryParams: {
-        page: event.pageIndex == this.defaultPage ? null : event.pageIndex + 1,
+        page: event.pageIndex === this.defaultPage ? null : event.pageIndex + 1,
       },
-      queryParamsHandling: "merge",
+      queryParamsHandling: 'merge',
       relativeTo: this.route
     });
   }
@@ -156,9 +159,9 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['./'], {
       queryParams: {
         page: null,
-        per_page: event.pageSize == this.defaultPageSize ? null : event.pageSize,
+        per_page: event.pageSize === this.defaultPageSize ? null : event.pageSize,
       },
-      queryParamsHandling: "merge",
+      queryParamsHandling: 'merge',
       relativeTo: this.route
     });
   }

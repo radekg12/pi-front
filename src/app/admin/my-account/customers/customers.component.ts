@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from "@angular/material";
-import {Customer} from "../../../models/customer.model";
-import {CustomerService} from "../../../services/customer.service";
+import {MatSort, MatTableDataSource} from '@angular/material';
+import {Customer} from '../../../models/customer.model';
+import {CustomerService} from '../../../services/customer.service';
 
-const columns: string[] = ['id', 'firstName', "lastName", "email"];
+const columns: string[] = ['id', 'firstName', 'lastName', 'email'];
 
 @Component({
   selector: 'app-customers',
@@ -30,7 +30,7 @@ export class CustomersComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.customers);
       this.dataSource.sort = this.sort;
     });
-    console.log("orders");
+    console.log('orders');
     console.log(this.customers);
   }
 

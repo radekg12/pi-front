@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ShoppingCartService} from "../services/shopping-cart.service";
-import {ShoppingCartPosition} from "../models/shopping-cart-position.model";
-import {MatSnackBar} from "@angular/material";
-import {AuthenticationService} from "../services/authentication.service";
-import {User} from "../models/user.model";
+import {ShoppingCartService} from '../services/shopping-cart.service';
+import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
+import {MatSnackBar} from '@angular/material';
+import {AuthenticationService} from '../services/authentication.service';
+import {User} from '../models/user.model';
 
-const columns = ["name", "price", "quantity", "subtotal"];
+const columns = ['name', 'price', 'quantity', 'subtotal'];
 
 @Component({
   selector: 'app-shopping-cart',
@@ -27,9 +27,9 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("getProduct");
+    console.log('getProduct');
     this.getProducts();
-    console.log("getProduct_2");
+    console.log('getProduct_2');
     console.log(this.cartItems);
   }
 
@@ -38,52 +38,52 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   increaseQuantity(item: ShoppingCartPosition) {
-    console.log("increase quantity: " + item.quantity + "; ");
+    console.log(`increase quantity: ${item.quantity}; `);
     this.shoppingCartService.updateProduct(+item.product.id, ++item.quantity).subscribe(data => {
-      console.log("increaseQuantity");
+      console.log('increaseQuantity');
       item.quantity = data.quantity;
-      this.showMessage("Zmieniono zawartość koszyka");
+      this.showMessage('Zmieniono zawartość koszyka');
     });
   }
 
   decreaseQuantity(item: ShoppingCartPosition) {
-    console.log("reduce quantity: " + item.quantity + "; ");
+    console.log(`reduce quantity: ${item.quantity}; `);
     this.shoppingCartService.updateProduct(+item.product.id, --item.quantity).subscribe(data => {
-      console.log("decreaseQuantity");
+      console.log('decreaseQuantity');
       item.quantity = data.quantity;
-      this.showMessage("Zmieniono zawartość koszyka");
+      this.showMessage('Zmieniono zawartość koszyka');
     });
   }
 
   removeItem(item: ShoppingCartPosition) {
     this.cartItems = this.cartItems.filter(i => i !== item);
     this.shoppingCartService.deleteProduct(+item.product.id).subscribe(data => this.cartItems = this.cartItems.filter(i => i !== data));
-    console.log("remove item ");
-    this.showMessage("Usunięto produkt z koszyka");
+    console.log('remove item ');
+    this.showMessage('Usunięto produkt z koszyka');
   }
 
   getSumPrice(): number {
-    let sum: number = 0;
+    let sum = 0;
     this.cartItems.forEach(i => sum += (+i.product.unitPrice * i.quantity));
-    console.log("calculate sum: " + sum);
+    console.log(`calculate sum: ${sum}`);
     return sum;
   }
 
   changeQuantity(productId: number, quanity: number) {
     this.shoppingCartService.updateProduct(productId, quanity).subscribe(data => {
-      console.log("changeQuantity");
+      console.log('changeQuantity');
       quanity = data.quantity;
-      this.showMessage("Zmieniono zawartość koszyka");
+      this.showMessage('Zmieniono zawartość koszyka');
     });
   }
 
   showMessage(message: string) {
-    this.snackBar.open(message, "", {
+    this.snackBar.open(message, '', {
       duration: 2000,
     });
   }
 
   goToPayment() {
-    console.log("goToPayment");
+    console.log('goToPayment');
   }
 }

@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {User} from "../models/user.model";
-import {HttpClient} from "@angular/common/http";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {User} from '../models/user.model';
+import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {Role} from "../models/role.model";
+import {Role} from '../models/role.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class AuthenticationService {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
 
 
-          let token = user.accessToken;
+          const token = user.accessToken;
           const helper = new JwtHelperService();
 
           const decodedToken = helper.decodeToken(token);
@@ -63,7 +63,7 @@ export class AuthenticationService {
   }
 
   getToken() {
-    return localStorage.getItem("currentUser")
+    return localStorage.getItem('currentUser');
   }
 
   getRoleName() {
@@ -71,11 +71,11 @@ export class AuthenticationService {
   }
 
   isLoggedInAsUser(): boolean {
-    return this.getToken() !== null && this.getRoleName() == Role.User;
+    return this.getToken() !== null && this.getRoleName() === Role.User;
   }
 
   isLoggedInAsAdmin(): boolean {
-    return this.getToken() !== null && this.getRoleName() == Role.Admin;
+    return this.getToken() !== null && this.getRoleName() === Role.Admin;
   }
 
   isLoggedIn(): boolean {
@@ -84,7 +84,7 @@ export class AuthenticationService {
 
   logout() {
     // remove user from local storage to log user out
-    console.log("logout");
+    console.log('logout');
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['/']);

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {CustomerService} from "../services/customer.service";
-import {SupportService} from "../services/support.service";
-import {Support} from "../models/support.model";
-import {Customer} from "../models/customer.model";
-import {MatSnackBar} from "@angular/material";
-import {NgForm} from "@angular/forms";
+import {CustomerService} from '../services/customer.service';
+import {SupportService} from '../services/support.service';
+import {Support} from '../models/support.model';
+import {Customer} from '../models/customer.model';
+import {MatSnackBar} from '@angular/material';
+import {NgForm} from '@angular/forms';
 
 const emptySupport: Support = {
   mailFrom: '',
@@ -31,42 +31,42 @@ export class SupportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.support.mailTitle = "Prośba o wsparcie";
+    this.support.mailTitle = 'Prośba o wsparcie';
     this.getMail();
     this.getCustomer();
   }
 
   getMail(): void {
-    console.log("getMail()");
+    console.log('getMail()');
     this.supportService.getMail().subscribe(data => {
-      console.log("mail");
+      console.log('mail');
       console.log(data);
       this.mailTo = data;
       this.support.mailTo = this.mailTo;
-    })
+    });
   }
 
   getCustomer(): void {
     this.customerService.getCustomer().subscribe(data => {
       this.customer = data;
       this.support.mailFrom = data.email;
-    })
+    });
   }
 
 
   sendMail(form: NgForm) {
-    console.log("sendMail()...");
+    console.log('sendMail()...');
     this.supportService.sendMail(this.support).subscribe(data => {
       this.showMessage();
       this.support.mailTitle = '';
       this.support.mailContent = '';
-      console.log("MAIL IS SENDED - " + data)
-    })
+      console.log(`MAIL IS SENT - ${data}`);
+    });
   }
 
   private showMessage() {
     this.snackBar
-      .open("Wysłano", null, {duration: 2000,});
+      .open('Wysłano', null, {duration: 2000});
   }
 
 }
