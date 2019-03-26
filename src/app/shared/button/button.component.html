@@ -1,1 +1,4 @@
-<button [disabled]="disabled" [type]="type" class="button-primary">{{message}}</button>
+<button [disabled]="disabled" [type]="type" class="button-primary">
+  <span *ngIf="loading" aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
+  {{message}}
+</button>

@@ -1,26 +1,33 @@
 <h2>Logowanie</h2>
 <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input [formControl]="username" matInput placeholder="Login">
-    <mat-error *ngIf="username.hasError('required')">
-      Wprowadź login
-    </mat-error>
-  </mat-form-field>
+  <div class="login-form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Login</mat-label>
+      <input [formControl]="username" matInput placeholder="Login">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error *ngIf="username.hasError('required')">
+        Wprowadź login
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input [formControl]="password" matInput placeholder="Hasło">
-    <mat-error *ngIf="password.hasError('required')">
-      Wprowadź login
-    </mat-error>
-  </mat-form-field>
 
-  <div>
-    <app-button [disabled]="loading" [type]="'submit'" class="right" message="Zaloguj"></app-button>
-    <img *ngIf="loading" class="pl-2"
-         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    <mat-form-field appearance="outline">
+      <mat-label>Hasło</mat-label>
+      <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Hasło">
+      <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.hasError('required')">
+        Wprowadź login
+      </mat-error>
+    </mat-form-field>
   </div>
-  <mat-error *ngIf="error">
-    {{error}}
-  </mat-error>
+
+  <div class="login-confirm">
+    <mat-error *ngIf="error">{{error}}</mat-error>
+    <app-button [disabled]="loading" [loading]="loading" [type]="'submit'" class="right" message="Zaloguj"></app-button>
+  </div>
 
 </form>

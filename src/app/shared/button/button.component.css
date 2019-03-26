@@ -1,3 +1,7 @@
+.spinner-border {
+  margin: 0 10px 0 0;
+}
+
 .button-primary, .button-secondary, .button-inverted, .button-inverted:hover {
   width: 200px;
   height: 45px;
