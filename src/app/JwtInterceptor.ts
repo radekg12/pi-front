@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {AuthenticationService} from "./services/authentication.service";
-import {User} from "./models/user.model";
+import {AuthenticationService} from './services/authentication.service';
+import {User} from './models/user.model';
 
 
 @Injectable()
@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
     if (currentUser && currentUser.accessToken) {
       request = request.clone({
         setHeaders: {
-          Authorization: 'Bearer ' + currentUser.accessToken
+          Authorization: `Bearer ${currentUser.accessToken}`
         }
       });
     }

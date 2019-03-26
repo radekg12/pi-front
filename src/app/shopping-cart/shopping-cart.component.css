@@ -1,3 +1,7 @@
+:host {
+  margin-bottom: 40px;
+}
+
 .product-row.header > div {
   text-align: center;
 }
@@ -8,7 +12,6 @@
 
 .product-name-top {
   width: 100%;
-  min-width: 100%;
   text-align: left;
   margin-top: 10px;
 }
@@ -20,6 +23,22 @@
   width: 100%;
   height: inherit;
   margin: 10px 0;
+}
+
+.item-header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+
+.item-header .product-remove {
+  align-self: flex-start;
+}
+
+.item-header .product-remove .mat-icon-button {
+  margin: 0 0 0 5px;
 }
 
 .product-row {
@@ -117,4 +136,15 @@ input[type=number]::-webkit-outer-spin-button {
 .product-total {
   text-align: right;
   min-width: 100px;
+}
+
+@media screen and (max-width: 469px) {
+  .product-details > .product-subtotal {
+    justify-self: flex-end;
+    width: 100%;
+  }
+
+  .product-details {
+    flex-wrap: wrap;
+  }
 }

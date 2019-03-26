@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ProductService} from "../../../services/product.service";
-import {Product} from "../../../models/product.model";
-import {MatSnackBar} from "@angular/material";
-import {MenuService} from "../../../services/menu.service";
-import {Category} from "../../../models/category-group.model";
-import {SpecificationPosition} from "../../../models/specification-position.model";
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ProductService} from '../../../services/product.service';
+import {Product} from '../../../models/product.model';
+import {MatSnackBar} from '@angular/material';
+import {MenuService} from '../../../services/menu.service';
+import {Category} from '../../../models/category-group.model';
+import {SpecificationPosition} from '../../../models/specification-position.model';
 
 const columns: string[] = ['name', 'detail'];
 
@@ -81,7 +81,7 @@ export class ProductDetailsComponent implements OnInit {
   getCategories(): void {
     this.menuService.getMenuCategories().subscribe(
       data => {
-        console.log("getCategories");
+        console.log('getCategories');
         this.categories = data;
       }
     );
@@ -113,7 +113,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onSelectstart(event) {
-    console.log("onSelectstart");
+    console.log('onSelectstart');
     console.log(event);
   }
 
@@ -125,9 +125,13 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  private showMessage() {
-    this.snackBar
-      .open("Zapisano zmiany", null, {duration: 2000,});
+  clearArray() {
+    const specificationPositionsArray = <FormArray>this.specificationPositions;
+    const length: number = specificationPositionsArray.length;
+
+    for (let i = 0; i <= (length - 1); i++) {
+      specificationPositionsArray.removeAt(i);
+    }
   }
 
   initExistSpecificationPosition(specificationPosition: SpecificationPosition): FormGroup {
@@ -150,25 +154,17 @@ export class ProductDetailsComponent implements OnInit {
     specificationPositionsArray.removeAt(idx);
   }
 
-  clearArray() {
-    const specificationPositionsArray = <FormArray>this.specificationPositions;
-    let length: number = specificationPositionsArray.length;
-
-    for (let i = 0; i <= (length - 1); i++) {
-      specificationPositionsArray.removeAt(i);
-    }
+  private showMessage() {
+    this.snackBar
+      .open('Zapisano zmiany', null, {duration: 2000});
   }
 
   setSpecificationPositions(specificationPositions: SpecificationPosition[]) {
-
-    // this.specificationPositions.setValue([]);
     this.clearArray();
-
     const specificationPositionsArray = <FormArray>this.specificationPositions;
 
     specificationPositions.forEach(p => {
       const newSpecificationPosition = this.initExistSpecificationPosition(p);
-
       specificationPositionsArray.push(newSpecificationPosition);
     });
   }
@@ -201,17 +197,17 @@ export class ProductDetailsComponent implements OnInit {
       this.productFormGroup.patchValue(data);
 
       this.menuService.getCategoryBySubcategoryId(this.product.subcategory.id).subscribe(data => {
-        console.log("getCategoryBySubcategoryId");
-        let categoryId = data.id;
+        console.log('getCategoryBySubcategoryId');
+        const categoryId = data.id;
         console.log(this.category);
-        console.log("setCategory id=" + categoryId + " of categories");
+        console.log(`setCategory id=${categoryId} of categories`);
         console.log(this.categories);
         this.category.setValue(this.categories.filter(c => c.id === categoryId).pop());
 
         this.subcategory.setValue(this.categories.filter(c => c.id === categoryId).pop().subcategories.filter(s => s.id === this.product.subcategory.id).pop());
       });
 
-      this.setSpecificationPositions(data.specificationPositions)
-    })
+      this.setSpecificationPositions(data.specificationPositions);
+    });
   }
 }

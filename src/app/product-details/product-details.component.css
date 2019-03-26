@@ -120,7 +120,11 @@
   color: var(--light-grey);
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
+}
+
+.breadcrumbs:first-of-type {
+  margin-left: 0;
 }
 
 .breadcrumbs:hover {

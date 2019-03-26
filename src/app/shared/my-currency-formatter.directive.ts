@@ -1,5 +1,6 @@
 import {Directive, ElementRef, HostListener, OnInit} from '@angular/core';
-import {PlnCurrencyPipe} from "./pln-currency.pipe";
+import {PlnCurrencyPipe} from './pln-currency.pipe';
+
 
 @Directive({
   selector: '[appMyCurrencyFormatter]'

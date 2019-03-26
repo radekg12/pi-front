@@ -1,27 +1,27 @@
 
 .wrapper {
   width: 80%;
-  margin: auto;
+  margin: 10px auto 40px;
 }
 
 @media screen and (max-width: 800px) {
   .wrapper {
     width: 90%;
-    margin: auto;
   }
 }
 
 @media screen and (max-width: 599px) {
   .wrapper {
     width: 98%;
-    margin: auto;
   }
 }
 
 .right {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .left {
-  float: left;
+  display: flex;
+  justify-content: flex-start;
 }

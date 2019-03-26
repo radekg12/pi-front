@@ -12,8 +12,14 @@
   <mat-divider></mat-divider>
 
   <div class="product-row" *ngFor="let item of cartItems; index as i">
-    <div class="product-name-top" fxShow.lt-md="true" fxShow.gt-sm="false"
-         [routerLink]="['/products/detail', item.product.id]">{{item.product.name}}</div>
+    <div class="item-header" fxShow.lt-md="true" fxShow.gt-sm="false">
+      <div class="product-name-top" [routerLink]="['/products/detail', item.product.id]">{{item.product.name}}</div>
+      <div class="product-remove">
+        <button mat-button mat-icon-button (click)="removeItem(item)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
     <div class="product-details">
       <div class="product-image">
         <img alt="product image" [routerLink]="['/products/detail', item.product.id]" [src]=item.product.imageUrl>
@@ -34,7 +40,7 @@
         </button>
       </div>
       <div class="product-subtotal">{{((+item.product.unitPrice) * (+item.quantity)) | plnCurrency}}</div>
-      <div class="product-remove">
+      <div class="product-remove" fxShow.lt-md="false" fxShow.gt-sm="true">
         <button mat-button mat-icon-button (click)="removeItem(item)">
           <mat-icon>close</mat-icon>
         </button>

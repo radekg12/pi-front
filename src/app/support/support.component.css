@@ -8,14 +8,11 @@
   width: 100%;
 }
 
-.text-title {
-  margin-left: 0;
-}
-
 .text-description {
   text-align: justify;
   margin-top: 20px;
   margin-bottom: 40px;
+  padding: 0 15px;
 }
 
 app-button {

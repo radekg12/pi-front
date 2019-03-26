@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {first} from "rxjs/operators";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../services/authentication.service";
+import {first} from 'rxjs/operators';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import {AuthenticationService} from "../services/authentication.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginFormGroup: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -29,23 +29,31 @@ export class LoginComponent implements OnInit {
   }
 
   get f() {
-    return this.loginForm.controls;
+    return this.loginFormGroup.controls;
+  }
+
+  get username() {
+    return this.loginFormGroup.get('username');
+  }
+
+  get password() {
+    return this.loginFormGroup.get('password');
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.loginFormGroup = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
 
-    // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit() {
+    console.log('Submit...');
     this.submitted = true;
 
-    if (this.loginForm.invalid) {
+    if (this.loginFormGroup.invalid) {
       return;
     }
 
