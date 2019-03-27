@@ -1,33 +1,37 @@
-<h2>Logowanie</h2>
-<form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
-  <div class="login-form-group">
-    <mat-form-field appearance="outline">
-      <mat-label>Login</mat-label>
-      <input [formControl]="username" matInput placeholder="Login">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-error *ngIf="username.hasError('required')">
-        Wprowadź login
-      </mat-error>
-    </mat-form-field>
+<div class="login-wrapper">
+  <div class="text-title">Logowanie</div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginFormGroup">
+    <div class="login-form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Login</mat-label>
+        <input [formControl]="username" matInput placeholder="Login">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="username.hasError('required')">
+          Wprowadź login
+        </mat-error>
+      </mat-form-field>
 
 
-    <mat-form-field appearance="outline">
-      <mat-label>Hasło</mat-label>
-      <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Hasło">
-      <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hidePassword">
-        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="password.hasError('required')">
-        Wprowadź login
-      </mat-error>
-    </mat-form-field>
-  </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Hasło</mat-label>
+        <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Hasło">
+        <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePassword" mat-icon-button
+                matSuffix
+                type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.hasError('required')">
+          Wprowadź login
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-  <div class="login-confirm">
-    <mat-error *ngIf="error">{{error}}</mat-error>
-    <app-button [disabled]="loading" [loading]="loading" [type]="'submit'" class="right" message="Zaloguj"></app-button>
-  </div>
+    <div class="login-confirm">
+      <mat-error *ngIf="error">{{error}}</mat-error>
+      <app-button [disabled]="loading" [loading]="loading" [type]="'submit'" class="right"
+                  message="Zaloguj"></app-button>
+    </div>
 
-</form>
+  </form>
+</div>

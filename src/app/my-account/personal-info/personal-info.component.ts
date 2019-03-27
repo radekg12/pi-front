@@ -24,8 +24,7 @@ export class PersonalInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
-    private snackBar: MatSnackBar
-  ) {
+    private snackBar: MatSnackBar) {
   }
 
   public get addressGroup(): FormGroup {

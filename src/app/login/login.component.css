@@ -1,6 +1,12 @@
+.login-wrapper {
+  max-width: 700px;
+  margin: auto;
+}
+
 .login-form-group {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .login-form-group > .mat-form-field {
