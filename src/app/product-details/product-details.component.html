@@ -18,12 +18,26 @@
       </div>
       <div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>
       <div (click)="addProductToCart()" class="card__details_button">
-        <app-button message="Dodaj do koszyka"></app-button>
+        <app-button [disabled]="saving" [loading]="saving" message="Dodaj do koszyka"></app-button>
       </div>
     </div>
 
   </div>
 </mat-card>
+
+
+<ngx-slick-carousel #slickModal="slick-carousel"
+                    (afterChange)="afterChange($event)"
+                    (beforeChange)="beforeChange($event)"
+                    (breakpoint)="breakpoint($event)"
+                    (init)="slickInit($event)"
+                    [config]="slideConfig"
+                    class="carousel">
+  <div *ngFor="let slide of slides" class="slide" ngxSlickItem>
+    <img alt="" src="{{ slide.img }}" width="100%">
+  </div>
+</ngx-slick-carousel>
+
 
 
 <div class="text-title">Specyfikacja</div>

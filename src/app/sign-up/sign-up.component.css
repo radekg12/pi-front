@@ -1,0 +1,12 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+.group .mat-form-field {
+  width: 100%;
+  margin-bottom: 5px;
+}

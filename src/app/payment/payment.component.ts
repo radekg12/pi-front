@@ -28,6 +28,7 @@ export class PaymentComponent implements OnInit {
 
   postcodeRegex = /^[0-9]{2}[ -]?[0-9]{3}$/;
   positions: ShoppingCartPosition[];
+  saving = false;
 
 
 
@@ -97,9 +98,13 @@ export class PaymentComponent implements OnInit {
       postcode: this.a.postcodeCtrl.value.replace(/\D/g, '')
     };
 
-
-    this.paymentService.payByPayU(address, this.getDeliveryType(), this.getPaymentMethod()).subscribe(data =>
-      window.location.href = data.redirectUri);
+    this.saving = true;
+    this.paymentService.payByPayU(address, this.getDeliveryType(), this.getPaymentMethod()).subscribe(data => {
+      this.saving = false;
+      window.location.href = data.redirectUri;
+    }, error1 => {
+      this.saving = false;
+    });
   }
 
   getDeliveryType(): DeliveryType {

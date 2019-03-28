@@ -84,7 +84,7 @@
         </mat-error>
       </mat-form-field>
       <app-button class="right" message="Zmień dane" [type]="'submit'"
-                  [disabled]="addressFormGroup.invalid"></app-button>
+                  [disabled]="addressFormGroup.invalid || saving" [loading]="saving"></app-button>
     </div>
   </form>
 </div>

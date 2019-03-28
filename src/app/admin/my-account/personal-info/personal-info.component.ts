@@ -31,6 +31,7 @@ export class PersonalInfoComponent implements OnInit {
   displayedColumns: string[] = columns;
   colors = OrderStatusCategoryColor;
   dataSource;
+  saving = false;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -112,14 +113,19 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   updateCustomer(): void {
+    this.saving = true;
     this.customerService.saveCustomer(this.customer).subscribe(data => {
+        this.saving = false;
         this.customer = data;
         console.log('updated customer');
         console.log(this.customer);
         this.addressFormGroup.patchValue(data);
         this.showMessage();
       },
-      error => console.log(error),
+      error => {
+        this.saving = false;
+        console.log(error);
+      },
       () => this.showMessage()
     );
   }

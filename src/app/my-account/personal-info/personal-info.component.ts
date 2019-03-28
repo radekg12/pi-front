@@ -20,6 +20,7 @@ export class PersonalInfoComponent implements OnInit {
   passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&\*\=\+\.])[A-Za-z0-9!@#$%^&\*\=\+\.]{8,20}$/;
 
   customer: Customer;
+  saving = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -84,14 +85,19 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   updateCustomer(): void {
+    this.saving = true;
     this.customerService.saveCustomer(this.customer).subscribe(data => {
+        this.saving = false;
         this.customer = data;
         console.log('updated customer');
         console.log(this.customer);
         this.addressFormGroup.patchValue(data);
         this.showMessage();
       },
-      error => console.log(error),
+      error => {
+        this.saving = false;
+        console.log(error);
+      },
       () => this.showMessage()
     );
   }

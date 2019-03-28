@@ -55,5 +55,5 @@
 </mat-card>
 
 <div class="right" (click)="goToPayment()" [routerLink]="['../payment']">
-  <app-button message="Przejdź do płatności"></app-button>
+  <app-button [disabled]="saving" [loading]="saving" message="Przejdź do płatności"></app-button>
 </div>

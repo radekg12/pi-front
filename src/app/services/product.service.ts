@@ -22,6 +22,11 @@ export class ProductService implements OnInit {
   ngOnInit(): void {
   }
 
+  getProduct(id: number): Observable<Product> {
+    console.log('ProdService getProduct(id)');
+    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`, {headers: header});
+  }
+
   deleteProduct(product: Product): Observable<Product> {
     return this.http.delete<Product>(`${this.baseUrl}/${product.id}`);
   }
@@ -30,14 +35,27 @@ export class ProductService implements OnInit {
     return this.http.post<Product>(`${this.baseUrl}/detail`, product);
   }
 
+  public updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.baseUrl}/detail`, product);
+  }
+
+
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/all`, {headers: header});
   }
 
+  getRecommendedProducts(productId: number): Observable<Product[]> {
+    const page = 1;
+    const per_page = 5;
+    const sort_by = 'name_desc';
+    const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
+    return this.http.get<Product[]>(`${this.baseUrl}`, {params: params, headers: header});
+  }
+
+
   getAllProductsBySubcategory(subcategoryId: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`, {headers: header});
   }
-
 
   getProducts(event?: PageEvent): Observable<Product[]> {
     if (event) {
@@ -45,12 +63,6 @@ export class ProductService implements OnInit {
     } else {
       return this.getProductss();
     }
-
-  }
-
-  getProduct(id: number): Observable<Product> {
-    console.log('ProdService getProduct(id)');
-    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`, {headers: header});
 
   }
 

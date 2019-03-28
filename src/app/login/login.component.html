@@ -29,9 +29,13 @@
 
     <div class="login-confirm">
       <mat-error *ngIf="error">{{error}}</mat-error>
-      <app-button [disabled]="loading" [loading]="loading" [type]="'submit'" class="right"
+      <app-button [disabled]="saving" [loading]="saving" [type]="'submit'" class="right"
                   message="Zaloguj"></app-button>
     </div>
 
+    <div class="signup-panel">
+      <div class="text-description">Nie masz jeszcze konata?</div>
+      <a [routerLink]="['/signup']" class="signup text">Zarejestruj się</a>
+    </div>
   </form>
 </div>

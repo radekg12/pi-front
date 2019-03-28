@@ -31,3 +31,22 @@
 .mat-icon-button .mat-icon {
   vertical-align: baseline;
 }
+
+.signup-panel {
+  margin: 60px 10px 25px;
+  text-align: center;
+}
+
+.signup-panel:first-child {
+  margin-bottom: 10px;
+}
+
+.signup {
+  text-decoration: none;
+  color: inherit;
+}
+
+.signup:hover, .signup.active {
+  color: var(--light-grey);
+}
+

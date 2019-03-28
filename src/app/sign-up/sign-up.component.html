@@ -1,0 +1,102 @@
+<div class="signup-wrapper">
+  <div class="text-title">Rejestracja</div>
+
+  <div class="group">
+    <!--<div class="title">Dane adresowe</div>-->
+    <form (ngSubmit)="onSubmit(signUpFormGroup)" [formGroup]="signUpFormGroup" novalidate>
+      <div id="sign-up-fields">
+        <mat-form-field>
+          <input formControlName="companyName" matInput maxlength="45" placeholder="Nazwa firmy" required type="text">
+          <mat-error
+            *ngIf="companyName.errors?.required && companyName.invalid && (companyName.dirty || companyName.touched)">
+            Wprowadź nazwę firmy
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="firstName" matInput maxlength="45" placeholder="Imię" required type="text">
+          <mat-error
+            *ngIf="firstName.errors?.required && firstName.invalid && (firstName.dirty || firstName.touched)">
+            Wprowadź imię
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="lastName" matInput maxlength="17" placeholder="Nazwisko" required type="text">
+          <mat-error
+            *ngIf="lastName.errors?.required && lastName.invalid && (lastName.dirty || lastName.touched)">
+            Wprowadź nazwisko
+          </mat-error>
+        </mat-form-field>
+
+        <div formGroupName="address" id="addressGroup">
+          <mat-form-field>
+            <input formControlName="street" matInput maxlength="45" placeholder="Adres" type="text">
+            <mat-error
+              *ngIf="street.errors?.required && street.invalid && (street.dirty || street.touched)">
+              Wprowadź adres
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="postcode" matInput maxlength="6" placeholder="Kod pocztowy"
+                   type="text">
+            <mat-error
+              *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)">
+              <div *ngIf="postcode.errors.pattern">Kod pocztowy jest niepoprawny</div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="city" matInput maxlength="45" placeholder="Miejscowość" type="text">
+            <mat-error
+              *ngIf="city.errors?.required && city.invalid && (city.dirty || city.touched)">
+              Wprowadź miejscowość
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field>
+          <input formControlName="phoneNumber" matInput maxlength="45" placeholder="Numer telefonu" type="tel">
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error
+            *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+            <div *ngIf="phoneNumber.errors?.required">Wprowadź numer telefonu</div>
+            <div *ngIf="phoneNumber.errors?.pattern">Nieprawidłowy format numeru telefonu</div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="email" matInput maxlength="45" placeholder="Email" type="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error
+            *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.required">Wprowadź adres email</div>
+            <div *ngIf="email.errors?.email">Podany email jest nieprawidłowy</div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" matInput maxlength="45"
+                 placeholder="Hasło" required
+                 type="password">
+          <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword" mat-icon-button
+                  matSuffix
+                  type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="password.errors?.required">Wprowadź hasło</div>
+            <div *ngIf="password.errors?.pattern">Podane hasło jest nieprawidłowe</div>
+          </mat-error>
+        </mat-form-field>
+
+        <app-button [disabled]="signUpFormGroup.invalid || saving" [loading]="saving" [type]="'submit'"
+                    class="right" message="Zarejestruj"></app-button>
+
+      </div>
+    </form>
+  </div>
+</div>

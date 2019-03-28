@@ -15,11 +15,13 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {AuthGuard} from './guards/auth.guard';
 import {Role} from './models/role.model';
 import {LoginComponent} from './login/login.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignUpComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'products/:subcategoryId', component: ProductListComponent},
   {path: 'products/detail/:id', component: ProductDetailsComponent},

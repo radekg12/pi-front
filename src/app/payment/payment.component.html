@@ -118,5 +118,6 @@
 
 </mat-card>
 <div class="right">
-  <app-button *ngIf="stepper.selectedIndex == 2" message="Zatwierdź" (click)="payForOrder()"></app-button>
+  <app-button (click)="payForOrder()" *ngIf="stepper.selectedIndex == 2" [disabled]="saving" [loading]="saving"
+              message="Zatwierdź"></app-button>
 </div>

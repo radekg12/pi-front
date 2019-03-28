@@ -22,6 +22,7 @@ export class AddProductComponent implements OnInit {
   categories: Category[];
   productFormGroup: FormGroup;
   category: FormControl;
+  saving = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -134,16 +135,19 @@ export class AddProductComponent implements OnInit {
   }
 
   saveProduct(): void {
-    // this.productService.saveProduct(this.product).subscribe(data => {
-    //     this.product = data;
-    //     console.log('updated product');
-    //     console.log(this.product);
-    //     this.product.patchValue(data);
-    //     this.showMessage();
-    //   }
-    // )
-
-    this.showMessage();
+    this.saving = true;
+    this.productService.createProduct(this.product).subscribe(data => {
+        this.saving = false;
+        this.product = data;
+        console.log('created product');
+        console.log(this.product);
+        this.productFormGroup.patchValue(data);
+        this.showMessage();
+      },
+      error => {
+        this.saving = false;
+      }
+    );
   }
 
   private showMessage() {

@@ -37,7 +37,8 @@
     </mat-form-field>
 
     <div>
-      <app-button [message]="'Wyślij'" class="right" [type]="'submit'"></app-button>
+      <app-button [disabled]="saving" [loading]="saving" [message]="'Wyślij'" [type]="'submit'"
+                  class="right"></app-button>
     </div>
   </form>
 </mat-card>

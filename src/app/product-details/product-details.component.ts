@@ -14,11 +14,25 @@ const columns: string[] = ['name', 'detail'];
 })
 export class ProductDetailsComponent implements OnInit {
   @Input() product: Product = new Product();
+  recommendedProducts: Product[];
   id: number;
   sub;
   dataSource;
   displayedColumns: string[] = columns;
   imgLoad = false;
+  saving = false;
+
+  slides = [
+    {img: 'http://placehold.it/350x150/000000'},
+    {img: 'http://placehold.it/350x150/111111'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/666666'},
+    {img: 'http://placehold.it/350x150/000000'},
+    {img: 'http://placehold.it/350x150/111111'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/666666'}
+  ];
+  slideConfig = {'slidesToShow': 4, 'slidesToScroll': 1};
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +48,7 @@ export class ProductDetailsComponent implements OnInit {
       console.log(`producy id = ${this.id}`);
     });
     this.getProduct();
+    this.getRecommendedProducts();
   }
 
 
@@ -58,16 +73,28 @@ export class ProductDetailsComponent implements OnInit {
         () => console.log('COMPLETEEEE'));
   }
 
+  getRecommendedProducts() {
+    this.productService.getRecommendedProducts(this.id).subscribe(data => {
+        this.recommendedProducts = data['content'];
+
+      }, error1 => {
+      }
+    );
+  }
+
   loadImg() {
     console.log('IMG LOADED');
   }
 
   addProductToCart() {
+    this.saving = true;
     this.shoppingCartService.addProduct(this.id).subscribe(
       data => {
+        this.saving = false;
         this.showMessage();
       },
       error1 => {
+        this.saving = false;
         if (error1.status === 401) {
           this.router.navigate(['/login'], {queryParams: {returnUrl: this.router.routerState.snapshot.url}});
         }
@@ -85,6 +112,31 @@ export class ProductDetailsComponent implements OnInit {
         {duration: 5000})
       .onAction()
       .subscribe(() => this.goToShoppingCart());
+  }
+
+
+  addSlide() {
+    this.slides.push({img: 'http://placehold.it/350x150/777777'});
+  }
+
+  removeSlide() {
+    this.slides.length = this.slides.length - 1;
+  }
+
+  slickInit(e) {
+    console.log('slick initialized');
+  }
+
+  breakpoint(e) {
+    console.log('breakpoint');
+  }
+
+  afterChange(e) {
+    console.log('afterChange');
+  }
+
+  beforeChange(e) {
+    console.log('beforeChange');
   }
 
 }

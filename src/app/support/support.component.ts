@@ -22,6 +22,7 @@ export class SupportComponent implements OnInit {
   private customer: Customer;
   public support: Support = emptySupport;
   private mailTo: string;
+  saving = false;
 
   constructor(
     private customerService: CustomerService,
@@ -56,11 +57,15 @@ export class SupportComponent implements OnInit {
 
   sendMail(form: NgForm) {
     console.log('sendMail()...');
+    this.saving = true;
     this.supportService.sendMail(this.support).subscribe(data => {
+      this.saving = false;
       this.showMessage();
       this.support.mailTitle = '';
       this.support.mailContent = '';
       console.log(`MAIL IS SENT - ${data}`);
+    }, error1 => {
+      this.saving = false;
     });
   }
 

@@ -24,6 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   categories: Category[];
   productFormGroup: FormGroup;
   category: FormControl;
+  saving = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -176,16 +177,20 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   updateProduct(): void {
-    // this.productService.saveProduct(this.product).subscribe(data => {
-    //     this.product = data;
-    //     console.log("updated product");
-    //     console.log(this.product);
-    //     this.product.patchValue(data);
-    //     this.showMessage();
-    //   }
-    // )
+    this.saving = true;
+    this.productService.updateProduct(this.product).subscribe(data => {
+        this.saving = false;
+        this.product = data;
+        console.log('updated product');
+        console.log(this.product);
+        this.productFormGroup.patchValue(data);
+        this.showMessage();
+      },
+      error1 => {
+        this.saving = false;
+      }
+    );
 
-    this.showMessage();
   }
 
   private getProduct() {

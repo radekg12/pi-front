@@ -7,13 +7,14 @@ import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Role} from '../models/role.model';
+import {Customer} from '../models/customer.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   public currentUser: Observable<User>;
-  baseURL = environment.apiUrl;
+  baseURL = `${environment.apiUrl}/auth`;
   private currentUserSubject: BehaviorSubject<User>;
 
   constructor(private http: HttpClient,
@@ -26,8 +27,12 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  register(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(`${this.baseURL}/signup`, customer);
+  }
+
   login(username: string, password: string) {
-    return this.http.post<any>(`${this.baseURL}/auth/signin`, {username, password})
+    return this.http.post<any>(`${this.baseURL}/signin`, {username, password})
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         console.log('auth/signin');

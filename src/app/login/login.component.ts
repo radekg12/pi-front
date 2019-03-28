@@ -11,7 +11,7 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
-  loading = false;
+  saving = false;
   submitted = false;
   returnUrl: string;
   error = '';
@@ -58,12 +58,12 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loading = true;
+    this.saving = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.loading = false;
+          this.saving = false;
           console.log(`navigate to ${this.returnUrl} relative to ${this.route}`);
           this.router.navigate([this.returnUrl]);
           console.log('login success');
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.error = 'Logowanie nie powiodło się, Spróbój jeszcze raz.';
-          this.loading = false;
+          this.saving = false;
           console.log(error);
           console.log('login error');
         });
