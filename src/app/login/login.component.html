@@ -4,7 +4,7 @@
     <div class="login-form-group">
       <mat-form-field appearance="outline">
         <mat-label>Login</mat-label>
-        <input [formControl]="username" matInput placeholder="Login">
+        <input [formControl]="username" matInput placeholder="Login" type="email">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-error *ngIf="username.hasError('required')">
           Wprowadź login

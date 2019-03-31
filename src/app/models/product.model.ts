@@ -8,7 +8,7 @@ export class Product {
   description?: string;
   company?: string;
   quantityInStock?: string;
-  unitPrice: string;
+  unitPrice: number;
   imageUrl?: string;
 
   subcategory?: Subcategory;

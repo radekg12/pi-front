@@ -5,6 +5,9 @@ import {Product} from '../models/product.model';
 import {ShoppingCartService} from '../services/shopping-cart.service';
 import {MatSnackBar} from '@angular/material';
 
+import 'hammerjs';
+// import 'hammer-timejs';
+
 const columns: string[] = ['name', 'detail'];
 
 @Component({
@@ -19,20 +22,11 @@ export class ProductDetailsComponent implements OnInit {
   sub;
   dataSource;
   displayedColumns: string[] = columns;
-  imgLoad = false;
   saving = false;
 
-  slides = [
-    {img: 'http://placehold.it/350x150/000000'},
-    {img: 'http://placehold.it/350x150/111111'},
-    {img: 'http://placehold.it/350x150/333333'},
-    {img: 'http://placehold.it/350x150/666666'},
-    {img: 'http://placehold.it/350x150/000000'},
-    {img: 'http://placehold.it/350x150/111111'},
-    {img: 'http://placehold.it/350x150/333333'},
-    {img: 'http://placehold.it/350x150/666666'}
-  ];
-  slideConfig = {'slidesToShow': 4, 'slidesToScroll': 1};
+  slideConfigLtMd = {'slidesToShow': 2, 'slidesToScroll': 2};
+  slideConfigMd = {'slidesToShow': 3, 'slidesToScroll': 3};
+  slideConfig = {'slidesToShow': 5, 'slidesToScroll': 5};
 
   constructor(
     private route: ActivatedRoute,
@@ -46,9 +40,9 @@ export class ProductDetailsComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       console.log(`producy id = ${this.id}`);
+      this.getProduct();
+      this.getRecommendedProducts();
     });
-    this.getProduct();
-    this.getRecommendedProducts();
   }
 
 
@@ -82,10 +76,6 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  loadImg() {
-    console.log('IMG LOADED');
-  }
-
   addProductToCart() {
     this.saving = true;
     this.shoppingCartService.addProduct(this.id).subscribe(
@@ -114,29 +104,15 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(() => this.goToShoppingCart());
   }
 
+  getSlideConfig() {
+    if (window.innerWidth < 959) {
+      return this.slideConfigLtMd;
+    } else if (window.innerWidth < 1279) {
+      return this.slideConfigMd;
+    } else {
+      return this.slideConfig;
+    }
 
-  addSlide() {
-    this.slides.push({img: 'http://placehold.it/350x150/777777'});
-  }
-
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
-  }
-
-  slickInit(e) {
-    console.log('slick initialized');
-  }
-
-  breakpoint(e) {
-    console.log('breakpoint');
-  }
-
-  afterChange(e) {
-    console.log('afterChange');
-  }
-
-  beforeChange(e) {
-    console.log('beforeChange');
   }
 
 }

@@ -2,6 +2,11 @@
   --charcoal-grey: #4a4f54;
 }
 
+:root * {
+  outline: none;
+  text-decoration: none;
+}
+
 .my-card {
   position: relative;
   display: inline-block;

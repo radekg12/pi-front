@@ -33,6 +33,7 @@ import {LoginComponent} from './login/login.component';
 import {JwtInterceptor} from './JwtInterceptor';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {MySlickCarouselComponent} from './my-slick-carousel/my-slick-carousel.component';
 
 
 registerLocaleData(localePl, 'pl');
@@ -55,7 +56,8 @@ registerLocaleData(localePl, 'pl');
     SupportComponent,
     HomePageComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    MySlickCarouselComponent
   ],
   imports: [
     BrowserModule,

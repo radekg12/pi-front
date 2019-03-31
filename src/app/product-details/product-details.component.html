@@ -10,8 +10,7 @@
   <div class="text-title">{{product.name}}</div>
   <div class="my-card">
     <div class="card__image">
-      <img alt="product image"
-           (load)="loadImg()" [src]="product.imageUrl">
+      <img [src]="product.imageUrl" alt="product image">
     </div>
     <div class="card__details">
       <div class="card__details__description">{{product.description}}
@@ -26,25 +25,30 @@
 </mat-card>
 
 
-<ngx-slick-carousel #slickModal="slick-carousel"
-                    (afterChange)="afterChange($event)"
-                    (beforeChange)="beforeChange($event)"
-                    (breakpoint)="breakpoint($event)"
-                    (init)="slickInit($event)"
-                    [config]="slideConfig"
-                    class="carousel">
-  <div *ngFor="let slide of slides" class="slide" ngxSlickItem>
-    <img alt="" src="{{ slide.img }}" width="100%">
+<div id="recommended-products">
+  <div class="text-title">Najczęściej kupowane z tym produktem:</div>
+  <div>
+    <ngx-slick-carousel #slickModal="slick-carousel"
+                        [config]="getSlideConfig()"
+                        class="carousel">
+
+      <a *ngFor="let product of recommendedProducts" [routerLink]="['/products/detail', product.id]" class="slide"
+         ngxSlickItem>
+        <mat-card>
+          <img [src]="product.imageUrl" mat-card-image>
+          <mat-card-content>{{product.name}}</mat-card-content>
+          <p class="right">
+            {{product.unitPrice | plnCurrency}}
+          </p>
+        </mat-card>
+      </a>
+    </ngx-slick-carousel>
   </div>
-</ngx-slick-carousel>
-
-
+</div>
 
 <div class="text-title">Specyfikacja</div>
 
-
 <mat-card>
-
   <mat-table id="specification" [dataSource]="dataSource">
 
     <!-- Name Column -->

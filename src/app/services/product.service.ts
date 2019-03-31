@@ -45,9 +45,9 @@ export class ProductService implements OnInit {
   }
 
   getRecommendedProducts(productId: number): Observable<Product[]> {
-    const page = 1;
-    const per_page = 5;
-    const sort_by = 'name_desc';
+    const page = 0;
+    const per_page = 8;
+    const sort_by = 'id_desc';
     const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
     return this.http.get<Product[]>(`${this.baseUrl}`, {params: params, headers: header});
   }

@@ -135,6 +135,36 @@
   color: inherit;
 }
 
+.slide {
+  margin: 0 10px;
+}
+
+ngx-slick-carousel {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+ngx-slick-carousel * {
+  outline: none;
+  text-decoration: none;
+}
+
+ngx-slick-carousel .slick-prev:before, ngx-slick-carousel .slick-next:before {
+  color: #4a4f54;
+  font-size: 28px;
+}
+
+.mat-card-content {
+  word-break: break-all;
+  max-height: 3.26em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#recommended-products {
+  margin-top: 45px;
+}
+
 
 @media screen and (max-width: 599px) {
   .my-card {
@@ -151,6 +181,15 @@
   .card__details {
     max-width: 100%;
     padding-left: 0;
+  }
+
+  .slide {
+    margin: 0 5px;
+  }
+
+  ngx-slick-carousel {
+    margin-left: -5px;
+    margin-right: -5px;
   }
 
 }

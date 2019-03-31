@@ -116,4 +116,9 @@ a.disabled {
   height: 1px;
 }
 
+ngx-slick-carousel .slick-prev:before, ngx-slick-carousel .slick-next:before {
+  color: #4a4f54;
+  font-size: 28px;
+}
+
 

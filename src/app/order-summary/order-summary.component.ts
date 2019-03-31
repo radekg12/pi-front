@@ -69,7 +69,7 @@ export class OrderSummaryComponent implements OnInit {
       quantity: 1,
       product: {
         name: `Dostawa - ${this.deliveryType.name}`,
-        unitPrice: `${this.deliveryType.price}`
+        unitPrice: this.deliveryType.price
       }
     };
 

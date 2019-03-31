@@ -62,7 +62,7 @@ export class OrderDetailComponent implements OnInit {
       unitPrice: this.order.deliveryType.price,
       product: {
         name: `Dostawa - ${this.order.deliveryType.name}`,
-        unitPrice: `${this.order.deliveryType.price}`
+        unitPrice: this.order.deliveryType.price
       }
     };
     this.order.orderPositions.push(this.deliveryPosition);
