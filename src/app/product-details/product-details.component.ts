@@ -57,7 +57,7 @@ export class ProductDetailsComponent implements OnInit {
 
   getRecommendedProducts() {
     this.productService.getRecommendedProducts(this.id).subscribe(data => {
-        this.recommendedProducts = data['content'];
+      this.recommendedProducts = data;
 
       }, error1 => {
       }
