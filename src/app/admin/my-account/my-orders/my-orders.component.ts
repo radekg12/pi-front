@@ -1,11 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {
-  MatAutocomplete,
-  MatAutocompleteSelectedEvent,
-  MatChipInputEvent,
-  MatSort,
-  MatTableDataSource
-} from '@angular/material';
+import {MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatSort, MatTableDataSource} from '@angular/material';
 import {Order} from '../../../models/order.model';
 import {OrderStatusCategoryColor} from '../../../models/order-status-category.model';
 import {OrderService} from '../../../services/order.service';
@@ -16,6 +10,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {TitleService} from '../../../services/title.service';
 
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
@@ -48,11 +43,13 @@ export class MyOrdersComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private orderService: OrderService,
-              private orderStatusService: OrderStatusService) {
+              private orderStatusService: OrderStatusService,
+              private titleService: TitleService) {
 
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.getOrders();
     this.getStatuses();
   }

@@ -3,11 +3,12 @@ import {SpecificationPosition} from './specification-position.model';
 
 export class Product {
 
-  id?: string;
+  id: number;
   name: string;
   description?: string;
   company?: string;
-  quantityInStock?: string;
+  logicalQuantityInStock?: string;
+  physicalQuantityInStock?: string;
   unitPrice: number;
   imageUrl?: string;
 

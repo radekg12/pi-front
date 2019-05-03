@@ -40,11 +40,13 @@ body * {
 .right {
   display: flex;
   justify-content: flex-end;
+  align-items: baseline;
 }
 
 .left {
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
 }
 
 button,

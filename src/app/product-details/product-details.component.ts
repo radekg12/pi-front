@@ -6,6 +6,8 @@ import {ShoppingCartService} from '../services/shopping-cart.service';
 import {MatSnackBar} from '@angular/material';
 
 import 'hammerjs';
+import {TitleService} from '../services/title.service';
+import {AuthenticationService} from '../services/authentication.service';
 // import 'hammer-timejs';
 
 const columns: string[] = ['name', 'detail'];
@@ -23,6 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   dataSource;
   displayedColumns: string[] = columns;
   saving = false;
+  noneProductInStack = false;
 
   slideConfigLtMd = {'slidesToShow': 2, 'slidesToScroll': 2};
   slideConfigMd = {'slidesToShow': 3, 'slidesToScroll': 3};
@@ -33,38 +36,23 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router,
     private productService: ProductService,
     private shoppingCartService: ShoppingCartService,
-    public snackBar: MatSnackBar) {
+    public snackBar: MatSnackBar,
+    private titleService: TitleService,
+    private _authenticationService: AuthenticationService) {
+  }
+
+  get authenticationService(): AuthenticationService {
+    return this._authenticationService;
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       console.log(`producy id = ${this.id}`);
       this.getProduct();
       this.getRecommendedProducts();
     });
-  }
-
-
-  getProduct(): void {
-    console.log(`getProduct(${this.id})`);
-    this.productService.getProduct(this.id)
-      .subscribe(
-        data => {
-          console.log('next 1');
-          this.product = data;
-          console.log('next 2');
-          console.log(data);
-          console.log(this.product);
-          this.dataSource = this.product.specificationPositions;
-          console.log('next 3');
-          console.log(this.dataSource);
-        },
-        error1 => {
-          console.log('ERRORRRR');
-          console.log(error1);
-        },
-        () => console.log('COMPLETEEEE'));
   }
 
   getRecommendedProducts() {
@@ -104,6 +92,28 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(() => this.goToShoppingCart());
   }
 
+  getProduct(): void {
+    console.log(`getProduct(${this.id})`);
+    this.productService.getProduct(this.id)
+      .subscribe(
+        data => {
+          console.log('next 1');
+          this.product = data;
+          console.log('next 2');
+          console.log(data);
+          console.log(this.product);
+          this.dataSource = this.product.specificationPositions;
+          this.noneProductInStack = +this.product.logicalQuantityInStock < 0;
+          console.log('next 3');
+          console.log(this.dataSource);
+        },
+        error1 => {
+          console.log('ERRORRRR');
+          console.log(error1);
+        },
+        () => console.log('COMPLETEEEE'));
+  }
+
   getSlideConfig() {
     if (window.innerWidth < 959) {
       return this.slideConfigLtMd;
@@ -112,7 +122,5 @@ export class ProductDetailsComponent implements OnInit {
     } else {
       return this.slideConfig;
     }
-
   }
-
 }

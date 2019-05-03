@@ -10,6 +10,7 @@ import {OrderStatusCategoryAll} from '../../../models/order-status-category-all.
 import {OrderStatusCategoryService} from '../../../services/order-status-category.service';
 import {CustomerService} from '../../../services/customer.service';
 import {Customer} from '../../../models/customer.model';
+import {TitleService} from '../../../services/title.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -36,11 +37,13 @@ export class OrderDetailComponent implements OnInit {
     private orderService: OrderService,
     private orderStatusCategoryService: OrderStatusCategoryService,
     private customerService: CustomerService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private titleService: TitleService
   ) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
@@ -61,6 +64,7 @@ export class OrderDetailComponent implements OnInit {
       quantity: 1,
       unitPrice: this.order.deliveryType.price,
       product: {
+        id: 0,
         name: `Dostawa - ${this.order.deliveryType.name}`,
         unitPrice: this.order.deliveryType.price
       }

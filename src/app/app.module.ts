@@ -30,7 +30,7 @@ import {SupportComponent} from './support/support.component';
 import {SharedModule} from './shared/shared.module';
 import {HomePageComponent} from './home-page/home-page.component';
 import {LoginComponent} from './login/login.component';
-import {JwtInterceptor} from './JwtInterceptor';
+import {JwtInterceptor} from './jwtInterceptor';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {MySlickCarouselComponent} from './my-slick-carousel/my-slick-carousel.component';

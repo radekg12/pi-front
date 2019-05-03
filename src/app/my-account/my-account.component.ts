@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../services/customer.service';
 import {Customer} from '../models/customer.model';
 import {AuthenticationService} from '../services/authentication.service';
+import {TitleService} from '../services/title.service';
 
 @Component({
   selector: 'app-my-account',
@@ -12,10 +13,12 @@ export class MyAccountComponent implements OnInit {
   public customer: Customer;
 
   constructor(private customerService: CustomerService,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.getCustomer();
   }
 

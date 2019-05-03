@@ -24,12 +24,19 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if (currentUser) {
       // check if route is restricted by role
       const token = currentUser.accessToken;
+      console.log('-- token --');
+      console.log(token);
       const helper = new JwtHelperService();
+      console.log('JWThelper');
+      console.log(helper);
+      console.log(helper.decodeToken(token));
+      console.log(helper.getTokenExpirationDate(token));
       const isExpired = helper.isTokenExpired(token);
+      console.log(`isExpired? ${isExpired}`);
       if (isExpired) {
         this.authenticationService.logout();
       }
-      if (route.data.roles && route.data.roles.indexOf(currentUser.userDTO.role.name) === -1) {
+      if (route.data.roles && currentUser.authorities.some(authority => authority.roleName === route.data.roles)) {
         // role not authorised so redirect to home page
         this.router.navigate(['/']);
         return false;

@@ -3,6 +3,7 @@ import {OrderService} from '../../services/order.service';
 import {Order} from '../../models/order.model';
 import {OrderStatusCategoryColor} from '../../models/order-status-category.model';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import {TitleService} from '../../services/title.service';
 
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
@@ -18,10 +19,12 @@ export class MyOrdersComponent implements OnInit {
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.getOrders();
   }
 

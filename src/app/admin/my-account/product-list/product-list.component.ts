@@ -2,8 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {Product} from '../../../models/product.model';
 import {ProductService} from '../../../services/product.service';
+import {TitleService} from '../../../services/title.service';
 
-const columns: string[] = ['id', 'name', 'company', 'quantityInStock', 'unitPrice'];
+const columns: string[] = ['id', 'name', 'company', 'logicalQuantityInStock', 'unitPrice'];
 
 @Component({
   selector: 'app-product-list',
@@ -17,10 +18,12 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   private products: Product[];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.getProducts();
   }
 

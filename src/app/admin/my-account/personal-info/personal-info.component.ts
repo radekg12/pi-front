@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Order} from '../../../models/order.model';
 import {OrderService} from '../../../services/order.service';
 import {OrderStatusCategoryColor} from '../../../models/order-status-category.model';
+import {TitleService} from '../../../services/title.service';
 
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
@@ -40,8 +41,19 @@ export class PersonalInfoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
     private orderService: OrderService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private titleService: TitleService
   ) {
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+    this.getCustomer();
+    this.getOrders();
+    this.configForms();
   }
 
   public get addressGroup(): FormGroup {
@@ -50,10 +62,6 @@ export class PersonalInfoComponent implements OnInit {
 
   get a() {
     return this.addressFormGroup.controls;
-  }
-
-  get companyName() {
-    return this.addressFormGroup.get('companyName');
   }
 
   get firstName() {
@@ -86,15 +94,6 @@ export class PersonalInfoComponent implements OnInit {
 
   get l() {
     return this.loginFormGroup.controls;
-  }
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-    });
-    this.getCustomer();
-    this.getOrders();
-    this.configForms();
   }
 
   getCustomer(): void {
@@ -133,7 +132,6 @@ export class PersonalInfoComponent implements OnInit {
   configForms() {
     this.addressFormGroup = this.formBuilder.group({
       id: ['', Validators.required],
-      companyName: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.pattern(this.phoneNumberRegex)],

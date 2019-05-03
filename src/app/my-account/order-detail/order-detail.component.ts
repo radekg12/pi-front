@@ -5,6 +5,7 @@ import {Order} from '../../models/order.model';
 import {OrderPosition} from '../../models/order-position.model';
 import {OrderStatusCategoryColor} from '../../models/order-status-category.model';
 import {MatTableDataSource} from '@angular/material';
+import {TitleService} from '../../services/title.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -25,11 +26,13 @@ export class OrderDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private titleService: TitleService
   ) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
@@ -48,6 +51,7 @@ export class OrderDetailComponent implements OnInit {
       quantity: 1,
       unitPrice: this.order.deliveryType.price,
       product: {
+        id: 0,
         name: `Dostawa - ${this.order.deliveryType.name}`,
         unitPrice: this.order.deliveryType.price
       }

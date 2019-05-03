@@ -9,7 +9,6 @@
             </button>
           </div>
         </div>
-        <!--<div class="text-title">Produkt nr: {{productId}}</div>-->
         <div class="text-title">Produkt nr:
           <span>
     <mat-form-field>
@@ -48,7 +47,6 @@
 
     <div class="group">
 
-      <!--<div class="text-title">{{product.name}}</div>-->
       <div class="text-title">
         <mat-form-field>
           <input [formControl]="name" matInput placeholder="Nazwa">
@@ -59,7 +57,6 @@
       </div>
 
       <div class="header-all">
-        <!--<div class="text-title">{{product.company}}</div>-->
         <div class="text-description">
           <mat-form-field>
             <input [formControl]="company" matInput placeholder="Marka">
@@ -70,9 +67,19 @@
         </div>
         <div class="text-description">
           <mat-form-field>
-            <input [formControl]="quantityInStock" matInput placeholder="Ilość dostępnych produktów" type="number">
-            <mat-error *ngIf="quantityInStock.hasError('required')">
-              Wprowadź dostępność ilość produktów
+            <input [formControl]="logicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
+                   type="number">
+            <mat-error *ngIf="logicalQuantityInStock.hasError('required')">
+              Wprowadź dostępność ilość produktów w systemie
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="text-description">
+          <mat-form-field>
+            <input [formControl]="physicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w magazynie"
+                   type="number">
+            <mat-error *ngIf="physicalQuantityInStock.hasError('required')">
+              Wprowadź dostępność ilość produktów w magazynie
             </mat-error>
           </mat-form-field>
         </div>
@@ -92,8 +99,7 @@
           </div>
         </div>
         <div class="card__details">
-          <!--<div class="card__details__description">{{product.description}}-->
-          <!--</div>-->
+
           <div class="card__details__description">
             <mat-form-field>
             <textarea [formControl]="description" cdkAutosizeMinRows="14" cdkTextareaAutosize matInput
@@ -103,7 +109,6 @@
               </mat-error>
             </mat-form-field>
           </div>
-          <!--<div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>-->
 
           <div class="card__details__price">
             <mat-form-field>
@@ -114,32 +119,12 @@
             </mat-form-field>
           </div>
 
-          <!--<div class="card__details_button">-->
-          <!--<app-button message="Dodaj do koszyka"></app-button>-->
-          <!--</div>-->
         </div>
 
       </div>
 
 
       <div class="text-title" id="specification-title">Specyfikacja</div>
-      <!--<mat-table [dataSource]="dataSource" id="specification">-->
-
-      <!--&lt;!&ndash; Name Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="name">-->
-      <!--<mat-header-cell *matHeaderCellDef> Name</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--&lt;!&ndash; Detail Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="detail">-->
-      <!--<mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>-->
-      <!--</ng-container>-->
-
-
-      <!--<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
-      <!--</mat-table>-->
 
       <div class="text-title" formArrayName="specificationPositions" id="specification-table">
         <div *ngFor="let spec of specificationPositions.controls; let i=index" [formGroupName]="i">
@@ -171,11 +156,10 @@
       </div>
     </div>
 
-    <app-button [disabled]="productFormGroup.invalid" [type]="'submit'" class="right" message="Zapisz"></app-button>
+    <app-button [disabled]="productFormGroup.invalid || saving" [loading]="saving" [type]="'submit'" class="right"
+                message="Zapisz"></app-button>
   </form>
 </div>
 
-<!--<div>{{productFormGroup.value | json}}</div>-->
-<!--<div>{{category.value | json}}</div>-->
 
 

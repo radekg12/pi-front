@@ -226,6 +226,15 @@ textarea.cdk-textarea-autosize-measuring {
     flex-direction: column;
   }
 
+  .header-all {
+    flex-direction: column;
+  }
+
+  .header-select {
+    justify-content: space-between;
+    width: 100%;
+  }
+
   .card__image {
     max-width: 100%;
     width: 80%;

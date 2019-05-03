@@ -13,6 +13,7 @@ import {CustomersComponent} from './my-account/customers/customers.component';
 import {ProductListComponent} from './my-account/product-list/product-list.component';
 import {ProductDetailsComponent} from './my-account/product-details/product-details.component';
 import {AddProductComponent} from './my-account/add-product/add-product.component';
+import {TitleService} from '../services/title.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AddProductComponent} from './my-account/add-product/add-product.componen
     SharedModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pl'}
+    {provide: LOCALE_ID, useValue: 'pl'},
+    TitleService
   ],
 })
 export class AdminModule {

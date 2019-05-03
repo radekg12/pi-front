@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {Customer} from '../../../models/customer.model';
 import {CustomerService} from '../../../services/customer.service';
+import {TitleService} from '../../../services/title.service';
 
 const columns: string[] = ['id', 'firstName', 'lastName', 'email'];
 
@@ -17,10 +18,12 @@ export class CustomersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   private customers: Customer[];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.getOrders();
   }
 

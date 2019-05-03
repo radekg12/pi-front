@@ -4,6 +4,7 @@ import {PlnCurrencyPipe} from './pln-currency.pipe';
 import {PostcodePipe} from './postcode.pipe';
 import {ButtonComponent} from './button/button.component';
 import {MyCurrencyFormatterDirective} from './my-currency-formatter.directive';
+import {MaterialModule} from '../material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import {MyCurrencyFormatterDirective} from './my-currency-formatter.directive';
     ButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, MaterialModule
   ],
   exports: [
     PlnCurrencyPipe,

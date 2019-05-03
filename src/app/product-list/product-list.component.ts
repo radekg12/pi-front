@@ -3,6 +3,7 @@ import {MatButtonToggleChange, MatPaginator, MatSelectChange, PageEvent} from '@
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {ProductService} from '../services/product.service';
 import {Product} from '../models/product.model';
+import {TitleService} from '../services/title.service';
 
 export interface SortByOption {
   value: string;
@@ -42,11 +43,13 @@ export class ProductListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private titleService: TitleService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.initPaginator();
     console.log(this.route.snapshot);
     this.setParams();

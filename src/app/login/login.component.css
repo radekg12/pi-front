@@ -51,3 +51,7 @@
   color: var(--light-grey);
 }
 
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background: var(--dark-grey);
+}
+

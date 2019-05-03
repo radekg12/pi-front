@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
+import {TitleService} from '../../services/title.service';
 
 
 @Component({
@@ -9,10 +10,12 @@ import {AuthenticationService} from '../../services/authentication.service';
 })
 export class MyAccountComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
   }
 
   logout() {

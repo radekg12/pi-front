@@ -3,6 +3,7 @@ import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../services/authentication.service';
+import {TitleService} from '../services/title.service';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +22,17 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private titleService: TitleService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
+  }
+
+  get rememberMe() {
+    return this.loginFormGroup.get('rememberMe');
   }
 
   get f() {
@@ -42,9 +48,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.loginFormGroup = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      rememberMe: [false]
     });
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -59,7 +67,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.saving = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.loginFormGroup.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -70,7 +78,7 @@ export class LoginComponent implements OnInit {
           console.log(data);
         },
         error => {
-          this.error = 'Logowanie nie powiodło się, Spróbój jeszcze raz.';
+          this.error = 'Email lub hasło jest niepoprawne. Spróbuj  jeszcze raz';
           this.saving = false;
           console.log(error);
           console.log('login error');

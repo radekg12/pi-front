@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DeliveryType} from '../models/delivery-type.model';
 import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
 import {MatTableDataSource} from '@angular/material';
+import {TitleService} from '../services/title.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -22,10 +23,11 @@ export class OrderSummaryComponent implements OnInit {
   private _deliveryType: DeliveryType;
   deliveryPosition: ShoppingCartPosition;
 
-  constructor() {
+  constructor(private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.init();
 
     console.log('deliveryPosition');
     console.log(this.deliveryPosition);
@@ -68,6 +70,7 @@ export class OrderSummaryComponent implements OnInit {
       id: null,
       quantity: 1,
       product: {
+        id: 0,
         name: `Dostawa - ${this.deliveryType.name}`,
         unitPrice: this.deliveryType.price
       }

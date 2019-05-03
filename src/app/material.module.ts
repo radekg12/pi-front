@@ -17,7 +17,9 @@ import {
   MatNativeDateModule,
   MatOptionModule,
   MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatRadioModule,
+  MatRippleModule,
   MatSelectModule,
   MatSnackBarModule,
   MatSortModule,
@@ -50,7 +52,9 @@ import {
     MatRadioModule,
     MatChipsModule,
     MatSortModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    MatRippleModule
   ],
   exports: [
     MatButtonModule,
@@ -75,7 +79,9 @@ import {
     MatRadioModule,
     MatChipsModule,
     MatSortModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule {

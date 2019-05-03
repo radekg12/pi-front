@@ -4,6 +4,7 @@ import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
 import {MatSnackBar} from '@angular/material';
 import {AuthenticationService} from '../services/authentication.service';
 import {User} from '../models/user.model';
+import {TitleService} from '../services/title.service';
 
 const columns = ['name', 'price', 'quantity', 'subtotal'];
 
@@ -23,11 +24,13 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(private shoppingCartService: ShoppingCartService,
               public snackBar: MatSnackBar,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private titleService: TitleService) {
     this.currentUser = this.authenticationService.currentUserValue;
   }
 
   ngOnInit() {
+    this.titleService.init();
     console.log('getProduct');
     this.getProducts();
     console.log('getProduct_2');

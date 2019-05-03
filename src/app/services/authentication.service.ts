@@ -8,6 +8,8 @@ import {environment} from '../../environments/environment';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Role} from '../models/role.model';
 import {Customer} from '../models/customer.model';
+import {Authority} from '../models/authority.model';
+import {Login} from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient,
               private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(this.getToken()));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -31,9 +33,9 @@ export class AuthenticationService {
     return this.http.post<Customer>(`${this.baseURL}/signup`, customer);
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`${this.baseURL}/signin`, {username, password})
-      .pipe(map(user => {
+  login(loginModel: Login) {
+    return this.http.post<any>(`${this.baseURL}/signin`, loginModel)
+      .pipe(map((user: User) => {
         // login successful if there's a jwt token in the response
         console.log('auth/signin');
         console.log(user);
@@ -58,7 +60,7 @@ export class AuthenticationService {
           console.log(` expirationDate: ${expirationDate}; isExpired: ${isExpired}; `);
 
           console.log('save currentUser to localStorage');
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.storeAuthenticationToken(JSON.stringify(user), user.rememberMe);
           console.log('saved');
           this.currentUserSubject.next(user);
         }
@@ -67,20 +69,28 @@ export class AuthenticationService {
       }));
   }
 
-  getToken() {
-    return localStorage.getItem('currentUser');
+  storeAuthenticationToken(user: string, rememberMe: boolean) {
+    if (rememberMe) {
+      localStorage.setItem('currentUser', user);
+    } else {
+      sessionStorage.setItem('currentUser', user);
+    }
   }
 
-  getRoleName() {
-    return this.currentUserValue.userDTO.role.name;
+  getToken() {
+    return localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+  }
+
+  getRoleNames(): Authority[] {
+    return this.currentUserValue.authorities;
   }
 
   isLoggedInAsUser(): boolean {
-    return this.getToken() !== null && this.getRoleName() === Role.User;
+    return this.getToken() !== null && this.getRoleNames().some(authority => authority.roleName === Role.User);
   }
 
   isLoggedInAsAdmin(): boolean {
-    return this.getToken() !== null && this.getRoleName() === Role.Admin;
+    return this.getToken() !== null && this.getRoleNames().some(authority => authority.roleName === Role.Admin);
   }
 
   isLoggedIn(): boolean {
@@ -91,6 +101,7 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     console.log('logout');
     localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['/']);
   }

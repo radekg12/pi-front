@@ -61,9 +61,19 @@
         </div>
         <div class="text-description">
           <mat-form-field>
-            <input [formControl]="quantityInStock" matInput placeholder="Ilość dostępnych produktów" type="number">
-            <mat-error *ngIf="quantityInStock.hasError('required')">
-              Wprowadź dostępną ilość produktów
+            <input [formControl]="logicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
+                   type="number">
+            <mat-error *ngIf="logicalQuantityInStock.hasError('required')">
+              Wprowadź dostępną ilość produktów w systemie
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="text-description">
+          <mat-form-field>
+            <input [formControl]="physicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
+                   type="number">
+            <mat-error *ngIf="physicalQuantityInStock.hasError('required')">
+              Wprowadź dostępną ilość produktów w magazynie
             </mat-error>
           </mat-form-field>
         </div>

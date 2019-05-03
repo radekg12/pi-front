@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../services/authentication.service';
 import {Customer} from '../models/customer.model';
+import {Router} from '@angular/router';
+import {TitleService} from '../services/title.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +21,15 @@ export class SignUpComponent implements OnInit {
   customer: Customer;
 
   constructor(private formBuilder: FormBuilder,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private router: Router,
+              private titleService: TitleService) {
+
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.configSignUpForm();
   }
 
   public get addressGroup(): FormGroup {
@@ -28,10 +38,6 @@ export class SignUpComponent implements OnInit {
 
   get a() {
     return this.signUpFormGroup.controls;
-  }
-
-  get companyName() {
-    return this.signUpFormGroup.get('companyName');
   }
 
   get firstName() {
@@ -66,9 +72,6 @@ export class SignUpComponent implements OnInit {
     return this.addressGroup.get('postcode');
   }
 
-  ngOnInit() {
-    this.configSignUpForm();
-  }
 
   onSubmit(signUpFormGroup: FormGroup) {
     this.saving = true;
@@ -76,6 +79,7 @@ export class SignUpComponent implements OnInit {
     this.authenticationService.register(this.customer).subscribe(
       data => {
         this.saving = false;
+        this.router.navigate(['./login']);
       }, error1 => {
         this.saving = false;
       });
@@ -84,10 +88,9 @@ export class SignUpComponent implements OnInit {
   private configSignUpForm() {
     this.signUpFormGroup = this.formBuilder.group({
       id: [''],
-      companyName: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern(this.phoneNumberRegex)]],
+      phoneNumber: ['', [Validators.pattern(this.phoneNumberRegex)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
       address: this.formBuilder.group({

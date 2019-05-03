@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {ShoppingCartService} from '../services/shopping-cart.service';
 import {ShoppingCartPosition} from '../models/shopping-cart-position.model';
 import {AddressModel} from '../models/address.model';
+import {TitleService} from '../services/title.service';
 
 @Component({
   selector: 'app-payment',
@@ -31,13 +32,21 @@ export class PaymentComponent implements OnInit {
   saving = false;
 
 
-
   constructor(private formBuilder: FormBuilder,
               private paymentMethodService: PaymentMethodService,
               private deliveryTypeService: DeliveryTypeService,
               private paymentService: PaymentService,
               private shoppingCartService: ShoppingCartService,
-              private router: Router) {
+              private router: Router,
+              private titleService: TitleService) {
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.getDeliveryTypes();
+    this.getPaymentMethods();
+    this.configForms();
+    this.getProducts();
   }
 
   get d() {
@@ -54,13 +63,6 @@ export class PaymentComponent implements OnInit {
 
   get s() {
     return this.summaryFormGroup.controls;
-  }
-
-  ngOnInit() {
-    this.getDeliveryTypes();
-    this.getPaymentMethods();
-    this.configForms();
-    this.getProducts();
   }
 
   getProducts() {

@@ -16,46 +16,47 @@ import {AuthGuard} from './guards/auth.guard';
 import {Role} from './models/role.model';
 import {LoginComponent} from './login/login.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
+import {TitleService} from './services/title.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignUpComponent},
-  {path: 'products', component: ProductListComponent},
+  {path: 'login', component: LoginComponent, data: {title: 'Logowanie'}},
+  {path: 'signup', component: SignUpComponent, data: {title: 'Rejestracja'}},
+  {path: 'products', component: ProductListComponent, data: {title: ' Produkty'}},
   {path: 'products/:subcategoryId', component: ProductListComponent},
   {path: 'products/detail/:id', component: ProductDetailsComponent},
   {
     path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard],
-    data: {roles: [Role.User]}
+    data: {roles: [Role.User], title: 'Koszyk'}
   },
   {
     path: 'account', component: MyAccountComponent, canActivate: [AuthGuard],
-    data: {roles: [Role.User]},
+    data: {roles: [Role.User], title: 'Moje konto'},
     children: [
       {path: '', redirectTo: 'personal-info', pathMatch: 'full'},
-      {path: 'personal-info', component: PersonalInfoComponent},
-      {path: 'orders', component: MyOrdersComponent},
+      {path: 'personal-info', component: PersonalInfoComponent, data: {title: 'Dane osobowe'}},
+      {path: 'orders', component: MyOrdersComponent, data: {title: 'Zamówienia'}},
       {path: 'orders/:id', component: OrderDetailComponent}
     ]
   },
   {
     path: 'payment', component: PaymentComponent, canActivate: [AuthGuard],
-    data: {roles: [Role.User]}
+    data: {roles: [Role.User], title: 'Składanie zamówienia'}
   },
   {
     path: 'order-summary', component: OrderSummaryComponent, canActivate: [AuthGuard],
-    data: {roles: [Role.User]}
+    data: {roles: [Role.User], title: 'Podsumowanie'}
   },
   {
     path: 'support', component: SupportComponent, canActivate: [AuthGuard],
-    data: {roles: [Role.User]}
+    data: {roles: [Role.User], title: 'Wsparcie'}
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard],
-    data: {roles: [Role.Admin]}
+    data: {roles: [Role.Admin], title: 'Panel administracyjny'}
   },
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', component: PageNotFoundComponent, data: {title: 'Hurtpol - 404'}}
 ];
 
 @NgModule({
@@ -65,7 +66,8 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [TitleService]
 })
 
 export class AppRoutingModule {

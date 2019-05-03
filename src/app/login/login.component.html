@@ -27,6 +27,8 @@
       </mat-form-field>
     </div>
 
+    <mat-checkbox [formControl]="rememberMe">Zapamiętaj mnie</mat-checkbox>
+
     <div class="login-confirm">
       <mat-error *ngIf="error">{{error}}</mat-error>
       <app-button [disabled]="saving" [loading]="saving" [type]="'submit'" class="right"

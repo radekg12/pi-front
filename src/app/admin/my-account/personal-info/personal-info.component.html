@@ -14,14 +14,6 @@
   <form novalidate [formGroup]="addressFormGroup" (ngSubmit)="onSubmit(addressFormGroup)">
     <div id="address-fields">
       <mat-form-field>
-        <input type="text" matInput placeholder="Nazwa firmy" formControlName="companyName" required maxlength="45">
-        <mat-error
-          *ngIf="companyName.errors?.required && companyName.invalid && (companyName.dirty || companyName.touched)">
-          Wprowadź nazwę firmy
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
         <input type="text" matInput placeholder="Imię" formControlName="firstName" required maxlength="45">
         <mat-error
           *ngIf="firstName.errors?.required && firstName.invalid && (firstName.dirty || firstName.touched)">

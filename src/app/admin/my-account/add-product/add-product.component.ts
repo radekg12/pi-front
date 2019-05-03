@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {MenuService} from '../../../services/menu.service';
 import {MatSnackBar} from '@angular/material';
+import {TitleService} from '../../../services/title.service';
 
 const columns: string[] = ['name', 'detail'];
 
@@ -29,7 +30,12 @@ export class AddProductComponent implements OnInit {
               private formBuilder: FormBuilder,
               private productService: ProductService,
               private menuService: MenuService,
-              public snackBar: MatSnackBar) {
+              public snackBar: MatSnackBar,
+              private titleService: TitleService) {
+  }
+
+  get logicalQuantityInStock() {
+    return this.productFormGroup.get('logicalQuantityInStock');
   }
 
   get id() {
@@ -52,8 +58,14 @@ export class AddProductComponent implements OnInit {
     return this.productFormGroup.get('imageUrl');
   }
 
-  get quantityInStock() {
-    return this.productFormGroup.get('quantityInStock');
+  get physicalQuantityInStock() {
+    return this.productFormGroup.get('physicalQuantityInStock');
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.configForms();
+    this.getCategories();
   }
 
   get unitPrice() {
@@ -66,11 +78,6 @@ export class AddProductComponent implements OnInit {
 
   get subcategory() {
     return this.productFormGroup.get('subcategory');
-  }
-
-  ngOnInit() {
-    this.configForms();
-    this.getCategories();
   }
 
   getCategories(): void {
@@ -91,7 +98,8 @@ export class AddProductComponent implements OnInit {
       company: ['', Validators.required],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
-      quantityInStock: ['', Validators.required],
+      logicalQuantityInStock: ['', Validators.required],
+      physicalQuantityInStock: ['', Validators.required],
       unitPrice: ['', Validators.required],
       subcategory: ['', Validators.required],
       // specificationPositions: this.formBuilder.array([this.initSpecificationPosition()])
@@ -109,7 +117,7 @@ export class AddProductComponent implements OnInit {
 
   initSpecificationPosition(): FormGroup {
     return this.formBuilder.group({
-      id: ['', Validators.required],
+      id: [''],
       name: ['', Validators.required],
       value: ['', Validators.required]
     });
@@ -143,6 +151,12 @@ export class AddProductComponent implements OnInit {
         console.log(this.product);
         this.productFormGroup.patchValue(data);
         this.showMessage();
+        console.log('saved product with id');
+        console.log(this.product.id);
+        if (this.product.id) {
+          console.log('redirect');
+          this.redirectToCreatedProduct();
+        }
       },
       error => {
         this.saving = false;
@@ -153,5 +167,10 @@ export class AddProductComponent implements OnInit {
   private showMessage() {
     this.snackBar
       .open('Dodano nowy produkt', null, {duration: 2000});
+  }
+
+  private redirectToCreatedProduct() {
+    console.log(`redirect to product no ${this.product.id}`);
+    this.router.navigate(['../', this.product.id], {relativeTo: this.route});
   }
 }

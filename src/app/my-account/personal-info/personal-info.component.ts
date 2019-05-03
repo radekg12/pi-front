@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Customer} from '../../models/customer.model';
 import {CustomerService} from '../../services/customer.service';
 import {MatSnackBar} from '@angular/material';
+import {TitleService} from '../../services/title.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -25,19 +26,22 @@ export class PersonalInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
-    private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar,
+    private titleService: TitleService) {
   }
 
   public get addressGroup(): FormGroup {
     return this.addressFormGroup.get('address') as FormGroup;
   }
 
-  get a() {
-    return this.addressFormGroup.controls;
+  ngOnInit() {
+    this.titleService.init();
+    this.configForms();
+    this.getCustomer();
   }
 
-  get companyName() {
-    return this.addressFormGroup.get('companyName');
+  get a() {
+    return this.addressFormGroup.controls;
   }
 
   get firstName() {
@@ -72,11 +76,6 @@ export class PersonalInfoComponent implements OnInit {
     return this.loginFormGroup.controls;
   }
 
-  ngOnInit() {
-    this.configForms();
-    this.getCustomer();
-  }
-
   getCustomer(): void {
     this.customerService.getCustomer().subscribe(data => {
       this.customer = data;
@@ -105,7 +104,6 @@ export class PersonalInfoComponent implements OnInit {
   configForms() {
     this.addressFormGroup = this.formBuilder.group({
       id: ['', Validators.required],
-      companyName: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.pattern(this.phoneNumberRegex)],
@@ -114,7 +112,7 @@ export class PersonalInfoComponent implements OnInit {
         id: [''],
         street: [''],
         city: [''],
-        postcode: ['', [Validators.required, Validators.pattern(this.postcodeRegex)]]
+        postcode: ['', [Validators.pattern(this.postcodeRegex)]]
       })
     });
 

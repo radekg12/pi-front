@@ -11,14 +11,15 @@
         </ul>
         <ul class="right">
           <li>
-            <a (click)="goToPage($event)" [routerLink]="['/support']">Wsparcie</a>
+            <a (click)="goToPage($event)" *ngIf="!authenticationService.isLoggedInAsAdmin()"
+               [routerLink]="['/support']">Wsparcie</a>
           </li>
           <li>
-            <a (click)="goToPage($event)" [routerLink]="['/cart']">Koszyk</a>
+            <a (click)="goToPage($event)" *ngIf="!authenticationService.isLoggedInAsAdmin()" [routerLink]="['/cart']">Koszyk</a>
           </li>
           <li>
             <a (click)="goToPage($event)" *ngIf="authenticationService.isLoggedInAsAdmin()" [routerLink]="['/admin']">
-              Konto
+              Panel administracyjny
             </a>
             <a (click)="goToPage($event)" *ngIf="authenticationService.isLoggedInAsUser()" [routerLink]="['/account']">
               Konto

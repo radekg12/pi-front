@@ -17,7 +17,11 @@
       </div>
       <div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>
       <div (click)="addProductToCart()" class="card__details_button">
-        <app-button [disabled]="saving" [loading]="saving" message="Dodaj do koszyka"></app-button>
+        <app-button [disabled]="saving || noneProductInStack || authenticationService.isLoggedInAsAdmin()"
+                    [loading]="saving" message="Dodaj do koszyka"></app-button>
+        <div *ngIf="noneProductInStack" class="text-description button-info">Produkt chwilowo
+          niedostępny
+        </div>
       </div>
     </div>
 
@@ -25,7 +29,7 @@
 </mat-card>
 
 
-<div id="recommended-products">
+<div *ngIf="recommendedProducts?.length > 0" id="recommended-products">
   <div class="text-title">Najczęściej kupowane z tym produktem:</div>
   <div>
     <ngx-slick-carousel #slickModal="slick-carousel"
@@ -46,27 +50,29 @@
   </div>
 </div>
 
-<div class="text-title">Specyfikacja</div>
+<div *ngIf="dataSource?.length > 0">
+  <div class="text-title">Specyfikacja</div>
 
-<mat-card>
-  <mat-table id="specification" [dataSource]="dataSource">
+  <mat-card>
+    <mat-table [dataSource]="dataSource" id="specification">
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+      </ng-container>
 
-    <!-- Detail Column -->
-    <ng-container matColumnDef="detail">
-      <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>
-    </ng-container>
+      <!-- Detail Column -->
+      <ng-container matColumnDef="detail">
+        <mat-header-cell *matHeaderCellDef> Detail</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>
+      </ng-container>
 
 
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-</mat-card>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-card>
+</div>
 
 
 

@@ -1,5 +1,5 @@
 export class SpecificationPosition {
-  id: string;
+  id?: string;
   name: string;
   value: string;
 }

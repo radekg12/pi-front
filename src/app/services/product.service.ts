@@ -32,11 +32,11 @@ export class ProductService implements OnInit {
   }
 
   public createProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.baseUrl}/detail`, product);
+    return this.http.post<Product>(`${this.baseUrl}`, product);
   }
 
   public updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.baseUrl}/detail`, product);
+    return this.http.put<Product>(`${this.baseUrl}`, product);
   }
 
 
@@ -45,13 +45,8 @@ export class ProductService implements OnInit {
   }
 
   getRecommendedProducts(productId: number): Observable<Product[]> {
-    const page = 0;
-    const per_page = 8;
-    const sort_by = 'id_desc';
-    const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
-    return this.http.get<Product[]>(`${this.baseUrl}`, {params: params, headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/${productId}/recommendation`);
   }
-
 
   getAllProductsBySubcategory(subcategoryId: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`, {headers: header});

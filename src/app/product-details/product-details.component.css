@@ -165,6 +165,11 @@ ngx-slick-carousel .slick-prev:before, ngx-slick-carousel .slick-next:before {
   margin-top: 45px;
 }
 
+.text-description.button-info {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
 
 @media screen and (max-width: 599px) {
   .my-card {

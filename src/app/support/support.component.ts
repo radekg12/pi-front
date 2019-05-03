@@ -5,6 +5,7 @@ import {Support} from '../models/support.model';
 import {Customer} from '../models/customer.model';
 import {MatSnackBar} from '@angular/material';
 import {NgForm} from '@angular/forms';
+import {TitleService} from '../services/title.service';
 
 const emptySupport: Support = {
   mailFrom: '',
@@ -27,11 +28,13 @@ export class SupportComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private supportService: SupportService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private titleService: TitleService
   ) {
   }
 
   ngOnInit() {
+    this.titleService.init();
     this.support.mailTitle = 'Prośba o wsparcie';
     this.getMail();
     this.getCustomer();

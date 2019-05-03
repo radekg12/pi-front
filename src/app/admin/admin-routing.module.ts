@@ -15,33 +15,33 @@ const routes: Routes = [
     path: '', redirectTo: 'account', pathMatch: 'full'
   },
   {
-  path: 'account', component: MyAccountComponent,
-  children: [
-    {
-      path: '', redirectTo: 'orders', pathMatch: 'full'
-    },
-    {
-      path: 'personal-info', component: CustomersComponent
-    },
-    {
-      path: 'personal-info/:id', component: PersonalInfoComponent
-    },
-    {
-      path: 'orders', component: MyOrdersComponent
-    },
-    {
-      path: 'orders/:id', component: OrderDetailComponent
-    },
-    {
-      path: 'products', component: ProductListComponent
-    },
-    {
-      path: 'products/new', component: AddProductComponent
-    },
-    {
-      path: 'products/:id', component: ProductDetailsComponent
-    },
-  ]
+    path: 'account', component: MyAccountComponent, data: {title: 'Panel administracyjny'},
+    children: [
+      {
+        path: '', redirectTo: 'orders', pathMatch: 'full'
+      },
+      {
+        path: 'personal-info', component: CustomersComponent, data: {title: 'Klienci'}
+      },
+      {
+        path: 'personal-info/:id', component: PersonalInfoComponent
+      },
+      {
+        path: 'orders', component: MyOrdersComponent, data: {title: 'Zamówienia'}
+      },
+      {
+        path: 'orders/:id', component: OrderDetailComponent
+      },
+      {
+        path: 'products', component: ProductListComponent, data: {title: 'Produkty'}
+      },
+      {
+        path: 'products/new', component: AddProductComponent, data: {title: 'Dodaj nowy produkt'}
+      },
+      {
+        path: 'products/:id', component: ProductDetailsComponent
+      },
+    ]
   }];
 
 @NgModule({
