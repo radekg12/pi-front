@@ -19,12 +19,12 @@ export class ProductListComponent implements OnInit {
 
   pageSizeOptions: number[] = [4, 8, 16];
   sortByOptions: SortByOption[] = [
-    {value: 'unitPrice_asc', viewValue: 'Cena: od najniższej'},
-    {value: 'unitPrice_desc', viewValue: 'Cena: od najwyższej'},
-    {value: 'name_asc', viewValue: 'Nazwa: A-Z'},
-    {value: 'name_desc', viewValue: 'Nazwa: Z-A'},
-    {value: 'company_asc', viewValue: 'Marka: A-Z'},
-    {value: 'company_desc', viewValue: 'Marka: Z-A'}
+    {value: 'unitPrice,asc', viewValue: 'Cena: od najniższej'},
+    {value: 'unitPrice,desc', viewValue: 'Cena: od najwyższej'},
+    {value: 'name,asc', viewValue: 'Nazwa: A-Z'},
+    {value: 'name,desc', viewValue: 'Nazwa: Z-A'},
+    {value: 'company,asc', viewValue: 'Marka: A-Z'},
+    {value: 'company,desc', viewValue: 'Marka: Z-A'}
   ];
   defaultPage = 0;
   defaultPageSize: number = this.pageSizeOptions[1];
@@ -35,6 +35,7 @@ export class ProductListComponent implements OnInit {
   totalElements = 0;
   sortBy: string = this.defaultSortBy;
   subcategoryId: number;
+  categoryId: number;
   pageEvent: PageEvent;
   paramMap: ParamMap;
   sub;
@@ -58,6 +59,7 @@ export class ProductListComponent implements OnInit {
   setParams() {
     this.sub = this.route.params.subscribe(params => {
       this.subcategoryId = +params['subcategoryId'];
+      this.categoryId = +params['categoryId'];
       console.log(`producy id = ${this.subcategoryId}`);
     });
 
@@ -66,30 +68,38 @@ export class ProductListComponent implements OnInit {
       (params: ParamMap) => {
         console.log('** SET_PARAMS(-1-) **');
         console.log(params);
-        console.log(`page=${+params.get('page')} size=${+params.get('per_page')} sort=${params.get('sort_by')}`);
+        console.log(`page=${+params.get('page')} size=${+params.get('size')} sort=${params.get('sort')}`);
 
         this.currentPage = +params.get('page') || this.defaultPage + 1;
         this.currentPage--;
-        this.pageSize = +params.get('per_page') || this.defaultPageSize;
-        this.sortBy = params.get('sort_by') || this.defaultSortBy;
+        this.pageSize = +params.get('size') || this.defaultPageSize;
+        this.sortBy = params.get('sort') || this.defaultSortBy;
 
         console.log('** SET_PARAMS(-2-) **');
-        console.log(`page: ${this.currentPage}, per_page: ${this.pageSize}, sort_by: ${this.sortBy}`);
+        console.log(`page: ${this.currentPage}, size: ${this.pageSize}, sort: ${this.sortBy}`);
         console.log(this.route.snapshot);
         this.getProducts();
 
       });
   }
 
-  deleteUser(product: Product): void {
+  deleteProduct(product: Product): void {
     this.productService.deleteProduct(product).subscribe(data => {
       this.products = this.products.filter(u => u !== product);
     });
   }
 
   getProducts(): void {
+    if (this.subcategoryId) {
+      this.getProductsBySubcategory();
+    } else if (this.categoryId) {
+      this.getProductsByCategory();
+    }
+  }
+
+  getProductsBySubcategory(): void {
     console.log('GET_PRODUCTS()');
-    this.productService.getProductss(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
+    this.productService.getProductsBySubcategory(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
       data => {
         console.log('NEXT');
         this.products = data['content'];
@@ -98,6 +108,18 @@ export class ProductListComponent implements OnInit {
         this.pageSize = data['size'];
         console.log('GET_PRODUCT()');
         console.log(data['content']);
+      },
+      () => console.log('ERRRORRRRRRRR'),
+      () => console.log('COMPLETE'));
+  }
+
+  getProductsByCategory(): void {
+    this.productService.getProductsByCategory(this.categoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
+      data => {
+        this.products = data['content'];
+        this.totalElements = data['totalElements'];
+        this.currentPage = data['number'];
+        this.pageSize = data['size'];
       },
       () => console.log('ERRRORRRRRRRR'),
       () => console.log('COMPLETE'));
@@ -137,7 +159,7 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['./'], {
       queryParams: {
         page: null,
-        sort_by: $event.value === this.defaultSortBy ? null : $event.value,
+        sort: $event.value === this.defaultSortBy ? null : $event.value,
       },
       queryParamsHandling: 'merge',
       relativeTo: this.route
@@ -162,7 +184,7 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['./'], {
       queryParams: {
         page: null,
-        per_page: event.pageSize === this.defaultPageSize ? null : event.pageSize,
+        size: event.pageSize === this.defaultPageSize ? null : event.pageSize,
       },
       queryParamsHandling: 'merge',
       relativeTo: this.route

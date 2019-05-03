@@ -54,18 +54,23 @@ export class ProductService implements OnInit {
 
   getProducts(event?: PageEvent): Observable<Product[]> {
     if (event) {
-      return this.getProductss(event.pageIndex, event.pageSize);
+      return this.getProductsBySubcategory(event.pageIndex, event.pageSize);
     } else {
-      return this.getProductss();
+      return this.getProductsBySubcategory();
     }
 
   }
 
-  getProductss(subcategoryId?: number, page?: number, per_page?: number, sort_by?: string): Observable<Product[]> {
-    const params: HttpParams = this.createHttpParams({page, per_page, sort_by});
+  getProductsBySubcategory(subcategoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
+    const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
     console.log('+++ HTTP.get<Product[]> : ');
     console.log({url: this.baseUrl, params: params});
     return this.http.get<Product[]>(`${this.baseUrl}/${subcategoryId || ''}`, {params: params, headers: header});
+  }
+
+  getProductsByCategory(categoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
+    const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
+    return this.http.get<Product[]>(`${this.baseUrl}/category/${categoryId || ''}`, {params: params, headers: header});
   }
 
   createHttpParams(params: {}): HttpParams {

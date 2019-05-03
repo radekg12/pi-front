@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: 'signup', component: SignUpComponent, data: {title: 'Rejestracja'}},
   {path: 'products', component: ProductListComponent, data: {title: ' Produkty'}},
   {path: 'products/:subcategoryId', component: ProductListComponent},
+  {path: 'products/category/:categoryId', component: ProductListComponent},
   {path: 'products/detail/:id', component: ProductDetailsComponent},
   {
     path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard],
