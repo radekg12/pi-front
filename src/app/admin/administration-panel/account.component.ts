@@ -5,12 +5,12 @@ import {TitleService} from '../../services/title.service';
 
 @Component({
   selector: 'app-my-account',
-  templateUrl: './my-account.component.html',
-  styleUrls: ['./my-account.component.css']
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class MyAccountComponent implements OnInit {
+export class AccountComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(private _authenticationService: AuthenticationService,
               private titleService: TitleService) {
   }
 
@@ -18,7 +18,11 @@ export class MyAccountComponent implements OnInit {
     this.titleService.init();
   }
 
+  get authenticationService(): AuthenticationService {
+    return this._authenticationService;
+  }
+
   logout() {
-    this.authenticationService.logout();
+    this._authenticationService.logout();
   }
 }

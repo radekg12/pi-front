@@ -16,10 +16,10 @@ const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name
 
 @Component({
   selector: 'app-my-orders',
-  templateUrl: './my-orders.component.html',
-  styleUrls: ['./my-orders.component.css']
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.css']
 })
-export class MyOrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit {
   displayedColumns: string[] = columns;
   orders: Order[];
   colors = OrderStatusCategoryColor;

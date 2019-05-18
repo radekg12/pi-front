@@ -11,6 +11,7 @@ import {OrderStatusCategoryService} from '../../../services/order-status-categor
 import {CustomerService} from '../../../services/customer.service';
 import {Customer} from '../../../models/customer.model';
 import {TitleService} from '../../../services/title.service';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -38,7 +39,8 @@ export class OrderDetailComponent implements OnInit {
     private orderStatusCategoryService: OrderStatusCategoryService,
     private customerService: CustomerService,
     public snackBar: MatSnackBar,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private authService: AuthenticationService
   ) {
   }
 
@@ -49,7 +51,9 @@ export class OrderDetailComponent implements OnInit {
     });
     this.getCategories();
     this.getOrder();
-    this.getCustomer();
+    if (this.authService.isLoggedInAsAdmin()) {
+      this.getCustomer();
+    }
   }
 
   getTotalCost() {

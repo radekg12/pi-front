@@ -8,7 +8,6 @@ import {MatSnackBar} from '@angular/material';
 import 'hammerjs';
 import {TitleService} from '../services/title.service';
 import {AuthenticationService} from '../services/authentication.service';
-// import 'hammer-timejs';
 
 const columns: string[] = ['name', 'detail'];
 

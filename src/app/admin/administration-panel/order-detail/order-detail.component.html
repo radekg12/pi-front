@@ -56,10 +56,10 @@
   <mat-row *matRowDef="let row; columns: ordersColumns;"></mat-row>
 </mat-table>
 
-<div class="other_details">
+<div *ngIf="customer" class="other_details">
   <div>
     <div class="bold">Zamawiający:</div>
-    <a [routerLink]="['../../personal-info/', customer.id]">{{customer.firstName}} {{customer.lastName}}</a>
+    <a [routerLink]="['../../personal-info/', customer.id]">{{customer?.firstName}} {{customer?.lastName}}</a>
   </div>
 </div>
 <div class="other_details">

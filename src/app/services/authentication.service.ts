@@ -47,6 +47,7 @@ export class AuthenticationService {
           const token = user.accessToken;
           const helper = new JwtHelperService();
 
+          const authorities: string[] = (helper.decodeToken(token)['auth'] as string).split(',');
           const decodedToken = helper.decodeToken(token);
 
 // Other functions
@@ -91,6 +92,10 @@ export class AuthenticationService {
 
   isLoggedInAsAdmin(): boolean {
     return this.getToken() !== null && this.getRoleNames().some(authority => authority.roleName === Role.Admin);
+  }
+
+  isLoggedInAsWorker(): boolean {
+    return this.getToken() !== null && this.getRoleNames().some(authority => authority.roleName === Role.Worker);
   }
 
   isLoggedIn(): boolean {

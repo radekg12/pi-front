@@ -6,7 +6,7 @@ import {User} from './models/user.model';
 
 
 @Injectable()
-export class JwtInterceptor implements HttpInterceptor {
+export class JwtAuthorizationInterceptor implements HttpInterceptor {
   constructor(private authApiService: AuthenticationService) {
   }
 

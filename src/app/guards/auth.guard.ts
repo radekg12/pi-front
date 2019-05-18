@@ -30,6 +30,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       console.log('JWThelper');
       console.log(helper);
       console.log(helper.decodeToken(token));
+      const authorities: string[] = (helper.decodeToken(token)['auth'] as string).split(',');
+      console.log(authorities);
       console.log(helper.getTokenExpirationDate(token));
       const isExpired = helper.isTokenExpired(token);
       console.log(`isExpired? ${isExpired}`);

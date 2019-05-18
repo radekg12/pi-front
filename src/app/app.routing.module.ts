@@ -23,10 +23,10 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent, data: {title: 'Logowanie'}},
   {path: 'signup', component: SignUpComponent, data: {title: 'Rejestracja'}},
-  {path: 'products', component: ProductListComponent, data: {title: ' Produkty'}},
-  {path: 'products/:subcategoryId', component: ProductListComponent},
-  {path: 'products/category/:categoryId', component: ProductListComponent},
-  {path: 'products/detail/:id', component: ProductDetailsComponent},
+  {path: 'products', component: ProductListComponent, data: {title: ' Produkty', animation: 'ProductListPage'}},
+  {path: 'products/:subcategoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
+  {path: 'products/category/:categoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
+  {path: 'products/detail/:id', component: ProductDetailsComponent, data: {animation: 'ProductDetailsPage'}},
   {
     path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard],
     data: {roles: [Role.User], title: 'Koszyk'}
@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard],
-    data: {roles: [Role.Admin], title: 'Panel administracyjny'}
+    data: {roles: [Role.Admin, Role.Worker], title: 'Panel administracyjny'}
   },
   {path: '**', component: PageNotFoundComponent, data: {title: 'Hurtpol - 404'}}
 ];

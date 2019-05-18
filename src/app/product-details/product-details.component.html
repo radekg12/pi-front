@@ -1,9 +1,9 @@
 <div id="breadcrumbs">
   <a [routerLink]="['/products']" class="breadcrumbs">Produkty</a>
   <span class="breadcrumbs">/</span>
-  <a [routerLink]="['/products', product.subcategory.id]" class="breadcrumbs">{{product.subcategory.name}}</a>
+  <a [routerLink]="['/products', product?.subcategory?.id]" class="breadcrumbs">{{product.subcategory.name}}</a>
   <span class="breadcrumbs">/</span>
-  <a class="breadcrumbs active">{{product.name}}</a>
+  <a class="breadcrumbs active">{{product?.name}}</a>
 </div>
 
 <mat-card>
@@ -17,8 +17,9 @@
       </div>
       <div class="card__details__price">{{product.unitPrice | plnCurrency}}</div>
       <div (click)="addProductToCart()" class="card__details_button">
-        <app-button [disabled]="saving || noneProductInStack || authenticationService.isLoggedInAsAdmin()"
-                    [loading]="saving" message="Dodaj do koszyka"></app-button>
+        <app-button
+          [disabled]="saving || noneProductInStack || authenticationService.isLoggedInAsAdmin() || authenticationService.isLoggedInAsWorker()"
+          [loading]="saving" message="Dodaj do koszyka"></app-button>
         <div *ngIf="noneProductInStack" class="text-description button-info">Produkt chwilowo
           niedostępny
         </div>
@@ -36,7 +37,7 @@
                         [config]="getSlideConfig()"
                         class="carousel">
 
-      <a *ngFor="let product of recommendedProducts" [routerLink]="['/products/detail', product.id]" class="slide"
+      <a *ngFor="let product of recommendedProducts" [routerLink]="['/products/detail', product?.id]" class="slide"
          ngxSlickItem>
         <mat-card>
           <img [src]="product.imageUrl" mat-card-image>

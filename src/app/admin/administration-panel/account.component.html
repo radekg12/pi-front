@@ -1,5 +1,8 @@
 <div class="logout">
-<div class="text-title">Panel Administratora</div>
+  <div *ngIf="authenticationService.isLoggedInAsAdmin()" class="text-title">Panel Administratora</div>
+  <div *ngIf="authenticationService.isLoggedInAsWorker() && !authenticationService.isLoggedInAsAdmin()"
+       class="text-title">Panel Pracownika
+  </div>
   <span>
         <mat-icon (click)="logout()">power_settings_new</mat-icon>
 </span>
@@ -15,8 +18,8 @@
       <mat-divider></mat-divider>
 
       <ul>
-        <li><a [routerLink]="['./personal-info']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
-true}">Klienci</a></li>
+        <li *ngIf="authenticationService.isLoggedInAsAdmin()"><a [routerLinkActiveOptions]="{exact:
+true}" [routerLinkActive]="['active']" [routerLink]="['./personal-info']">Klienci</a></li>
         <li><a [routerLink]="['./orders']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
 true}">Zamówienia</a></li>
         <li><a [routerLink]="['./products']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:

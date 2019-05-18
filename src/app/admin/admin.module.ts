@@ -2,25 +2,25 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {AdminRoutingModule} from './admin-routing.module';
-import {PersonalInfoComponent} from './my-account/personal-info/personal-info.component';
-import {MyOrdersComponent} from './my-account/my-orders/my-orders.component';
-import {OrderDetailComponent} from './my-account/order-detail/order-detail.component';
-import {MyAccountComponent} from './my-account/my-account.component';
+import {PersonalInfoComponent} from './administration-panel/personal-info/personal-info.component';
+import {OrdersComponent} from './administration-panel/my-orders/orders.component';
+import {OrderDetailComponent} from './administration-panel/order-detail/order-detail.component';
+import {AccountComponent} from './administration-panel/account.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material.module';
 import {SharedModule} from '../shared/shared.module';
-import {CustomersComponent} from './my-account/customers/customers.component';
-import {ProductListComponent} from './my-account/product-list/product-list.component';
-import {ProductDetailsComponent} from './my-account/product-details/product-details.component';
-import {AddProductComponent} from './my-account/add-product/add-product.component';
+import {CustomersComponent} from './administration-panel/customers/customers.component';
+import {ProductListComponent} from './administration-panel/product-list/product-list.component';
+import {ProductDetailsComponent} from './administration-panel/product-details/product-details.component';
+import {AddProductComponent} from './administration-panel/add-product/add-product.component';
 import {TitleService} from '../services/title.service';
 
 @NgModule({
   declarations: [
-    MyOrdersComponent,
+    OrdersComponent,
     OrderDetailComponent,
     PersonalInfoComponent,
-    MyAccountComponent,
+    AccountComponent,
     CustomersComponent,
     ProductListComponent,
     ProductDetailsComponent,

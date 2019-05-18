@@ -30,7 +30,7 @@ import {SupportComponent} from './support/support.component';
 import {SharedModule} from './shared/shared.module';
 import {HomePageComponent} from './home-page/home-page.component';
 import {LoginComponent} from './login/login.component';
-import {JwtInterceptor} from './jwtInterceptor';
+import {JwtAuthorizationInterceptor} from './jwt-authorization.interceptor';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {MySlickCarouselComponent} from './my-slick-carousel/my-slick-carousel.component';
@@ -76,7 +76,7 @@ registerLocaleData(localePl, 'pl');
   providers: [
     ProductService,
     {provide: LOCALE_ID, useValue: 'pl'},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtAuthorizationInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
