@@ -1,0 +1,1026 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>portal-app documentation</title>
+  <meta content="" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <a class="navbar-brand" href="../">portal-app documentation</a>
+  <button class="btn btn-default btn-menu ion-ios-menu" id="btn-menu" type="button"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+  <div id="book-search-input" role="search"><input placeholder="Type to search" type="text"></div>
+  <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+  <div class="row main">
+    <div class="hidden-xs menu">
+      <compodoc-menu mode="normal"></compodoc-menu>
+    </div>
+    <!-- START CONTENT -->
+    <div class="content injectable">
+      <div class="content-data">
+
+
+        <ol class="breadcrumb">
+          <li>Injectables</li>
+          <li>AuthenticationService</li>
+        </ol>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a data-link="info" data-toggle="tab" href="#info" id="info-tab" role="tab">Info</a>
+          </li>
+          <li>
+            <a data-link="source" data-toggle="tab" href="#source" id="source-tab" role="tab">Source</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="c-info">
+            <p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+              <code>src/app/services/authentication.service.ts</code>
+            </p>
+
+
+            <section>
+              <h3 id="index">Index</h3>
+              <table class="table table-sm table-bordered index-table">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Properties</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#baseURL">baseURL</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Public</span>
+                        <a href="#currentUser">currentUser</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#currentUserSubject">currentUserSubject</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Methods</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#getRoleNames">getRoleNames</a>
+                      </li>
+                      <li>
+                        <a href="#getToken">getToken</a>
+                      </li>
+                      <li>
+                        <a href="#isLoggedIn">isLoggedIn</a>
+                      </li>
+                      <li>
+                        <a href="#isLoggedInAsAdmin">isLoggedInAsAdmin</a>
+                      </li>
+                      <li>
+                        <a href="#isLoggedInAsUser">isLoggedInAsUser</a>
+                      </li>
+                      <li>
+                        <a href="#isLoggedInAsWorker">isLoggedInAsWorker</a>
+                      </li>
+                      <li>
+                        <a href="#login">login</a>
+                      </li>
+                      <li>
+                        <a href="#logout">logout</a>
+                      </li>
+                      <li>
+                        <a href="#register">register</a>
+                      </li>
+                      <li>
+                        <a href="#storeAuthenticationToken">storeAuthenticationToken</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Accessors</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#currentUserValue">currentUserValue</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="constructor">Constructor</h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>,
+                      router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="20" href="">src/app/services/authentication.service.ts:20</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <div>
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>http</td>
+
+                          <td>
+                            <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td>router</td>
+
+                          <td>
+                            <code><a href="https://angular.io/api/router/Router" target="_blank">Router</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+
+              <h3 id="methods">
+                Methods
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getRoleNames"></a>
+                    <span class="name">
+                        <b>
+                            getRoleNames
+                        </b>
+                        <a href="#getRoleNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getRoleNames()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="85"
+                                                       href="">src/app/services/authentication.service.ts:85</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="../classes/Authority.html" target="_self">Authority[]</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getToken"></a>
+                    <span class="name">
+                        <b>
+                            getToken
+                        </b>
+                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getToken()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="81"
+                                                       href="">src/app/services/authentication.service.ts:81</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">any</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="isLoggedIn"></a>
+                    <span class="name">
+                        <b>
+                            isLoggedIn
+                        </b>
+                        <a href="#isLoggedIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>isLoggedIn()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="101"
+                                                       href="">src/app/services/authentication.service.ts:101</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                      target="_blank">boolean</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="isLoggedInAsAdmin"></a>
+                    <span class="name">
+                        <b>
+                            isLoggedInAsAdmin
+                        </b>
+                        <a href="#isLoggedInAsAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>isLoggedInAsAdmin()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="93"
+                                                       href="">src/app/services/authentication.service.ts:93</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                      target="_blank">boolean</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="isLoggedInAsUser"></a>
+                    <span class="name">
+                        <b>
+                            isLoggedInAsUser
+                        </b>
+                        <a href="#isLoggedInAsUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>isLoggedInAsUser()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="89"
+                                                       href="">src/app/services/authentication.service.ts:89</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                      target="_blank">boolean</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="isLoggedInAsWorker"></a>
+                    <span class="name">
+                        <b>
+                            isLoggedInAsWorker
+                        </b>
+                        <a href="#isLoggedInAsWorker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>isLoggedInAsWorker()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="97"
+                                                       href="">src/app/services/authentication.service.ts:97</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                      target="_blank">boolean</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <b>
+                            login
+                        </b>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>login(loginModel: <a href="../classes/Login.html">Login</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="36"
+                                                       href="">src/app/services/authentication.service.ts:36</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>loginModel</td>
+                          <td>
+                            <code><a href="../classes/Login.html" target="_self">Login</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">any</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>logout()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="105"
+                                                       href="">src/app/services/authentication.service.ts:105</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="register"></a>
+                    <span class="name">
+                        <b>
+                            register
+                        </b>
+                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>register(customer: <a href="../classes/Customer.html">Customer</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="32"
+                                                       href="">src/app/services/authentication.service.ts:32</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>customer</td>
+                          <td>
+                            <code><a href="../classes/Customer.html" target="_self">Customer</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="../classes/Customer.html" target="_self">Observable&lt;Customer&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="storeAuthenticationToken"></a>
+                    <span class="name">
+                        <b>
+                            storeAuthenticationToken
+                        </b>
+                        <a href="#storeAuthenticationToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>storeAuthenticationToken(user: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a>, rememberMe: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                      target="_blank">boolean</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="73"
+                                                       href="">src/app/services/authentication.service.ts:73</a></div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>user</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                              target="_blank">string</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        <tr>
+                          <td>rememberMe</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"
+                              target="_blank">boolean</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+            <section>
+
+              <h3 id="inputs">
+                Properties
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="baseURL"></a>
+                    <span class="name">
+                            <b>
+                            baseURL</b>
+                            <a href="#baseURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>&#x60;${environment.apiUrl}/auth&#x60;</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="19" href="">src/app/services/authentication.service.ts:19</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="currentUser"></a>
+                    <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            currentUser</b>
+                            <a href="#currentUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a href="../classes/User.html" target="_self">Observable&lt;User&gt;</a></code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="18" href="">src/app/services/authentication.service.ts:18</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="currentUserSubject"></a>
+                    <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            currentUserSubject</b>
+                            <a href="#currentUserSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a href="../classes/User.html"
+                                            target="_self">BehaviorSubject&lt;User&gt;</a></code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="20" href="">src/app/services/authentication.service.ts:20</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="accessors">
+                Accessors
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="currentUserValue"></a>
+                    <span class="name"><b>currentUserValue</b><a href="#currentUserValue"><span
+                      class="icon ion-ios-link"></span></a></span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <span class="accessor"><b>get</b><code>currentUserValue()</code></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="28" href="">src/app/services/authentication.service.ts:28</a>
+                    </div>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </section>
+          </div>
+
+
+          <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {BehaviorSubject, Observable} from &#x27;rxjs&#x27;;
+import {User} from &#x27;../models/user.model&#x27;;
+import {HttpClient} from &#x27;@angular/common/http&#x27;;
+import {map} from &#x27;rxjs/operators&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import {environment} from &#x27;../../environments/environment&#x27;;
+import {JwtHelperService} from &#x27;@auth0/angular-jwt&#x27;;
+import {Role} from &#x27;../models/role.model&#x27;;
+import {Customer} from &#x27;../models/customer.model&#x27;;
+import {Authority} from &#x27;../models/authority.model&#x27;;
+import {Login} from &#x27;../models/login.model&#x27;;
+
+@Injectable({
+          providedIn: &#x27;root&#x27;
+})
+export class AuthenticationService {
+          public currentUser: Observable&lt;User&gt;;
+  baseURL &#x3D; &#x60;${environment.apiUrl}/auth&#x60;;
+  private currentUserSubject: BehaviorSubject&lt;User&gt;;
+
+  constructor(private http: HttpClient,
+              private router: Router) {
+    this.currentUserSubject &#x3D; new BehaviorSubject&lt;User&gt;(JSON.parse(this.getToken()));
+    this.currentUser &#x3D; this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  register(customer: Customer): Observable&lt;Customer&gt; {
+    return this.http.post&lt;Customer&gt;(&#x60;${this.baseURL}/signup&#x60;, customer);
+  }
+
+  login(loginModel: Login) {
+    return this.http.post&lt;any&gt;(&#x60;${this.baseURL}/signin&#x60;, loginModel)
+      .pipe(map((user: User) &#x3D;&gt; {
+          // login successful if there&#x27;s a jwt token in the response
+        console.log(&#x27;auth/signin&#x27;);
+        console.log(user);
+        console.log(user.accessToken);
+        if (user &amp;&amp; user.accessToken) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+
+
+          const token &#x3D; user.accessToken;
+          const helper &#x3D; new JwtHelperService();
+
+          const authorities: string[] &#x3D; (helper.decodeToken(token)[&#x27;auth&#x27;] as string).split(&#x27;,&#x27;);
+          const decodedToken &#x3D; helper.decodeToken(token);
+
+// Other functions
+          const expirationDate &#x3D; helper.getTokenExpirationDate(token);
+          const isExpired &#x3D; helper.isTokenExpired(token);
+
+          console.log(&#x60; now: ${new Date()}; &#x60;);
+          console.log(&#x60; token: ${token}; &#x60;);
+          console.log(&#x60; decodedToken: ${decodedToken};&#x60;);
+          console.log(decodedToken);
+          console.log(&#x60; expirationDate: ${expirationDate}; isExpired: ${isExpired}; &#x60;);
+
+          console.log(&#x27;save currentUser to localStorage&#x27;);
+          this.storeAuthenticationToken(JSON.stringify(user), user.rememberMe);
+          console.log(&#x27;saved&#x27;);
+          this.currentUserSubject.next(user);
+        }
+
+        return user;
+      }));
+  }
+
+  storeAuthenticationToken(user: string, rememberMe: boolean) {
+    if (rememberMe) {
+          localStorage.setItem(&#x27;currentUser&#x27;, user);
+    } else {
+          sessionStorage.setItem(&#x27;currentUser&#x27;, user);
+    }
+  }
+
+  getToken() {
+    return localStorage.getItem(&#x27;currentUser&#x27;) || sessionStorage.getItem(&#x27;currentUser&#x27;);
+  }
+
+  getRoleNames(): Authority[] {
+    return this.currentUserValue.authorities;
+  }
+
+  isLoggedInAsUser(): boolean {
+    return this.getToken() !&#x3D;&#x3D; null &amp;&amp; this.getRoleNames().some(authority &#x3D;&gt; authority.roleName &#x3D;&#x3D;&#x3D; Role.User);
+  }
+
+  isLoggedInAsAdmin(): boolean {
+    return this.getToken() !&#x3D;&#x3D; null &amp;&amp; this.getRoleNames().some(authority &#x3D;&gt; authority.roleName &#x3D;&#x3D;&#x3D; Role.Admin);
+  }
+
+  isLoggedInAsWorker(): boolean {
+    return this.getToken() !&#x3D;&#x3D; null &amp;&amp; this.getRoleNames().some(authority &#x3D;&gt; authority.roleName &#x3D;&#x3D;&#x3D; Role.Worker);
+  }
+
+  isLoggedIn(): boolean {
+    return this.getToken() !&#x3D;&#x3D; null;
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    console.log(&#x27;logout&#x27;);
+    localStorage.removeItem(&#x27;currentUser&#x27;);
+    sessionStorage.removeItem(&#x27;currentUser&#x27;);
+    this.currentUserSubject.next(null);
+    this.router.navigate([&#x27;/&#x27;]);
+  }
+}
+</code></pre>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="search-results">
+        <div class="has-results">
+          <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span
+            class='search-query'></span>"</h1>
+          <ul class="search-results-list"></ul>
+        </div>
+        <div class="no-results">
+          <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+        </div>
+      </div>
+    </div>
+    <!-- END CONTENT -->
+  </div>
+</div>
+
+<script>
+  var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+  var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+  var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationService.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script charset="utf-8" defer src="../js/libs/custom-elements-es5-adapter.js"></script>
+<script defer src="../js/menu-wc.js"></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+<script src="../js/search/search.js"></script>
+<script src="../js/search/lunr.min.js"></script>
+<script src="../js/search/search-lunr.js"></script>
+<script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

@@ -15,7 +15,7 @@ export class CustomersComponent implements OnInit {
 
   displayedColumns: string[] = columns;
   dataSource;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   private customers: Customer[];
 
   constructor(private customerService: CustomerService,

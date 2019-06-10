@@ -33,7 +33,7 @@ export class PersonalInfoComponent implements OnInit {
   colors = OrderStatusCategoryColor;
   dataSource;
   saving = false;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
     private route: ActivatedRoute,

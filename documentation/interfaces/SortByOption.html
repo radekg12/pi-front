@@ -1,0 +1,413 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>portal-app documentation</title>
+  <meta content="" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <a class="navbar-brand" href="../">portal-app documentation</a>
+  <button class="btn btn-default btn-menu ion-ios-menu" id="btn-menu" type="button"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+  <div id="book-search-input" role="search"><input placeholder="Type to search" type="text"></div>
+  <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+  <div class="row main">
+    <div class="hidden-xs menu">
+      <compodoc-menu mode="normal"></compodoc-menu>
+    </div>
+    <!-- START CONTENT -->
+    <div class="content interface">
+      <div class="content-data">
+
+
+        <ol class="breadcrumb">
+          <li>Interfaces</li>
+          <li>SortByOption</li>
+        </ol>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a data-link="info" data-toggle="tab" href="#info" id="info-tab" role="tab">Info</a>
+          </li>
+          <li>
+            <a data-link="source" data-toggle="tab" href="#source" id="source-tab" role="tab">Source</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="c-info">
+            <p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+              <code>src/app/product-list/product-list.component.ts</code>
+            </p>
+
+
+            <section>
+              <h3 id="index">Index</h3>
+              <table class="table table-sm table-bordered index-table">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Properties</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#value">value</a>
+                      </li>
+                      <li>
+                        <a href="#viewValue">viewValue</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+
+            <section>
+              <h3 id="inputs">Properties</h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="value"></a>
+                    <span class="name"><b>value</b><a href="#value"><span class="icon ion-ios-link"></span></a></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>value: <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a></code>
+                    </code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                    target="_blank">string</a></code>
+
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="viewValue"></a>
+                    <span class="name"><b>viewValue</b><a href="#viewValue"><span class="icon ion-ios-link"></span></a></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>viewValue: <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a></code>
+                    </code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                    target="_blank">string</a></code>
+
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+          </div>
+
+
+          <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+          Component, Input, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {MatButtonToggleChange, MatPaginator, MatSelectChange, PageEvent} from &#x27;@angular/material&#x27;;
+import {ActivatedRoute, ParamMap, Router} from &#x27;@angular/router&#x27;;
+import {ProductService} from &#x27;../services/product.service&#x27;;
+import {Product} from &#x27;../models/product.model&#x27;;
+import {TitleService} from &#x27;../services/title.service&#x27;;
+
+export interface SortByOption {
+          value: string;
+          viewValue: string;
+}
+
+@Component({
+          selector: &#x27;app-product-list&#x27;,
+  templateUrl: &#x27;./product-list.component.html&#x27;,
+  styleUrls: [&#x27;./product-list.component.css&#x27;]
+})
+export class ProductListComponent implements OnInit {
+
+          pageSizeOptions: number[] &#x3D; [4, 8, 16];
+  sortByOptions: SortByOption[] &#x3D; [
+    {value: &#x27;unitPrice,asc&#x27;, viewValue: &#x27;Cena: od najniższej&#x27;},
+    {value: &#x27;unitPrice,desc&#x27;, viewValue: &#x27;Cena: od najwyższej&#x27;},
+    {value: &#x27;name,asc&#x27;, viewValue: &#x27;Nazwa: A-Z&#x27;},
+    {value: &#x27;name,desc&#x27;, viewValue: &#x27;Nazwa: Z-A&#x27;},
+    {value: &#x27;company,asc&#x27;, viewValue: &#x27;Marka: A-Z&#x27;},
+    {value: &#x27;company,desc&#x27;, viewValue: &#x27;Marka: Z-A&#x27;}
+  ];
+  defaultPage &#x3D; 0;
+  defaultPageSize: number &#x3D; this.pageSizeOptions[1];
+  defaultSortBy: string &#x3D; this.sortByOptions[0].value;
+  currentPage: number &#x3D; this.defaultPage;
+  products: Product[];
+  pageSize: number &#x3D; this.defaultPageSize;
+  totalElements &#x3D; 0;
+  sortBy: string &#x3D; this.defaultSortBy;
+  subcategoryId: number;
+  categoryId: number;
+  pageEvent: PageEvent;
+  paramMap: ParamMap;
+  sub;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @Input() private gridViewIsActive &#x3D; true;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private productService: ProductService,
+              private titleService: TitleService) {
+    this.router.routeReuseStrategy.shouldReuseRoute &#x3D; () &#x3D;&gt; false;
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.initPaginator();
+    console.log(this.route.snapshot);
+    this.setParams();
+  }
+
+  setParams() {
+    this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
+          this.subcategoryId &#x3D; +params[&#x27;subcategoryId&#x27;];
+      this.categoryId &#x3D; +params[&#x27;categoryId&#x27;];
+      console.log(&#x60;producy id &#x3D; ${this.subcategoryId}&#x60;);
+    });
+
+    console.log(this.route.queryParamMap);
+    this.route.queryParamMap.subscribe(
+      (params: ParamMap) &#x3D;&gt; {
+          console.log(&#x27;** SET_PARAMS(-1-) **&#x27;);
+        console.log(params);
+        console.log(&#x60;page&#x3D;${+params.get(&#x27;page&#x27;)} size&#x3D;${+params.get(&#x27;size&#x27;)} sort&#x3D;${params.get(&#x27;sort&#x27;)}&#x60;);
+
+        this.currentPage &#x3D; +params.get(&#x27;page&#x27;) || this.defaultPage + 1;
+        this.currentPage--;
+        this.pageSize &#x3D; +params.get(&#x27;size&#x27;) || this.defaultPageSize;
+        this.sortBy &#x3D; params.get(&#x27;sort&#x27;) || this.defaultSortBy;
+
+        console.log(&#x27;** SET_PARAMS(-2-) **&#x27;);
+        console.log(&#x60;page: ${this.currentPage}, size: ${this.pageSize}, sort: ${this.sortBy}&#x60;);
+        console.log(this.route.snapshot);
+        this.getProducts();
+
+      });
+  }
+
+  deleteProduct(product: Product): void {
+    this.productService.deleteProduct(product).subscribe(data &#x3D;&gt; {
+          this.products &#x3D; this.products.filter(u &#x3D;&gt; u !&#x3D;&#x3D; product);
+    });
+  }
+
+  getProducts(): void {
+    if (this.subcategoryId) {
+          this.getProductsBySubcategory();
+    } else if (this.categoryId) {
+          this.getProductsByCategory();
+    }
+  }
+
+  getProductsBySubcategory(): void {
+    console.log(&#x27;GET_PRODUCTS()&#x27;);
+    this.productService.getProductsBySubcategory(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
+      data &#x3D;&gt; {
+          console.log(&#x27;NEXT&#x27;);
+        this.products &#x3D; data[&#x27;content&#x27;];
+        this.totalElements &#x3D; data[&#x27;totalElements&#x27;];
+        this.currentPage &#x3D; data[&#x27;number&#x27;];
+        this.pageSize &#x3D; data[&#x27;size&#x27;];
+        console.log(&#x27;GET_PRODUCT()&#x27;);
+        console.log(data[&#x27;content&#x27;]);
+      },
+      () &#x3D;&gt; console.log(&#x27;ERRRORRRRRRRR&#x27;),
+      () &#x3D;&gt; console.log(&#x27;COMPLETE&#x27;));
+  }
+
+  getProductsByCategory(): void {
+    this.productService.getProductsByCategory(this.categoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
+      data &#x3D;&gt; {
+          this.products &#x3D; data[&#x27;content&#x27;];
+        this.totalElements &#x3D; data[&#x27;totalElements&#x27;];
+        this.currentPage &#x3D; data[&#x27;number&#x27;];
+        this.pageSize &#x3D; data[&#x27;size&#x27;];
+      },
+      () &#x3D;&gt; console.log(&#x27;ERRRORRRRRRRR&#x27;),
+      () &#x3D;&gt; console.log(&#x27;COMPLETE&#x27;));
+  }
+
+  changePage(event?: PageEvent): PageEvent {
+    if (event.pageIndex !&#x3D;&#x3D; this.currentPage) {
+          this.changePageNumber(event);
+    } else if (event.pageSize !&#x3D;&#x3D; this.pageSize) {
+          this.changePageSize(event);
+    }
+    return event;
+  }
+
+  identify(index, item) {
+    return item.name;
+  }
+
+  switchView($event: MatButtonToggleChange) {
+    this.gridViewIsActive &#x3D; $event.value &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+  }
+
+  switchToGridView(): void {
+    this.gridViewIsActive &#x3D; true;
+    console.log(&#x27;switchToGridView&#x27;);
+  }
+
+  switchToListView(): void {
+    this.gridViewIsActive &#x3D; false;
+    console.log(&#x27;switchToListView&#x27;);
+
+  }
+
+  changePageSorting($event: MatSelectChange) {
+    console.log(&#x27;changeSoring()&#x27;);
+    this.sortBy &#x3D; $event.value;
+    this.router.navigate([&#x27;./&#x27;], {
+          queryParams: {
+        page: null,
+        sort: $event.value &#x3D;&#x3D;&#x3D; this.defaultSortBy ? null : $event.value,
+      },
+      queryParamsHandling: &#x27;merge&#x27;,
+      relativeTo: this.route
+    });
+  }
+
+  showDetails(productId: number | string) {
+    this.router.navigate([&#x27;./&#x27;, productId], {relativeTo: this.route});
+  }
+
+  private changePageNumber(event?: PageEvent) {
+    this.router.navigate([&#x27;./&#x27;], {
+          queryParams: {
+        page: event.pageIndex &#x3D;&#x3D;&#x3D; this.defaultPage ? null : event.pageIndex + 1,
+      },
+      queryParamsHandling: &#x27;merge&#x27;,
+      relativeTo: this.route
+    });
+  }
+
+  private changePageSize(event?: PageEvent) {
+    this.router.navigate([&#x27;./&#x27;], {
+          queryParams: {
+        page: null,
+        size: event.pageSize &#x3D;&#x3D;&#x3D; this.defaultPageSize ? null : event.pageSize,
+      },
+      queryParamsHandling: &#x27;merge&#x27;,
+      relativeTo: this.route
+    });
+  }
+
+  private initPaginator(): void {
+    this.paginator._intl.itemsPerPageLabel &#x3D; &#x27;Produktów na stronie&#x27;;
+    this.paginator._intl.lastPageLabel &#x3D; &#x27;Ostatnia strona&#x27;;
+    this.paginator._intl.firstPageLabel &#x3D; &#x27;Pierwsza strona&#x27;;
+    this.paginator._intl.nextPageLabel &#x3D; &#x27;Następna strona&#x27;;
+    this.paginator._intl.previousPageLabel &#x3D; &#x27;Poprzednia strona&#x27;;
+    this.paginator._intl.getRangeLabel &#x3D; () &#x3D;&gt; {
+          return &#x60;${this.paginator.pageIndex + 1}  z  ${Math.ceil(this.paginator.length / this.paginator.pageSize)}&#x60;;
+    };
+  }
+
+}
+</code></pre>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="search-results">
+        <div class="has-results">
+          <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span
+            class='search-query'></span>"</h1>
+          <ul class="search-results-list"></ul>
+        </div>
+        <div class="no-results">
+          <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+        </div>
+      </div>
+    </div>
+    <!-- END CONTENT -->
+  </div>
+</div>
+
+<script>
+  var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+  var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+  var COMPODOC_CURRENT_PAGE_URL = 'SortByOption.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script charset="utf-8" defer src="../js/libs/custom-elements-es5-adapter.js"></script>
+<script defer src="../js/menu-wc.js"></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+<script src="../js/search/search.js"></script>
+<script src="../js/search/lunr.min.js"></script>
+<script src="../js/search/search-lunr.js"></script>
+<script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>portal-app documentation</title>
+  <meta content="" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <a class="navbar-brand" href="../">portal-app documentation</a>
+  <button class="btn btn-default btn-menu ion-ios-menu" id="btn-menu" type="button"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+  <div id="book-search-input" role="search"><input placeholder="Type to search" type="text"></div>
+  <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+  <div class="row main">
+    <div class="hidden-xs menu">
+      <compodoc-menu mode="normal"></compodoc-menu>
+    </div>
+    <!-- START CONTENT -->
+    <div class="content component">
+      <div class="content-data">
+
+
+        <ol class="breadcrumb">
+          <li>Components</li>
+          <li>AccountComponent</li>
+        </ol>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a data-link="info" data-toggle="tab" href="#info" id="info-tab" role="tab">Info</a>
+          </li>
+          <li>
+            <a data-link="source" data-toggle="tab" href="#source" id="source-tab" role="tab">Source</a>
+          </li>
+          <li>
+            <a data-link="template" data-toggle="tab" href="#templateData" id="templateData-tab" role="tab">Template</a>
+          </li>
+          <li>
+            <a data-link="style" data-toggle="tab" href="#styleData" id="styleData-tab" role="tab">Styles</a>
+          </li>
+          <li>
+            <a data-link="dom-tree" data-toggle="tab" href="#tree" id="tree-tab" role="tab">DOM Tree</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="c-info"><p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+              <code>src/app/admin/administration-panel/account.component.ts</code>
+            </p>
+
+
+            <p class="comment">
+            <h3>Implements</h3>
+            </p>
+            <p class="comment">
+              <code><a href="https://angular.io/api/core/OnInit" target="_blank">OnInit</a></code>
+            </p>
+
+
+            <section>
+              <h3>Metadata</h3>
+              <table class="table table-sm table-hover">
+                <tbody>
+
+
+                <tr>
+                  <td class="col-md-3">selector</td>
+                  <td class="col-md-9"><code>app-my-account</code></td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-3">styleUrls</td>
+                  <td class="col-md-9"><code>./account.component.css</code></td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-3">templateUrl</td>
+                  <td class="col-md-9"><code>./account.component.html</code></td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="index">Index</h3>
+              <table class="table table-sm table-bordered index-table">
+                <tbody>
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Methods</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#logout">logout</a>
+                      </li>
+                      <li>
+                        <a href="#ngOnInit">ngOnInit</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Accessors</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#authenticationService">authenticationService</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="constructor">Constructor</h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <code>constructor(_authenticationService: <a href="../injectables/AuthenticationService.html">AuthenticationService</a>,
+                      titleService: <a href="../injectables/TitleService.html">TitleService</a>)</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="11" href="">src/app/admin/administration-panel/account.component.ts:11</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <div>
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>_authenticationService</td>
+
+                          <td>
+                            <code><a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td>titleService</td>
+
+                          <td>
+                            <code><a href="../injectables/TitleService.html" target="_self">TitleService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+
+            <section>
+
+              <h3 id="methods">
+                Methods
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>logout()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="25"
+                                                       href="">src/app/admin/administration-panel/account.component.ts:25</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>ngOnInit()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="17"
+                                                       href="">src/app/admin/administration-panel/account.component.ts:17</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="accessors">
+                Accessors
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="authenticationService"></a>
+                    <span class="name"><b>authenticationService</b><a href="#authenticationService"><span
+                      class="icon ion-ios-link"></span></a></span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <span class="accessor"><b>get</b><code>authenticationService()</code></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="21" href="">src/app/admin/administration-panel/account.component.ts:21</a>
+                    </div>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </section>
+          </div>
+
+
+          <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+import {AuthenticationService} from &#x27;../../services/authentication.service&#x27;;
+import {TitleService} from &#x27;../../services/title.service&#x27;;
+
+
+@Component({
+          selector: &#x27;app-my-account&#x27;,
+  templateUrl: &#x27;./account.component.html&#x27;,
+  styleUrls: [&#x27;./account.component.css&#x27;]
+})
+export class AccountComponent implements OnInit {
+
+          constructor(private _authenticationService: AuthenticationService,
+                      private titleService: TitleService) {
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+  }
+
+  get authenticationService(): AuthenticationService {
+    return this._authenticationService;
+  }
+
+  logout() {
+    this._authenticationService.logout();
+  }
+}
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;logout&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;authenticationService.isLoggedInAsAdmin()&quot; class&#x3D;&quot;text-title&quot;&gt;Panel Administratora&lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;authenticationService.isLoggedInAsWorker() &amp;&amp; !authenticationService.isLoggedInAsAdmin()&quot;
+       class&#x3D;&quot;text-title&quot;&gt;Panel Pracownika
+  &lt;/div&gt;
+  &lt;span&gt;
+        &lt;mat-icon (click)&#x3D;&quot;logout()&quot;&gt;power_settings_new&lt;/mat-icon&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id&#x3D;&quot;myAccountWrapper&quot;&gt;
+  &lt;div id&#x3D;&quot;accountPanel&quot;&gt;
+    &lt;mat-card id&#x3D;&quot;stickyAccountPanel&quot;&gt;
+      &lt;ul class&#x3D;&quot;logo&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/logo.jpg&quot; alt&#x3D;&quot;image&quot;&gt;
+      &lt;/ul&gt;
+
+      &lt;mat-divider&gt;&lt;/mat-divider&gt;
+
+      &lt;ul&gt;
+        &lt;li *ngIf&#x3D;&quot;authenticationService.isLoggedInAsAdmin()&quot;&gt;&lt;a [routerLinkActiveOptions]&#x3D;&quot;{exact:
+true}&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot; [routerLink]&#x3D;&quot;[&#x27;./personal-info&#x27;]&quot;&gt;Klienci&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;./orders&#x27;]&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot; [routerLinkActiveOptions]&#x3D;&quot;{exact:
+true}&quot;&gt;Zamówienia&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;./products&#x27;]&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot; [routerLinkActiveOptions]&#x3D;&quot;{exact:
+true}&quot;&gt;Produkty&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/mat-card&gt;
+  &lt;/div&gt;
+
+  &lt;mat-card id&#x3D;&quot;accountDetails&quot;&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  &lt;/mat-card&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-styleData">
+            <p class="comment">
+              <code>./account.component.css</code>
+            </p>
+            <pre class="line-numbers"><code class="language-scss">#myAccountWrapper {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+}
+
+#accountPanel {
+              width: 25%;
+}
+
+.logout {
+              display: flex;
+              /*justify-content: space-between;*/
+              align-items: center;
+}
+
+.mat-icon {
+              cursor: pointer;
+}
+
+#stickyAccountPanel {
+              position: sticky;
+              top: 50px;
+              width: 100%;
+              min-height: 200px;
+}
+
+#stickyAccountPanel ul {
+              padding: 0;
+              list-style-type: none;
+              margin-top: 1em;
+}
+
+#stickyAccountPanel ul:first-of-type {
+              margin-top: 0;
+}
+
+#stickyAccountPanel li {
+              margin-bottom: 0.3125em;
+}
+
+#stickyAccountPanel li a {
+              color: var(--light-grey);
+              text-decoration: none;
+              transition: color 0.4s ease-in-out;
+}
+
+#stickyAccountPanel .mat-divider {
+              position: inherit;
+}
+
+#stickyAccountPanel li a:hover,
+#stickyAccountPanel li a:focus {
+              color: var(--dark-grey);
+              transition: 0.4s;
+}
+
+#accountDetails {
+              width: 70%;
+              min-height: 500px;
+}
+
+.active {
+              color: var(--dark-grey) !important;
+}
+
+.logo {
+              max-width: 150px;
+              max-height: 150px;
+              margin: 0 auto;
+}
+
+img {
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+              height: auto;
+              object-fit: contain;
+}
+
+@media screen and (max-width: 600px) {
+              #accountDetails {
+    width: 100%;
+  }
+
+  #accountPanel {
+    width: 100%;
+  }
+
+  #myAccountWrapper {
+    flex-direction: column;
+  }
+}
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-tree">
+            <div id="tree-container"></div>
+            <div class="tree-legend">
+              <div class="title">
+                <b>Legend</b>
+              </div>
+              <div>
+                <div class="color htmlelement"></div>
+                <span>Html element</span>
+              </div>
+              <div>
+                <div class="color component"></div>
+                <span>Component</span>
+              </div>
+              <div>
+                <div class="color directive"></div>
+                <span>Html element with directive</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <script src="../js/libs/vis.min.js"></script>
+        <script src="../js/libs/htmlparser.js"></script>
+        <script src="../js/libs/deep-iterator.js"></script>
+        <script>
+          var COMPONENT_TEMPLATE = '<div><div class="logout">  <div *ngIf="authenticationService.isLoggedInAsAdmin()" class="text-title">Panel Administratora</div>  <div *ngIf="authenticationService.isLoggedInAsWorker() && !authenticationService.isLoggedInAsAdmin()"       class="text-title">Panel Pracownika  </div>  <span>        <mat-icon (click)="logout()">power_settings_new</mat-icon></span></div><div id="myAccountWrapper">  <div id="accountPanel">    <mat-card id="stickyAccountPanel">      <ul class="logo">        <img src="assets/logo.jpg" alt="image">      </ul>      <mat-divider></mat-divider>      <ul>        <li *ngIf="authenticationService.isLoggedInAsAdmin()"><a [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="[\'active\']" [routerLink]="[\'./personal-info\']">Klienci</a></li>        <li><a [routerLink]="[\'./orders\']" [routerLinkActive]="[\'active\']" [routerLinkActiveOptions]="{exact:true}">Zamówienia</a></li>        <li><a [routerLink]="[\'./products\']" [routerLinkActive]="[\'active\']" [routerLinkActiveOptions]="{exact:true}">Produkty</a></li>      </ul>    </mat-card>  </div>  <mat-card id="accountDetails">    <router-outlet></router-outlet>  </mat-card></div></div>';
+          var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'AddProductComponent',
+            'selector': 'app-add-product'
+          }, {'name': 'AppComponent', 'selector': 'app-root'}, {
+            'name': 'ButtonComponent',
+            'selector': 'app-button'
+          }, {'name': 'CustomersComponent', 'selector': 'app-customers'}, {
+            'name': 'HomePageComponent',
+            'selector': 'app-home-page'
+          }, {'name': 'LoginComponent', 'selector': 'app-login'}, {
+            'name': 'MenuComponent',
+            'selector': 'app-menu'
+          }, {'name': 'MyAccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'MyOrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'MySlickCarouselComponent', 'selector': 'app-my-slick-carousel'}, {
+            'name': 'OrderDetailComponent',
+            'selector': 'app-order-detail'
+          }, {'name': 'OrderDetailComponent', 'selector': 'app-order-detail'}, {
+            'name': 'OrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'OrderSummaryComponent', 'selector': 'app-order-summary'}, {
+            'name': 'PageNotFoundComponent',
+            'selector': 'app-page-not-found'
+          }, {'name': 'PaymentComponent', 'selector': 'app-payment'}, {
+            'name': 'PersonalInfoComponent',
+            'selector': 'app-personal-info'
+          }, {'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'}, {
+            'name': 'ProductCardComponent',
+            'selector': 'app-product-card'
+          }, {'name': 'ProductDetailsComponent', 'selector': 'app-product-details'}, {
+            'name': 'ProductDetailsComponent',
+            'selector': 'app-product-details'
+          }, {'name': 'ProductListComponent', 'selector': 'app-product-list'}, {
+            'name': 'ProductListComponent',
+            'selector': 'app-product-list'
+          }, {'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'}, {
+            'name': 'SignUpComponent',
+            'selector': 'app-sign-up'
+          }, {'name': 'SupportComponent', 'selector': 'app-support'}];
+          var DIRECTIVES = [{'name': 'MyCurrencyFormatterDirective', 'selector': '[appMyCurrencyFormatter]'}];
+          var ACTUAL_COMPONENT = {'name': 'AccountComponent'};
+        </script>
+        <script src="../js/tree.js"></script>
+
+
+      </div>
+      <div class="search-results">
+        <div class="has-results">
+          <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span
+            class='search-query'></span>"</h1>
+          <ul class="search-results-list"></ul>
+        </div>
+        <div class="no-results">
+          <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+        </div>
+      </div>
+    </div>
+    <!-- END CONTENT -->
+  </div>
+</div>
+
+<script>
+  var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+  var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+  var COMPODOC_CURRENT_PAGE_URL = 'AccountComponent.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script charset="utf-8" defer src="../js/libs/custom-elements-es5-adapter.js"></script>
+<script defer src="../js/menu-wc.js"></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+<script src="../js/search/search.js"></script>
+<script src="../js/search/lunr.min.js"></script>
+<script src="../js/search/search-lunr.js"></script>
+<script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

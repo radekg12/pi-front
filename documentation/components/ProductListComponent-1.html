@@ -1,0 +1,784 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>portal-app documentation</title>
+  <meta content="" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <a class="navbar-brand" href="../">portal-app documentation</a>
+  <button class="btn btn-default btn-menu ion-ios-menu" id="btn-menu" type="button"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+  <div id="book-search-input" role="search"><input placeholder="Type to search" type="text"></div>
+  <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+  <div class="row main">
+    <div class="hidden-xs menu">
+      <compodoc-menu mode="normal"></compodoc-menu>
+    </div>
+    <!-- START CONTENT -->
+    <div class="content component">
+      <div class="content-data">
+
+
+        <ol class="breadcrumb">
+          <li>Components</li>
+          <li>ProductListComponent</li>
+        </ol>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a data-link="info" data-toggle="tab" href="#info" id="info-tab" role="tab">Info</a>
+          </li>
+          <li>
+            <a data-link="source" data-toggle="tab" href="#source" id="source-tab" role="tab">Source</a>
+          </li>
+          <li>
+            <a data-link="template" data-toggle="tab" href="#templateData" id="templateData-tab" role="tab">Template</a>
+          </li>
+          <li>
+            <a data-link="style" data-toggle="tab" href="#styleData" id="styleData-tab" role="tab">Styles</a>
+          </li>
+          <li>
+            <a data-link="dom-tree" data-toggle="tab" href="#tree" id="tree-tab" role="tab">DOM Tree</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="c-info"><p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+              <code>src/app/admin/administration-panel/product-list/product-list.component.ts</code>
+            </p>
+
+
+            <p class="comment">
+            <h3>Implements</h3>
+            </p>
+            <p class="comment">
+              <code><a href="https://angular.io/api/core/OnInit" target="_blank">OnInit</a></code>
+            </p>
+
+
+            <section>
+              <h3>Metadata</h3>
+              <table class="table table-sm table-hover">
+                <tbody>
+
+
+                <tr>
+                  <td class="col-md-3">selector</td>
+                  <td class="col-md-9"><code>app-product-list</code></td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-3">styleUrls</td>
+                  <td class="col-md-9"><code>./product-list.component.css</code></td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-3">templateUrl</td>
+                  <td class="col-md-9"><code>./product-list.component.html</code></td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="index">Index</h3>
+              <table class="table table-sm table-bordered index-table">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Properties</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#dataSource">dataSource</a>
+                      </li>
+                      <li>
+                        <a href="#displayedColumns">displayedColumns</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#products">products</a>
+                      </li>
+                      <li>
+                        <a href="#sort">sort</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Methods</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#applyFilter">applyFilter</a>
+                      </li>
+                      <li>
+                        <a href="#getProducts">getProducts</a>
+                      </li>
+                      <li>
+                        <a href="#ngOnInit">ngOnInit</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="constructor">Constructor</h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <code>constructor(productService: <a href="../injectables/ProductService.html">ProductService</a>,
+                      titleService: <a href="../injectables/TitleService.html">TitleService</a>)</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="19" href="">src/app/admin/administration-panel/product-list/product-list.component.ts:19</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <div>
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>productService</td>
+
+                          <td>
+                            <code><a href="../injectables/ProductService.html" target="_self">ProductService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td>titleService</td>
+
+                          <td>
+                            <code><a href="../injectables/TitleService.html" target="_self">TitleService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+
+            <section>
+
+              <h3 id="methods">
+                Methods
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <b>
+                            applyFilter
+                        </b>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>applyFilter(filterValue: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="40"
+                                                       href="">src/app/admin/administration-panel/product-list/product-list.component.ts:40</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>filterValue</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                              target="_blank">string</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getProducts"></a>
+                    <span class="name">
+                        <b>
+                            getProducts
+                        </b>
+                        <a href="#getProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getProducts()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="30"
+                                                       href="">src/app/admin/administration-panel/product-list/product-list.component.ts:30</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>ngOnInit()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="25"
+                                                       href="">src/app/admin/administration-panel/product-list/product-list.component.ts:25</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+            <section>
+
+              <h3 id="inputs">
+                Properties
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="17" href="">src/app/admin/administration-panel/product-list/product-list.component.ts:17</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                            <b>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>string[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>columns</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="16" href="">src/app/admin/administration-panel/product-list/product-list.component.ts:16</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="products"></a>
+                    <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            products</b>
+                            <a href="#products"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a href="../classes/Product.html" target="_self">Product[]</a></code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="19" href="">src/app/admin/administration-panel/product-list/product-list.component.ts:19</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                            <b>
+                            sort</b>
+                            <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>MatSort</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br/>
+                    <code>
+                      @ViewChild(MatSort, {static: true})<br/>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="18" href="">src/app/admin/administration-panel/product-list/product-list.component.ts:18</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+          </div>
+
+
+          <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+          Component, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {MatSort, MatTableDataSource} from &#x27;@angular/material&#x27;;
+import {Product} from &#x27;../../../models/product.model&#x27;;
+import {ProductService} from &#x27;../../../services/product.service&#x27;;
+import {TitleService} from &#x27;../../../services/title.service&#x27;;
+
+const columns: string[] &#x3D; [&#x27;id&#x27;, &#x27;name&#x27;, &#x27;company&#x27;, &#x27;logicalQuantityInStock&#x27;, &#x27;unitPrice&#x27;];
+
+@Component({
+          selector: &#x27;app-product-list&#x27;,
+  templateUrl: &#x27;./product-list.component.html&#x27;,
+  styleUrls: [&#x27;./product-list.component.css&#x27;]
+})
+export class ProductListComponent implements OnInit {
+
+          displayedColumns: string[] &#x3D; columns;
+  dataSource;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  private products: Product[];
+
+  constructor(private productService: ProductService,
+              private titleService: TitleService) {
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productService.getAllProducts().subscribe(data &#x3D;&gt; {
+          this.products &#x3D; data;
+      this.dataSource &#x3D; new MatTableDataSource(this.products);
+      this.dataSource.sort &#x3D; this.sort;
+    });
+    console.log(&#x27;orders&#x27;);
+    console.log(this.products);
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter &#x3D; filterValue.trim().toLowerCase();
+  }
+
+}
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;text-title&quot;&gt;Produkty&lt;/div&gt;
+
+
+&lt;a id&#x3D;&quot;addSpecificationButton&quot; [routerLink]&#x3D;&quot;[&#x27;./new&#x27;]&quot;&gt;
+  &lt;mat-icon&gt;playlist_add&lt;/mat-icon&gt;
+  &lt;span class&#x3D;&quot;text-description&quot;&gt; Dodaj nowy produkt &lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!--&lt;mat-card&gt;--&gt;
+&lt;div class&#x3D;&quot;table-header&quot;&gt;
+  &lt;mat-form-field&gt;
+    &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filtrowanie&quot;&gt;
+  &lt;/mat-form-field&gt;
+&lt;/div&gt;
+
+&lt;mat-table matSort id&#x3D;&quot;specification&quot; [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+
+  &lt;!-- Id Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Numer produktu&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;./&#x27;, element.id]&quot;&gt;{{element.id}}&lt;/a&gt;&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Name Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Nazwa&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Company Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;company&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Marka&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.company}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Quantity Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;unitPrice&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Cena&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.unitPrice | plnCurrency}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Price Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;logicalQuantityInStock&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Ilość&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.logicalQuantityInStock}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+
+  &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/mat-header-row&gt;
+  &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/mat-row&gt;
+&lt;/mat-table&gt;
+&lt;!--&lt;/mat-card&gt;--&gt;
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-styleData">
+            <p class="comment">
+              <code>./product-list.component.css</code>
+            </p>
+            <pre class="line-numbers"><code class="language-scss">a {
+              color: inherit;
+}
+
+.table-header {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+}
+
+.table-header &gt; * {
+              width: 100%;
+              margin: 5px;
+}
+
+.mat-cell {
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+}
+
+#addSpecificationButton {
+              display: flex;
+              margin-left: 15px;
+              cursor: pointer;
+}
+
+#addSpecificationButton span {
+              margin-left: 10px;
+              font-size: 14px;
+}
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-tree">
+            <div id="tree-container"></div>
+            <div class="tree-legend">
+              <div class="title">
+                <b>Legend</b>
+              </div>
+              <div>
+                <div class="color htmlelement"></div>
+                <span>Html element</span>
+              </div>
+              <div>
+                <div class="color component"></div>
+                <span>Component</span>
+              </div>
+              <div>
+                <div class="color directive"></div>
+                <span>Html element with directive</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <script src="../js/libs/vis.min.js"></script>
+        <script src="../js/libs/htmlparser.js"></script>
+        <script src="../js/libs/deep-iterator.js"></script>
+        <script>
+          var COMPONENT_TEMPLATE = '<div><div class="text-title">Produkty</div><a id="addSpecificationButton" [routerLink]="[\'./new\']">  <mat-icon>playlist_add</mat-icon>  <span class="text-description"> Dodaj nowy produkt </span></a><!--<mat-card>--><div class="table-header">  <mat-form-field>    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrowanie">  </mat-form-field></div><mat-table matSort id="specification" [dataSource]="dataSource">  <!-- Id Column -->  <ng-container matColumnDef="id">    <mat-header-cell mat-sort-header *matHeaderCellDef> Numer produktu</mat-header-cell>    <mat-cell *matCellDef="let element"><a [routerLink]="[\'./\', element.id]">{{element.id}}</a></mat-cell>  </ng-container>  <!-- Name Column -->  <ng-container matColumnDef="name">    <mat-header-cell mat-sort-header *matHeaderCellDef> Nazwa</mat-header-cell>    <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>  </ng-container>  <!-- Company Column -->  <ng-container matColumnDef="company">    <mat-header-cell mat-sort-header *matHeaderCellDef> Marka</mat-header-cell>    <mat-cell *matCellDef="let element"> {{element.company}}</mat-cell>  </ng-container>  <!-- Quantity Column -->  <ng-container matColumnDef="unitPrice">    <mat-header-cell mat-sort-header *matHeaderCellDef> Cena</mat-header-cell>    <mat-cell *matCellDef="let element">{{element.unitPrice | plnCurrency}}</mat-cell>  </ng-container>  <!-- Price Column -->  <ng-container matColumnDef="logicalQuantityInStock">    <mat-header-cell mat-sort-header *matHeaderCellDef> Ilość</mat-header-cell>    <mat-cell *matCellDef="let element">{{element.logicalQuantityInStock}}</mat-cell>  </ng-container>  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row></mat-table><!--</mat-card>--></div>';
+          var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'AddProductComponent',
+            'selector': 'app-add-product'
+          }, {'name': 'AppComponent', 'selector': 'app-root'}, {
+            'name': 'ButtonComponent',
+            'selector': 'app-button'
+          }, {'name': 'CustomersComponent', 'selector': 'app-customers'}, {
+            'name': 'HomePageComponent',
+            'selector': 'app-home-page'
+          }, {'name': 'LoginComponent', 'selector': 'app-login'}, {
+            'name': 'MenuComponent',
+            'selector': 'app-menu'
+          }, {'name': 'MyAccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'MyOrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'MySlickCarouselComponent', 'selector': 'app-my-slick-carousel'}, {
+            'name': 'OrderDetailComponent',
+            'selector': 'app-order-detail'
+          }, {'name': 'OrderDetailComponent', 'selector': 'app-order-detail'}, {
+            'name': 'OrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'OrderSummaryComponent', 'selector': 'app-order-summary'}, {
+            'name': 'PageNotFoundComponent',
+            'selector': 'app-page-not-found'
+          }, {'name': 'PaymentComponent', 'selector': 'app-payment'}, {
+            'name': 'PersonalInfoComponent',
+            'selector': 'app-personal-info'
+          }, {'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'}, {
+            'name': 'ProductCardComponent',
+            'selector': 'app-product-card'
+          }, {'name': 'ProductDetailsComponent', 'selector': 'app-product-details'}, {
+            'name': 'ProductDetailsComponent',
+            'selector': 'app-product-details'
+          }, {'name': 'ProductListComponent', 'selector': 'app-product-list'}, {
+            'name': 'ProductListComponent',
+            'selector': 'app-product-list'
+          }, {'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'}, {
+            'name': 'SignUpComponent',
+            'selector': 'app-sign-up'
+          }, {'name': 'SupportComponent', 'selector': 'app-support'}];
+          var DIRECTIVES = [{'name': 'MyCurrencyFormatterDirective', 'selector': '[appMyCurrencyFormatter]'}];
+          var ACTUAL_COMPONENT = {'name': 'ProductListComponent-1'};
+        </script>
+        <script src="../js/tree.js"></script>
+
+
+      </div>
+      <div class="search-results">
+        <div class="has-results">
+          <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span
+            class='search-query'></span>"</h1>
+          <ul class="search-results-list"></ul>
+        </div>
+        <div class="no-results">
+          <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+        </div>
+      </div>
+    </div>
+    <!-- END CONTENT -->
+  </div>
+</div>
+
+<script>
+  var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+  var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+  var COMPODOC_CURRENT_PAGE_URL = 'ProductListComponent-1.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script charset="utf-8" defer src="../js/libs/custom-elements-es5-adapter.js"></script>
+<script defer src="../js/menu-wc.js"></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+<script src="../js/search/search.js"></script>
+<script src="../js/search/lunr.min.js"></script>
+<script src="../js/search/search-lunr.js"></script>
+<script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

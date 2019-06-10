@@ -17,7 +17,7 @@ export class MyOrdersComponent implements OnInit {
   private orders: Order[];
   colors = OrderStatusCategoryColor;
   dataSource;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private orderService: OrderService,
               private titleService: TitleService) {

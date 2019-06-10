@@ -39,7 +39,7 @@ export class ProductListComponent implements OnInit {
   pageEvent: PageEvent;
   paramMap: ParamMap;
   sub;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @Input() private gridViewIsActive = true;
 
   constructor(private route: ActivatedRoute,

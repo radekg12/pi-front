@@ -1,5 +1,5 @@
 <div class="text-title">Twój koszyk</div>
-<mat-card>
+<mat-card *ngIf="cartItems.length>0">
   <div class="product-row header">
     <div class="product-image"></div>
     <div class="product-name">Produkt</div>
@@ -54,6 +54,15 @@
   </div>
 </mat-card>
 
-<div class="right" (click)="goToPayment()" [routerLink]="['../payment']">
-  <app-button [disabled]="saving" [loading]="saving" message="Przejdź do płatności"></app-button>
+<div *ngIf="cartItems.length == 0" class="empty-list">
+  <img alt="image" class="empty-image" src="assets/empty_cart_icon.png">
+  <div class="text-title empty-message">Twój koszyk jest pusty</div>
+  <div class="empty-button">
+    <app-button [routerLink]="['../products/4']" message="Rozpocznij zakupy"></app-button>
+  </div>
+</div>
+
+<div (click)="goToPayment()" *ngIf="cartItems.length > 0" [routerLink]="['../payment']" class="right">
+  <app-button [disabled]="saving || cartItems.length == 0" [loading]="saving"
+              message="Przejdź do płatności"></app-button>
 </div>

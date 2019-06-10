@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   displayedColumns: string[] = columns;
   dataSource;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   private products: Product[];
 
   constructor(private productService: ProductService,

@@ -24,7 +24,7 @@ export class OrdersComponent implements OnInit {
   orders: Order[];
   colors = OrderStatusCategoryColor;
   dataSource;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   orderStatuses: OrderStatus[] = [];
   allStatuses: OrderStatus[] = [];
 
@@ -39,8 +39,8 @@ export class OrdersComponent implements OnInit {
   // orderStatuses: string[] = ['Lemon'];
   // allStatuses: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
-  @ViewChild('statusInput') statusInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('statusInput', {static: true}) statusInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {static: true}) matAutocomplete: MatAutocomplete;
 
   constructor(private orderService: OrderService,
               private orderStatusService: OrderStatusService,

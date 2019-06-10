@@ -1,0 +1,2137 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>portal-app documentation</title>
+  <meta content="" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <a class="navbar-brand" href="../">portal-app documentation</a>
+  <button class="btn btn-default btn-menu ion-ios-menu" id="btn-menu" type="button"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+  <div id="book-search-input" role="search"><input placeholder="Type to search" type="text"></div>
+  <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+  <div class="row main">
+    <div class="hidden-xs menu">
+      <compodoc-menu mode="normal"></compodoc-menu>
+    </div>
+    <!-- START CONTENT -->
+    <div class="content component">
+      <div class="content-data">
+
+
+        <ol class="breadcrumb">
+          <li>Components</li>
+          <li>OrdersComponent</li>
+        </ol>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a data-link="info" data-toggle="tab" href="#info" id="info-tab" role="tab">Info</a>
+          </li>
+          <li>
+            <a data-link="source" data-toggle="tab" href="#source" id="source-tab" role="tab">Source</a>
+          </li>
+          <li>
+            <a data-link="template" data-toggle="tab" href="#templateData" id="templateData-tab" role="tab">Template</a>
+          </li>
+          <li>
+            <a data-link="style" data-toggle="tab" href="#styleData" id="styleData-tab" role="tab">Styles</a>
+          </li>
+          <li>
+            <a data-link="dom-tree" data-toggle="tab" href="#tree" id="tree-tab" role="tab">DOM Tree</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="c-info"><p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+              <code>src/app/admin/administration-panel/my-orders/orders.component.ts</code>
+            </p>
+
+
+            <p class="comment">
+            <h3>Implements</h3>
+            </p>
+            <p class="comment">
+              <code><a href="https://angular.io/api/core/OnInit" target="_blank">OnInit</a></code>
+            </p>
+
+
+            <section>
+              <h3>Metadata</h3>
+              <table class="table table-sm table-hover">
+                <tbody>
+
+
+                <tr>
+                  <td class="col-md-3">selector</td>
+                  <td class="col-md-9"><code>app-my-orders</code></td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-3">styleUrls</td>
+                  <td class="col-md-9"><code>./orders.component.css</code></td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-3">templateUrl</td>
+                  <td class="col-md-9"><code>./orders.component.html</code></td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="index">Index</h3>
+              <table class="table table-sm table-bordered index-table">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Properties</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <a href="#addOnBlur">addOnBlur</a>
+                      </li>
+                      <li>
+                        <a href="#allStatuses">allStatuses</a>
+                      </li>
+                      <li>
+                        <a href="#colors">colors</a>
+                      </li>
+                      <li>
+                        <a href="#dataSource">dataSource</a>
+                      </li>
+                      <li>
+                        <a href="#displayedColumns">displayedColumns</a>
+                      </li>
+                      <li>
+                        <a href="#filteredStatuses">filteredStatuses</a>
+                      </li>
+                      <li>
+                        <a href="#matAutocomplete">matAutocomplete</a>
+                      </li>
+                      <li>
+                        <a href="#orders">orders</a>
+                      </li>
+                      <li>
+                        <a href="#orderStatuses">orderStatuses</a>
+                      </li>
+                      <li>
+                        <a href="#orderStatusMap">orderStatusMap</a>
+                      </li>
+                      <li>
+                        <a href="#removable">removable</a>
+                      </li>
+                      <li>
+                        <a href="#selectable">selectable</a>
+                      </li>
+                      <li>
+                        <a href="#separatorKeysCodes">separatorKeysCodes</a>
+                      </li>
+                      <li>
+                        <a href="#sort">sort</a>
+                      </li>
+                      <li>
+                        <a href="#statusCtrl">statusCtrl</a>
+                      </li>
+                      <li>
+                        <a href="#statusInput">statusInput</a>
+                      </li>
+                      <li>
+                        <a href="#visible">visible</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <h6><b>Methods</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <ul class="index-list">
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#_filter">_filter</a>
+                      </li>
+                      <li>
+                        <a href="#add">add</a>
+                      </li>
+                      <li>
+                        <a href="#applyFilter">applyFilter</a>
+                      </li>
+                      <li>
+                        <a href="#filterStatus">filterStatus</a>
+                      </li>
+                      <li>
+                        <a href="#getColor">getColor</a>
+                      </li>
+                      <li>
+                        <a href="#getOrders">getOrders</a>
+                      </li>
+                      <li>
+                        <a href="#getStatusColor">getStatusColor</a>
+                      </li>
+                      <li>
+                        <a href="#getStatuses">getStatuses</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#groupByStatusGroup">groupByStatusGroup</a>
+                      </li>
+                      <li>
+                        <a href="#ngOnInit">ngOnInit</a>
+                      </li>
+                      <li>
+                        <a href="#remove">remove</a>
+                      </li>
+                      <li>
+                        <a href="#selected">selected</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#setFilterPredicateByOrderNo">setFilterPredicateByOrderNo</a>
+                      </li>
+                      <li>
+                        <span class="modifier">Private</span>
+                        <a href="#setFilterPredicateByStatus">setFilterPredicateByStatus</a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+            <section>
+              <h3 id="constructor">Constructor</h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <code>constructor(orderService: <a href="../injectables/OrderService.html">OrderService</a>,
+                      orderStatusService: <a href="../injectables/OrderStatusService.html">OrderStatusService</a>,
+                      titleService: <a href="../injectables/TitleService.html">TitleService</a>)</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="43" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:43</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-md-4">
+                    <div>
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>orderService</td>
+
+                          <td>
+                            <code><a href="../injectables/OrderService.html" target="_self">OrderService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td>orderStatusService</td>
+
+                          <td>
+                            <code><a href="../injectables/OrderStatusService.html" target="_self">OrderStatusService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td>titleService</td>
+
+                          <td>
+                            <code><a href="../injectables/TitleService.html" target="_self">TitleService</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+
+
+            <section>
+
+              <h3 id="methods">
+                Methods
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="_filter"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _filter
+                        </b>
+                        <a href="#_filter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filter(value: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="177"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:177</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>value</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                              target="_blank">string</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code>OrderStatus[]</code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="add"></a>
+                    <span class="name">
+                        <b>
+                            add
+                        </b>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>add(event: MatChipInputEvent)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="136"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:136</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>event</td>
+                          <td>
+                            <code>MatChipInputEvent</code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <b>
+                            applyFilter
+                        </b>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>applyFilter(filterValue: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="76"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:76</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>filterValue</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                              target="_blank">string</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="filterStatus"></a>
+                    <span class="name">
+                        <b>
+                            filterStatus
+                        </b>
+                        <a href="#filterStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>filterStatus(statusId: <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number"
+                      target="_blank">number</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="80"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:80</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>statusId</td>
+                          <td>
+                            <code><a
+                              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number"
+                              target="_blank">number</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getColor"></a>
+                    <span class="name">
+                        <b>
+                            getColor
+                        </b>
+                        <a href="#getColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getColor(element: <a href="../classes/Order.html">Order</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="68"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:68</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>element</td>
+                          <td>
+                            <code><a href="../classes/Order.html" target="_self">Order</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getOrders"></a>
+                    <span class="name">
+                        <b>
+                            getOrders
+                        </b>
+                        <a href="#getOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getOrders()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="57"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:57</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getStatusColor"></a>
+                    <span class="name">
+                        <b>
+                            getStatusColor
+                        </b>
+                        <a href="#getStatusColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getStatusColor(status: <a href="../classes/OrderStatus.html">OrderStatus</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="72"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:72</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>status</td>
+                          <td>
+                            <code><a href="../classes/OrderStatus.html" target="_self">OrderStatus</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string"
+                      target="_blank">string</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="getStatuses"></a>
+                    <span class="name">
+                        <b>
+                            getStatuses
+                        </b>
+                        <a href="#getStatuses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>getStatuses()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="84"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:84</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="groupByStatusGroup"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            groupByStatusGroup
+                        </b>
+                        <a href="#groupByStatusGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>groupByStatusGroup(list: OrderStatus[])</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="183"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:183</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>list</td>
+                          <td>
+                            <code>OrderStatus[]</code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code>Map&lt;string, OrderStatus[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>ngOnInit()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="51"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:51</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <b>
+                            remove
+                        </b>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>remove(status: <a href="../classes/OrderStatus.html">OrderStatus</a>)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="110"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:110</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>status</td>
+                          <td>
+                            <code><a href="../classes/OrderStatus.html" target="_self">OrderStatus</a></code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="selected"></a>
+                    <span class="name">
+                        <b>
+                            selected
+                        </b>
+                        <a href="#selected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <code>selected(event: MatAutocompleteSelectedEvent)</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="124"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:124</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Parameters :</b>
+                      <table class="params">
+                        <thead>
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Optional</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>event</td>
+                          <td>
+                            <code>MatAutocompleteSelectedEvent</code>
+                          </td>
+
+                          <td>
+                            No
+                          </td>
+
+
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                    <div class="io-description">
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="setFilterPredicateByOrderNo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setFilterPredicateByOrderNo
+                        </b>
+                        <a href="#setFilterPredicateByOrderNo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFilterPredicateByOrderNo()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="167"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:167</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="setFilterPredicateByStatus"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setFilterPredicateByStatus
+                        </b>
+                        <a href="#setFilterPredicateByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFilterPredicateByStatus()</code>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="172"
+                                                       href="">src/app/admin/administration-panel/my-orders/orders.component.ts:172</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td class="col-md-4">
+
+                    <div class="io-description">
+                      <b>Returns : </b> <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"
+                                                 target="_blank">void</a></code>
+
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </section>
+            <section>
+
+              <h3 id="inputs">
+                Properties
+              </h3>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="addOnBlur"></a>
+                    <span class="name">
+                            <b>
+                            addOnBlur</b>
+                            <a href="#addOnBlur"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>true</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="34" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:34</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="allStatuses"></a>
+                    <span class="name">
+                            <b>
+                            allStatuses</b>
+                            <a href="#allStatuses"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>OrderStatus[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>[]</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="29" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:29</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="colors"></a>
+                    <span class="name">
+                            <b>
+                            colors</b>
+                            <a href="#colors"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>OrderStatusCategoryColor</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="25" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:25</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="26" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:26</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                            <b>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>string[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>columns</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="23" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:23</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="filteredStatuses"></a>
+                    <span class="name">
+                            <b>
+                            filteredStatuses</b>
+                            <a href="#filteredStatuses"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>Observable&lt;OrderStatus[]&gt;</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="37" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:37</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="matAutocomplete"></a>
+                    <span class="name">
+                            <b>
+                            matAutocomplete</b>
+                            <a href="#matAutocomplete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>MatAutocomplete</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br/>
+                    <code>
+                      @ViewChild(&#x27;auto&#x27;, {static: true})<br/>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="43" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:43</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="orders"></a>
+                    <span class="name">
+                            <b>
+                            orders</b>
+                            <a href="#orders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code><a href="../classes/Order.html" target="_self">Order[]</a></code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="24" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:24</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="orderStatuses"></a>
+                    <span class="name">
+                            <b>
+                            orderStatuses</b>
+                            <a href="#orderStatuses"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>OrderStatus[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>[]</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="28" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:28</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="orderStatusMap"></a>
+                    <span class="name">
+                            <b>
+                            orderStatusMap</b>
+                            <a href="#orderStatusMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="38" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:38</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="removable"></a>
+                    <span class="name">
+                            <b>
+                            removable</b>
+                            <a href="#removable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>true</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="33" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:33</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="selectable"></a>
+                    <span class="name">
+                            <b>
+                            selectable</b>
+                            <a href="#selectable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>true</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="32" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:32</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="separatorKeysCodes"></a>
+                    <span class="name">
+                            <b>
+                            separatorKeysCodes</b>
+                            <a href="#separatorKeysCodes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>number[]</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>[ENTER, COMMA]</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="35" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:35</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                            <b>
+                            sort</b>
+                            <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>MatSort</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br/>
+                    <code>
+                      @ViewChild(MatSort, {static: true})<br/>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="27" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:27</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="statusCtrl"></a>
+                    <span class="name">
+                            <b>
+                            statusCtrl</b>
+                            <a href="#statusCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>new FormControl()</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="36" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:36</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="statusInput"></a>
+                    <span class="name">
+                            <b>
+                            statusInput</b>
+                            <a href="#statusInput"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Type : </i> <code>ElementRef&lt;HTMLInputElement&gt;</code>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br/>
+                    <code>
+                      @ViewChild(&#x27;statusInput&#x27;, {static: true})<br/>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="42" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:42</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+              <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                  <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                            <b>
+                            visible</b>
+                            <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <i>Default value : </i><code>true</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-4">
+                    <div class="io-line">Defined in <a class="link-to-prism" data-line="31" href="">src/app/admin/administration-panel/my-orders/orders.component.ts:31</a>
+                    </div>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </section>
+
+          </div>
+
+
+          <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+          Component, ElementRef, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatSort, MatTableDataSource} from &#x27;@angular/material&#x27;;
+import {Order} from &#x27;../../../models/order.model&#x27;;
+import {OrderStatusCategoryColor} from &#x27;../../../models/order-status-category.model&#x27;;
+import {OrderService} from &#x27;../../../services/order.service&#x27;;
+import {OrderStatusService} from &#x27;../../../services/order-status.service&#x27;;
+import {OrderStatus} from &#x27;../../../models/order-status.model&#x27;;
+
+import {COMMA, ENTER} from &#x27;@angular/cdk/keycodes&#x27;;
+import {FormControl} from &#x27;@angular/forms&#x27;;
+import {Observable} from &#x27;rxjs&#x27;;
+import {map, startWith} from &#x27;rxjs/operators&#x27;;
+import {TitleService} from &#x27;../../../services/title.service&#x27;;
+
+const columns: string[] &#x3D; [&#x27;id&#x27;, &#x27;dateOfOrder&#x27;, &#x27;totalAmount&#x27;, &#x27;orderStatus.name&#x27;];
+
+@Component({
+          selector: &#x27;app-my-orders&#x27;,
+  templateUrl: &#x27;./orders.component.html&#x27;,
+  styleUrls: [&#x27;./orders.component.css&#x27;]
+})
+export class OrdersComponent implements OnInit {
+          displayedColumns: string[] &#x3D; columns;
+  orders: Order[];
+  colors &#x3D; OrderStatusCategoryColor;
+  dataSource;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  orderStatuses: OrderStatus[] &#x3D; [];
+  allStatuses: OrderStatus[] &#x3D; [];
+
+  visible &#x3D; true;
+  selectable &#x3D; true;
+  removable &#x3D; true;
+  addOnBlur &#x3D; true;
+  separatorKeysCodes: number[] &#x3D; [ENTER, COMMA];
+  statusCtrl &#x3D; new FormControl();
+  filteredStatuses: Observable&lt;OrderStatus[]&gt;;
+  orderStatusMap: [string, OrderStatus[]][];
+  // orderStatuses: string[] &#x3D; [&#x27;Lemon&#x27;];
+  // allStatuses: string[] &#x3D; [&#x27;Apple&#x27;, &#x27;Lemon&#x27;, &#x27;Lime&#x27;, &#x27;Orange&#x27;, &#x27;Strawberry&#x27;];
+
+  @ViewChild(&#x27;statusInput&#x27;, {static: true}) statusInput: ElementRef&lt;HTMLInputElement&gt;;
+  @ViewChild(&#x27;auto&#x27;, {static: true}) matAutocomplete: MatAutocomplete;
+
+  constructor(private orderService: OrderService,
+              private orderStatusService: OrderStatusService,
+              private titleService: TitleService) {
+
+  }
+
+  ngOnInit() {
+    this.titleService.init();
+    this.getOrders();
+    this.getStatuses();
+  }
+
+  getOrders() {
+    this.orderService.getAllOrders().subscribe(data &#x3D;&gt; {
+          this.orders &#x3D; data;
+      this.dataSource &#x3D; new MatTableDataSource(data);
+      this.dataSource.sort &#x3D; this.sort;
+    });
+
+    console.log(&#x27;orders&#x27;);
+    console.log(this.orders);
+  }
+
+  getColor(element: Order): string {
+    return this.colors.filter(c &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; element.orderStatus.orderStatusCategory.id)[0].color;
+  }
+
+  getStatusColor(status: OrderStatus): string {
+    return this.colors.filter(c &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; status.orderStatusCategory.id)[0].color;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter &#x3D; String(filterValue).trim().toLowerCase();
+  }
+
+  filterStatus(statusId: number) {
+    this.dataSource.filter &#x3D; statusId;
+  }
+
+  getStatuses(): void {
+    console.log(&#x27;getStatuses()&#x27;);
+    this.orderStatusService.getOrderStatuses().subscribe(data &#x3D;&gt; {
+          this.allStatuses &#x3D; data;
+      console.log(&#x27;allStatuses: &#x27;);
+      console.log(data);
+
+
+      this.orderStatusMap &#x3D; Array.from(this.groupByStatusGroup(this.allStatuses));
+      console.log(&#x27;orderStatusMap&#x27;);
+      console.log(this.orderStatusMap);
+
+
+      this.filteredStatuses &#x3D; this.statusCtrl.valueChanges.pipe(
+        startWith(null),
+        map((status: OrderStatus | null) &#x3D;&gt; status ? this._filter(status.name) : this.allStatuses.slice()));
+
+      this.setFilterPredicateByOrderNo();
+
+    });
+
+
+    // console.log(&#x27;MAPPP&#x27;);
+    // console.log(this.orderStatusMap);
+  }
+
+  remove(status: OrderStatus): void {
+    const index &#x3D; this.orderStatuses.indexOf(status);
+
+    if (index &gt;&#x3D; 0) {
+          this.orderStatuses.splice(index, 1);
+          this.setFilterPredicateByStatus();
+          this.filterStatus(status.id);
+          this.setFilterPredicateByOrderNo();
+          if (this.orderStatuses.length &#x3D;&#x3D;&#x3D; 0) {
+        this.applyFilter(&#x27;&#x27;);
+      }
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    console.log(&#x27;selected(event: MatAutocompleteSelectedEvent)&#x27;);
+    const status: OrderStatus &#x3D; event.option.value;
+    this.orderStatuses.push(status);
+    this.statusInput.nativeElement.value &#x3D; &#x27;&#x27;;
+    this.statusCtrl.setValue(null);
+
+    this.setFilterPredicateByStatus();
+    this.filterStatus(status.id);
+    this.setFilterPredicateByOrderNo();
+  }
+
+  add(event: MatChipInputEvent): void {
+    // Add status only when MatAutocomplete is not open
+    // To make sure this does not conflict with OptionSelected Event
+    if (!this.matAutocomplete.isOpen) {
+          const input &#x3D; event.input;
+      const value: OrderStatus &#x3D; {
+        name: event.value.trim(),
+        id: 15,
+        orderStatusCategory: {
+          id: 15,
+          name: &#x27;nowy&#x27;
+        }
+      };
+
+      // Add our status
+      if ((value.name || &#x27;&#x27;).trim()) {
+        this.orderStatuses.push(value);
+        this.setFilterPredicateByStatus();
+        this.filterStatus(value.id);
+        this.setFilterPredicateByOrderNo();
+      }
+
+      // Reset the input value
+      if (input) {
+        input.value &#x3D; &#x27;&#x27;;
+      }
+
+      this.statusCtrl.setValue(null);
+    }
+  }
+
+  private setFilterPredicateByOrderNo() {
+    this.dataSource.filterPredicate &#x3D;
+      (order: Order, filter: string) &#x3D;&gt; String(order.id).indexOf(filter) !&#x3D;&#x3D; -1;
+  }
+
+  private setFilterPredicateByStatus() {
+    this.dataSource.filterPredicate &#x3D;
+      (order: Order, statusId: number) &#x3D;&gt; this.orderStatuses.filter(s &#x3D;&gt; s.id &#x3D;&#x3D;&#x3D; order.orderStatus.id).length &gt; 0;
+  }
+
+  private _filter(value: string): OrderStatus[] {
+    const filterValue &#x3D; value.toLowerCase();
+
+    return this.allStatuses.filter(status &#x3D;&gt; status.name.toLowerCase().indexOf(filterValue) &#x3D;&#x3D;&#x3D; 0);
+  }
+
+  private groupByStatusGroup(list: OrderStatus[]): Map&lt;string, OrderStatus[]&gt; {
+    const statusMap &#x3D; new Map();
+    list.forEach((item) &#x3D;&gt; {
+          const key &#x3D; item.orderStatusCategory.name;
+      const collection &#x3D; statusMap.get(key);
+      if (!collection) {
+        statusMap.set(key, [item]);
+      } else {
+        collection.push(item);
+      }
+    });
+    return statusMap;
+  }
+}
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;text-title&quot;&gt;Zamówienia&lt;/div&gt;
+
+
+&lt;!--&lt;mat-card&gt;--&gt;
+&lt;div class&#x3D;&quot;table-header&quot;&gt;
+  &lt;mat-form-field&gt;
+    &lt;input type&#x3D;&quot;number&quot; matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Nr zamówienia&quot;&gt;
+  &lt;/mat-form-field&gt;
+
+  &lt;mat-form-field class&#x3D;&quot;example-chip-list&quot;&gt;
+    &lt;mat-chip-list #chipList&gt;
+      &lt;mat-chip
+        *ngFor&#x3D;&quot;let status of orderStatuses&quot;
+        [selectable]&#x3D;&quot;selectable&quot;
+        [removable]&#x3D;&quot;removable&quot;
+        (removed)&#x3D;&quot;remove(status)&quot;
+        [style.background-color]&#x3D;&quot;getStatusColor(status)&quot;&gt;
+          {{status.name}}
+          &lt;mat-icon matChipRemove *ngIf&#x3D;&quot;removable&quot;&gt;cancel&lt;/mat-icon&gt;
+      &lt;/mat-chip&gt;
+      &lt;input
+        placeholder&#x3D;&quot;Status zamówienia&quot;
+        #statusInput
+        [formControl]&#x3D;&quot;statusCtrl&quot;
+        [matAutocomplete]&#x3D;&quot;auto&quot;
+        [matChipInputFor]&#x3D;&quot;chipList&quot;
+        [matChipInputSeparatorKeyCodes]&#x3D;&quot;separatorKeysCodes&quot;
+        [matChipInputAddOnBlur]&#x3D;&quot;addOnBlur&quot;
+        (matChipInputTokenEnd)&#x3D;&quot;add($event)&quot;&gt;
+    &lt;/mat-chip-list&gt;
+    &lt;mat-autocomplete #auto&#x3D;&quot;matAutocomplete&quot; (optionSelected)&#x3D;&quot;selected($event)&quot;&gt;
+      &lt;!--&lt;mat-optgroup *ngFor&#x3D;&quot;let statusGroup of filteredStatuses&quot; [label]&#x3D;&quot;statusGroup.orderStatusCategory.name&quot;&gt;--&gt;
+      &lt;mat-option *ngFor&#x3D;&quot;let status of filteredStatuses | async&quot; [value]&#x3D;&quot;status&quot;&gt;
+          {{status.name}}
+          &lt;/mat-option&gt;
+      &lt;!--&lt;/mat-optgroup&gt;--&gt;
+    &lt;/mat-autocomplete&gt;
+  &lt;/mat-form-field&gt;
+&lt;/div&gt;
+
+&lt;mat-table matSort id&#x3D;&quot;specification&quot; [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+
+  &lt;!-- OrderId Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Numer zamówienia&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;./&#x27;, element.id]&quot;&gt;{{element.id}}&lt;/a&gt;&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Date Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;dateOfOrder&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Data złożenia&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.dateOfOrder | date}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Price Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;totalAmount&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Wartość&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.totalAmount | plnCurrency}}&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Status Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;orderStatus.name&quot;&gt;
+    &lt;mat-header-cell mat-sort-header *matHeaderCellDef&gt; Status&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+      &lt;mat-chip-list&gt;
+        &lt;mat-chip [style.background-color]&#x3D;&quot;getColor(element)&quot;&gt;{{element.orderStatus.name}}
+          &lt;/mat-chip&gt;
+      &lt;/mat-chip-list&gt;
+    &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+
+  &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/mat-header-row&gt;
+  &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/mat-row&gt;
+&lt;/mat-table&gt;
+&lt;!--&lt;/mat-card&gt;--&gt;
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-styleData">
+            <p class="comment">
+              <code>./orders.component.css</code>
+            </p>
+            <pre class="line-numbers"><code class="language-scss">a {
+              color: inherit;
+}
+
+.table-header {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+}
+
+.table-header &gt; * {
+              width: 100%;
+              margin: 5px;
+}
+
+</code></pre>
+          </div>
+
+          <div class="tab-pane fade " id="c-tree">
+            <div id="tree-container"></div>
+            <div class="tree-legend">
+              <div class="title">
+                <b>Legend</b>
+              </div>
+              <div>
+                <div class="color htmlelement"></div>
+                <span>Html element</span>
+              </div>
+              <div>
+                <div class="color component"></div>
+                <span>Component</span>
+              </div>
+              <div>
+                <div class="color directive"></div>
+                <span>Html element with directive</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <script src="../js/libs/vis.min.js"></script>
+        <script src="../js/libs/htmlparser.js"></script>
+        <script src="../js/libs/deep-iterator.js"></script>
+        <script>
+          var COMPONENT_TEMPLATE = '<div><div class="text-title">Zamówienia</div><!--<mat-card>--><div class="table-header">  <mat-form-field>    <input type="number" matInput (keyup)="applyFilter($event.target.value)" placeholder="Nr zamówienia">  </mat-form-field>  <mat-form-field class="example-chip-list">    <mat-chip-list #chipList>      <mat-chip        *ngFor="let status of orderStatuses"        [selectable]="selectable"        [removable]="removable"        (removed)="remove(status)"        [style.background-color]="getStatusColor(status)">        {{status.name}}        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>      </mat-chip>      <input        placeholder="Status zamówienia"        #statusInput        [formControl]="statusCtrl"        [matAutocomplete]="auto"        [matChipInputFor]="chipList"        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"        [matChipInputAddOnBlur]="addOnBlur"        (matChipInputTokenEnd)="add($event)">    </mat-chip-list>    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">      <!--<mat-optgroup *ngFor="let statusGroup of filteredStatuses" [label]="statusGroup.orderStatusCategory.name">-->      <mat-option *ngFor="let status of filteredStatuses | async" [value]="status">        {{status.name}}      </mat-option>      <!--</mat-optgroup>-->    </mat-autocomplete>  </mat-form-field></div><mat-table matSort id="specification" [dataSource]="dataSource">  <!-- OrderId Column -->  <ng-container matColumnDef="id">    <mat-header-cell mat-sort-header *matHeaderCellDef> Numer zamówienia</mat-header-cell>    <mat-cell *matCellDef="let element"><a [routerLink]="[\'./\', element.id]">{{element.id}}</a></mat-cell>  </ng-container>  <!-- Date Column -->  <ng-container matColumnDef="dateOfOrder">    <mat-header-cell mat-sort-header *matHeaderCellDef> Data złożenia</mat-header-cell>    <mat-cell *matCellDef="let element"> {{element.dateOfOrder | date}}</mat-cell>  </ng-container>  <!-- Price Column -->  <ng-container matColumnDef="totalAmount">    <mat-header-cell mat-sort-header *matHeaderCellDef> Wartość</mat-header-cell>    <mat-cell *matCellDef="let element"> {{element.totalAmount | plnCurrency}}</mat-cell>  </ng-container>  <!-- Status Column -->  <ng-container matColumnDef="orderStatus.name">    <mat-header-cell mat-sort-header *matHeaderCellDef> Status</mat-header-cell>    <mat-cell *matCellDef="let element">      <mat-chip-list>        <mat-chip [style.background-color]="getColor(element)">{{element.orderStatus.name}}        </mat-chip>      </mat-chip-list>    </mat-cell>  </ng-container>  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row></mat-table><!--</mat-card>--></div>';
+          var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'AddProductComponent',
+            'selector': 'app-add-product'
+          }, {'name': 'AppComponent', 'selector': 'app-root'}, {
+            'name': 'ButtonComponent',
+            'selector': 'app-button'
+          }, {'name': 'CustomersComponent', 'selector': 'app-customers'}, {
+            'name': 'HomePageComponent',
+            'selector': 'app-home-page'
+          }, {'name': 'LoginComponent', 'selector': 'app-login'}, {
+            'name': 'MenuComponent',
+            'selector': 'app-menu'
+          }, {'name': 'MyAccountComponent', 'selector': 'app-my-account'}, {
+            'name': 'MyOrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'MySlickCarouselComponent', 'selector': 'app-my-slick-carousel'}, {
+            'name': 'OrderDetailComponent',
+            'selector': 'app-order-detail'
+          }, {'name': 'OrderDetailComponent', 'selector': 'app-order-detail'}, {
+            'name': 'OrdersComponent',
+            'selector': 'app-my-orders'
+          }, {'name': 'OrderSummaryComponent', 'selector': 'app-order-summary'}, {
+            'name': 'PageNotFoundComponent',
+            'selector': 'app-page-not-found'
+          }, {'name': 'PaymentComponent', 'selector': 'app-payment'}, {
+            'name': 'PersonalInfoComponent',
+            'selector': 'app-personal-info'
+          }, {'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'}, {
+            'name': 'ProductCardComponent',
+            'selector': 'app-product-card'
+          }, {'name': 'ProductDetailsComponent', 'selector': 'app-product-details'}, {
+            'name': 'ProductDetailsComponent',
+            'selector': 'app-product-details'
+          }, {'name': 'ProductListComponent', 'selector': 'app-product-list'}, {
+            'name': 'ProductListComponent',
+            'selector': 'app-product-list'
+          }, {'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'}, {
+            'name': 'SignUpComponent',
+            'selector': 'app-sign-up'
+          }, {'name': 'SupportComponent', 'selector': 'app-support'}];
+          var DIRECTIVES = [{'name': 'MyCurrencyFormatterDirective', 'selector': '[appMyCurrencyFormatter]'}];
+          var ACTUAL_COMPONENT = {'name': 'OrdersComponent'};
+        </script>
+        <script src="../js/tree.js"></script>
+
+
+      </div>
+      <div class="search-results">
+        <div class="has-results">
+          <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span
+            class='search-query'></span>"</h1>
+          <ul class="search-results-list"></ul>
+        </div>
+        <div class="no-results">
+          <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+        </div>
+      </div>
+    </div>
+    <!-- END CONTENT -->
+  </div>
+</div>
+
+<script>
+  var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+  var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+  var COMPODOC_CURRENT_PAGE_URL = 'OrdersComponent.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script charset="utf-8" defer src="../js/libs/custom-elements-es5-adapter.js"></script>
+<script defer src="../js/menu-wc.js"></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+<script src="../js/search/search.js"></script>
+<script src="../js/search/lunr.min.js"></script>
+<script src="../js/search/search-lunr.js"></script>
+<script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>
