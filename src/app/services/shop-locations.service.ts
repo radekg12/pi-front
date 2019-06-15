@@ -13,7 +13,7 @@ export class ShopLocationsService {
   constructor(private http: HttpClient) {
   }
 
-  getLocations(): Observable<Location[]> {
-    return this.http.get<Location[]>(this.baseUrl);
+  getLocations(customerLocation: Location): Observable<Location[]> {
+    return this.http.get<Location[]>(`${this.baseUrl}/${customerLocation.lat}-${customerLocation.lng}`);
   }
 }

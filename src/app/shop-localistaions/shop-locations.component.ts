@@ -19,7 +19,7 @@ export class ShopLocationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.findMe();
-    this.locationsService.getLocations().subscribe(data => this.markers = data);
+    this.locationsService.getLocations(this.customerLocation).subscribe(data => this.markers = data);
   }
 
   private findMe() {
