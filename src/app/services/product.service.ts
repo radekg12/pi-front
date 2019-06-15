@@ -1,11 +1,9 @@
-import {Injectable, Input, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Injectable, OnInit} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PageEvent} from '@angular/material';
 import {Product} from '../models/product.model';
 import {environment} from '../../environments/environment';
-
-const header = new HttpHeaders({'Content-Type': 'application/json'});
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +15,11 @@ export class ProductService implements OnInit {
   constructor(private http: HttpClient) {
   }
 
-  @Input()
-
   ngOnInit(): void {
   }
 
   getProduct(id: number): Observable<Product> {
-    console.log('ProdService getProduct(id)');
-    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`, {headers: header});
+    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`);
   }
 
   deleteProduct(product: Product): Observable<Product> {
@@ -41,7 +36,7 @@ export class ProductService implements OnInit {
 
 
   getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/all`, {headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/all`);
   }
 
   getRecommendedProducts(productId: number): Observable<Product[]> {
@@ -49,7 +44,7 @@ export class ProductService implements OnInit {
   }
 
   getAllProductsBySubcategory(subcategoryId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`, {headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`);
   }
 
   getProducts(event?: PageEvent): Observable<Product[]> {
@@ -58,19 +53,16 @@ export class ProductService implements OnInit {
     } else {
       return this.getProductsBySubcategory();
     }
-
   }
 
   getProductsBySubcategory(subcategoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
     const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
-    console.log('+++ HTTP.get<Product[]> : ');
-    console.log({url: this.baseUrl, params: params});
-    return this.http.get<Product[]>(`${this.baseUrl}/${subcategoryId || ''}`, {params: params, headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/${subcategoryId || ''}`, {params: params});
   }
 
   getProductsByCategory(categoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
     const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
-    return this.http.get<Product[]>(`${this.baseUrl}/category/${categoryId || ''}`, {params: params, headers: header});
+    return this.http.get<Product[]>(`${this.baseUrl}/category/${categoryId || ''}`, {params: params});
   }
 
   createHttpParams(params: {}): HttpParams {

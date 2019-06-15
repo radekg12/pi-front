@@ -6,11 +6,11 @@ import {Router} from '@angular/router';
 import {TitleService} from '../services/title.service';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  selector: 'app-enrollment',
+  templateUrl: './enrollment.component.html',
+  styleUrls: ['./enrollment.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class EnrollmentComponent implements OnInit {
   signUpFormGroup: FormGroup;
   postcodeRegex = /^[0-9]{2}[ -]?[0-9]{3}$/;
   phoneNumberRegex = /^[0-9]{3}[ -]?[0-9]{3}[ -]?[0-9]{3}$/;
@@ -74,6 +74,7 @@ export class SignUpComponent implements OnInit {
 
 
   onSubmit(signUpFormGroup: FormGroup) {
+    signUpFormGroup.markAllAsTouched();
     this.saving = true;
     this.customer = signUpFormGroup.value;
     this.authenticationService.register(this.customer).subscribe(

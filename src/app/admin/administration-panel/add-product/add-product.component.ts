@@ -83,7 +83,6 @@ export class AddProductComponent implements OnInit {
   getCategories(): void {
     this.menuService.getMenuCategories().subscribe(
       data => {
-        console.log('getCategories');
         this.categories = data;
       }
     );
@@ -136,8 +135,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(formGroup: FormGroup) {
-    console.log('SUBMIT');
-    console.log({value: formGroup.value, valid: formGroup.valid});
+    formGroup.markAllAsTouched();
     this.product = formGroup.value;
     this.saveProduct();
   }
@@ -147,14 +145,9 @@ export class AddProductComponent implements OnInit {
     this.productService.createProduct(this.product).subscribe(data => {
         this.saving = false;
         this.product = data;
-        console.log('created product');
-        console.log(this.product);
         this.productFormGroup.patchValue(data);
         this.showMessage();
-        console.log('saved product with id');
-        console.log(this.product.id);
         if (this.product.id) {
-          console.log('redirect');
           this.redirectToCreatedProduct();
         }
       },
@@ -170,7 +163,6 @@ export class AddProductComponent implements OnInit {
   }
 
   private redirectToCreatedProduct() {
-    console.log(`redirect to product no ${this.product.id}`);
     this.router.navigate(['../', this.product.id], {relativeTo: this.route});
   }
 }

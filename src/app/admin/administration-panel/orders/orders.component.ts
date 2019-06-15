@@ -15,7 +15,7 @@ import {TitleService} from '../../../services/title.service';
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
 @Component({
-  selector: 'app-my-orders',
+  selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
@@ -36,8 +36,6 @@ export class OrdersComponent implements OnInit {
   statusCtrl = new FormControl();
   filteredStatuses: Observable<OrderStatus[]>;
   orderStatusMap: [string, OrderStatus[]][];
-  // orderStatuses: string[] = ['Lemon'];
-  // allStatuses: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
   @ViewChild('statusInput', {static: true}) statusInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: true}) matAutocomplete: MatAutocomplete;
@@ -60,9 +58,6 @@ export class OrdersComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
     });
-
-    console.log('orders');
-    console.log(this.orders);
   }
 
   getColor(element: Order): string {
@@ -82,29 +77,16 @@ export class OrdersComponent implements OnInit {
   }
 
   getStatuses(): void {
-    console.log('getStatuses()');
     this.orderStatusService.getOrderStatuses().subscribe(data => {
       this.allStatuses = data;
-      console.log('allStatuses: ');
-      console.log(data);
-
-
       this.orderStatusMap = Array.from(this.groupByStatusGroup(this.allStatuses));
-      console.log('orderStatusMap');
-      console.log(this.orderStatusMap);
-
 
       this.filteredStatuses = this.statusCtrl.valueChanges.pipe(
         startWith(null),
         map((status: OrderStatus | null) => status ? this._filter(status.name) : this.allStatuses.slice()));
 
       this.setFilterPredicateByOrderNo();
-
     });
-
-
-    // console.log('MAPPP');
-    // console.log(this.orderStatusMap);
   }
 
   remove(status: OrderStatus): void {
@@ -122,7 +104,6 @@ export class OrdersComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    console.log('selected(event: MatAutocompleteSelectedEvent)');
     const status: OrderStatus = event.option.value;
     this.orderStatuses.push(status);
     this.statusInput.nativeElement.value = '';
@@ -134,8 +115,6 @@ export class OrdersComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    // Add status only when MatAutocomplete is not open
-    // To make sure this does not conflict with OptionSelected Event
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value: OrderStatus = {
@@ -147,7 +126,6 @@ export class OrdersComponent implements OnInit {
         }
       };
 
-      // Add our status
       if ((value.name || '').trim()) {
         this.orderStatuses.push(value);
         this.setFilterPredicateByStatus();
@@ -155,7 +133,6 @@ export class OrdersComponent implements OnInit {
         this.setFilterPredicateByOrderNo();
       }
 
-      // Reset the input value
       if (input) {
         input.value = '';
       }

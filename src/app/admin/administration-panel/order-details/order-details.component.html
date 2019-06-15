@@ -9,7 +9,7 @@
   <div class="text-title">Zamówienie nr {{id}}:</div>
 </div>
 
-<mat-table id="specification" [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" id="specification">
 
   <!-- OrderId Column -->
   <ng-container matColumnDef="orderId">
@@ -39,9 +39,9 @@
       <!--</mat-chip-list>-->
 
       <mat-form-field>
-        <mat-select [(ngModel)]="selectedStatusId" (selectionChange)="onChange($event)">
-          <mat-optgroup *ngFor="let category of orderStatusCategories" [label]="category.name"
-                        [disabled]="false">
+        <mat-select (selectionChange)="onChange($event)" [(ngModel)]="selectedStatusId">
+          <mat-optgroup *ngFor="let category of orderStatusCategories" [disabled]="false"
+                        [label]="category.name">
             <mat-option *ngFor="let status of category.orderStatuses" [value]="status.id">
               {{status.name}}
             </mat-option>
@@ -78,14 +78,14 @@
 
 </div>
 
-<mat-table id="prodPositions" [dataSource]="order?.orderPositions">
+<mat-table [dataSource]="order?.orderPositions" id="prodPositions">
 
   <!-- Product name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef fxFlex="45">Produkt</mat-header-cell>
     <mat-cell *matCellDef="let element" fxFlex="45">
-      <a [routerLink]="['../../products/', element.product.id]"
-         [class.disabled]="!element.product.id">{{element?.product.name}}</a></mat-cell>
+      <a [class.disabled]="!element.product.id"
+         [routerLink]="['../../products/', element.product.id]">{{element?.product.name}}</a></mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="45"></mat-footer-cell>
   </ng-container>
 
@@ -106,13 +106,13 @@
   <!-- Subtotal Column -->
   <ng-container matColumnDef="subtotal">
     <mat-header-cell *matHeaderCellDef fxFlex="20">Razem</mat-header-cell>
-    <mat-cell fxFlex="20"
-              *matCellDef="let element"> {{(element?.quantity * +element?.unitPrice) | plnCurrency}}</mat-cell>
+    <mat-cell *matCellDef="let element"
+              fxFlex="20"> {{(element?.quantity * +element?.unitPrice) | plnCurrency}}</mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="20">{{getTotalCost() | plnCurrency}}</mat-footer-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  <mat-footer-row mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
+  <mat-footer-row *matFooterRowDef="displayedColumns" mat-footer-row></mat-footer-row>
 </mat-table>
 

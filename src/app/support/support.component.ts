@@ -41,10 +41,7 @@ export class SupportComponent implements OnInit {
   }
 
   getMail(): void {
-    console.log('getMail()');
     this.supportService.getMail().subscribe(data => {
-      console.log('mail');
-      console.log(data);
       this.mailTo = data;
       this.support.mailTo = this.mailTo;
     });
@@ -59,14 +56,12 @@ export class SupportComponent implements OnInit {
 
 
   sendMail(form: NgForm) {
-    console.log('sendMail()...');
     this.saving = true;
     this.supportService.sendMail(this.support).subscribe(data => {
       this.saving = false;
       this.showMessage();
       this.support.mailTitle = '';
       this.support.mailContent = '';
-      console.log(`MAIL IS SENT - ${data}`);
     }, error1 => {
       this.saving = false;
     });

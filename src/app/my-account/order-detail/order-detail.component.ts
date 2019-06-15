@@ -8,7 +8,7 @@ import {MatTableDataSource} from '@angular/material';
 import {TitleService} from '../../services/title.service';
 
 @Component({
-  selector: 'app-order-detail',
+  selector: 'app-order-details',
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.css']
 })
@@ -69,14 +69,6 @@ export class OrderDetailComponent implements OnInit {
       this.orders.push(data);
       this.dataSource = new MatTableDataSource(this.orders);
       this.setDeliveryPosition();
-
-      console.log('GET ORDER_1');
-      console.log(this.order);
-      console.log(this.orders);
-
     });
-    console.log('GET ORDER');
-    console.log(this.order);
-    console.log(this.orders);
   }
 }

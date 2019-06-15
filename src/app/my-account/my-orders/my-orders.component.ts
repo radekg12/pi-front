@@ -8,7 +8,7 @@ import {TitleService} from '../../services/title.service';
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
 @Component({
-  selector: 'app-my-orders',
+  selector: 'app-orders',
   templateUrl: './my-orders.component.html',
   styleUrls: ['./my-orders.component.css']
 })
@@ -34,8 +34,6 @@ export class MyOrdersComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.orders);
       this.dataSource.sort = this.sort;
     });
-    console.log('orders');
-    console.log(this.orders);
   }
 
   getColor(element: Order): string {

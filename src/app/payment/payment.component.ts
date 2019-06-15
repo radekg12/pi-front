@@ -115,8 +115,6 @@ export class PaymentComponent implements OnInit {
   }
 
   getPaymentMethod(): PaymentMethod {
-    console.log('getPaymentMethod');
-    console.log(this.paymentMethods.filter(m => m.id === 4)[0]);
     return this.paymentMethods.filter(m => m.id === 4)[0];
   }
 }

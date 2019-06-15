@@ -1,0 +1,9 @@
+agm-map {
+  height: 400px;
+}
+
+@media screen and (min-width: 1439px) {
+  agm-map {
+    height: 800px;
+  }
+}

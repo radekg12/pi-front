@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private titleService: TitleService
   ) {
-    // redirect to home if already logged in
+
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submit...');
+    this.loginFormGroup.markAllAsTouched();
     this.submitted = true;
 
     if (this.loginFormGroup.invalid) {
@@ -72,16 +72,11 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.saving = false;
-          console.log(`navigate to ${this.returnUrl} relative to ${this.route}`);
           this.router.navigate([this.returnUrl]);
-          console.log('login success');
-          console.log(data);
         },
         error => {
           this.error = 'Email lub hasło jest niepoprawne. Spróbuj  jeszcze raz';
           this.saving = false;
-          console.log(error);
-          console.log('login error');
         });
   }
 }

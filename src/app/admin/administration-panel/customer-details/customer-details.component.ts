@@ -12,11 +12,11 @@ import {TitleService} from '../../../services/title.service';
 const columns: string[] = ['id', 'dateOfOrder', 'totalAmount', 'orderStatus.name'];
 
 @Component({
-  selector: 'app-personal-info',
-  templateUrl: './personal-info.component.html',
-  styleUrls: ['./personal-info.component.css']
+  selector: 'app-customer-details',
+  templateUrl: './customer-details.component.html',
+  styleUrls: ['./customer-details.component.css']
 })
-export class PersonalInfoComponent implements OnInit {
+export class CustomerDetailsComponent implements OnInit {
 
   id: number;
   hide = true;
@@ -44,16 +44,6 @@ export class PersonalInfoComponent implements OnInit {
     private snackBar: MatSnackBar,
     private titleService: TitleService
   ) {
-  }
-
-  ngOnInit() {
-    this.titleService.init();
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-    });
-    this.getCustomer();
-    this.getOrders();
-    this.configForms();
   }
 
   public get addressGroup(): FormGroup {
@@ -96,6 +86,16 @@ export class PersonalInfoComponent implements OnInit {
     return this.loginFormGroup.controls;
   }
 
+  ngOnInit() {
+    this.titleService.init();
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+    this.getCustomer();
+    this.getOrders();
+    this.configForms();
+  }
+
   getCustomer(): void {
     this.customerService.getCustomerById(this.id).subscribe(data => {
       this.customer = data;
@@ -116,14 +116,11 @@ export class PersonalInfoComponent implements OnInit {
     this.customerService.saveCustomer(this.customer).subscribe(data => {
         this.saving = false;
         this.customer = data;
-        console.log('updated customer');
-        console.log(this.customer);
         this.addressFormGroup.patchValue(data);
         this.showMessage();
       },
       error => {
         this.saving = false;
-        console.log(error);
       },
       () => this.showMessage()
     );
@@ -151,8 +148,7 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   onSubmit(formGroup: FormGroup): void {
-    console.log('SUBMIT');
-    console.log({value: formGroup.value, valid: formGroup.valid});
+    formGroup.markAllAsTouched();
     this.customer = formGroup.value;
     this.updateCustomer();
   }

@@ -1,8 +1,8 @@
-import { browser, by, element, promise } from 'protractor';
+import {browser, by, element, promise} from 'protractor';
 
 export class AppPage {
   navigateTo(url?: string) {
-    return browser.get( url ? `/${url}` : '/');
+    return browser.get(url ? `/${url}` : '/');
   }
 
   getParagraphText(className: string) {
@@ -16,14 +16,14 @@ export class AppPage {
   getTextByElementTag(tagName: string) {
     return element(by.tagName(tagName)).getText();
   }
-  
+
   fillLoginForm(username: string, password: string) {
     this.getElementByCss('[placeholder = "Hasło"]').sendKeys(password);
     this.getElementByCss('[placeholder = "Login"]').sendKeys(username);
     element(by.css('.button-primary')).click();
   }
 
-  getCurrentUrl() : promise.Promise<string> {
+  getCurrentUrl(): promise.Promise<string> {
     return browser.getCurrentUrl();
   }
 }

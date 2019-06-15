@@ -9,7 +9,6 @@ export const transAnimation = animation([
   animate('{{ time }}')
 ]);
 
-// Routable animations
 export const slideInAnimation =
   trigger('routeAnimation', [
     transition('ProductListPage <=> ProductDetailsPage', [

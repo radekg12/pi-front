@@ -83,7 +83,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Hasło</mat-label>
-          <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput maxlength="45"
+          <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" matInput maxlength="45"
                  placeholder="Hasło" required
                  type="password">
           <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"

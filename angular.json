@@ -28,7 +28,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
               "node_modules/slick-carousel/slick/slick.scss",
-              "node_modules/slick-carousel/slick/slick-theme.scss"
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/snazzy-info-window/dist/snazzy-info-window.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -61,8 +62,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "portal-app:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "portal-app:build"
           },
           "configurations": {
             "production": {

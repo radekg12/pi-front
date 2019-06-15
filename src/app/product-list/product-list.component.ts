@@ -52,7 +52,6 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.titleService.init();
     this.initPaginator();
-    console.log(this.route.snapshot);
     this.setParams();
   }
 
@@ -60,24 +59,16 @@ export class ProductListComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.subcategoryId = +params['subcategoryId'];
       this.categoryId = +params['categoryId'];
-      console.log(`producy id = ${this.subcategoryId}`);
     });
 
-    console.log(this.route.queryParamMap);
     this.route.queryParamMap.subscribe(
       (params: ParamMap) => {
-        console.log('** SET_PARAMS(-1-) **');
-        console.log(params);
-        console.log(`page=${+params.get('page')} size=${+params.get('size')} sort=${params.get('sort')}`);
 
         this.currentPage = +params.get('page') || this.defaultPage + 1;
         this.currentPage--;
         this.pageSize = +params.get('size') || this.defaultPageSize;
         this.sortBy = params.get('sort') || this.defaultSortBy;
 
-        console.log('** SET_PARAMS(-2-) **');
-        console.log(`page: ${this.currentPage}, size: ${this.pageSize}, sort: ${this.sortBy}`);
-        console.log(this.route.snapshot);
         this.getProducts();
 
       });
@@ -98,19 +89,17 @@ export class ProductListComponent implements OnInit {
   }
 
   getProductsBySubcategory(): void {
-    console.log('GET_PRODUCTS()');
     this.productService.getProductsBySubcategory(this.subcategoryId, this.currentPage, this.pageSize, this.sortBy).subscribe(
       data => {
-        console.log('NEXT');
         this.products = data['content'];
         this.totalElements = data['totalElements'];
         this.currentPage = data['number'];
         this.pageSize = data['size'];
-        console.log('GET_PRODUCT()');
-        console.log(data['content']);
       },
-      () => console.log('ERRRORRRRRRRR'),
-      () => console.log('COMPLETE'));
+      () => {
+      },
+      () => {
+      });
   }
 
   getProductsByCategory(): void {
@@ -121,8 +110,10 @@ export class ProductListComponent implements OnInit {
         this.currentPage = data['number'];
         this.pageSize = data['size'];
       },
-      () => console.log('ERRRORRRRRRRR'),
-      () => console.log('COMPLETE'));
+      () => {
+      },
+      () => {
+      });
   }
 
   changePage(event?: PageEvent): PageEvent {
@@ -144,17 +135,14 @@ export class ProductListComponent implements OnInit {
 
   switchToGridView(): void {
     this.gridViewIsActive = true;
-    console.log('switchToGridView');
   }
 
   switchToListView(): void {
     this.gridViewIsActive = false;
-    console.log('switchToListView');
 
   }
 
   changePageSorting($event: MatSelectChange) {
-    console.log('changeSoring()');
     this.sortBy = $event.value;
     this.router.navigate(['./'], {
       queryParams: {

@@ -17,6 +17,10 @@
           </li>
           <li>
             <a (click)="goToPage($event)"
+               [routerLink]="['/shops']">Sklepy</a>
+          </li>
+          <li>
+            <a (click)="goToPage($event)"
                *ngIf="!authenticationService.isLoggedIn() || authenticationService.isLoggedInAsUser()"
                [routerLink]="['/cart']">Koszyk</a>
           </li>

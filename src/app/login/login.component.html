@@ -4,7 +4,7 @@
     <div class="login-form-group">
       <mat-form-field appearance="outline">
         <mat-label>Login</mat-label>
-        <input [formControl]="username" matInput placeholder="Login" type="email">
+        <input formControlName="username" matInput placeholder="Login" type="email">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-error *ngIf="username.hasError('required')">
           Wprowadź login
@@ -14,7 +14,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Hasło</mat-label>
-        <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Hasło">
+        <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" matInput placeholder="Hasło">
         <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hidePassword" mat-icon-button
                 matSuffix
@@ -27,7 +27,7 @@
       </mat-form-field>
     </div>
 
-    <mat-checkbox [formControl]="rememberMe">Zapamiętaj mnie</mat-checkbox>
+    <mat-checkbox formControlName="rememberMe">Zapamiętaj mnie</mat-checkbox>
 
     <div class="login-confirm">
       <mat-error *ngIf="error">{{error}}</mat-error>
