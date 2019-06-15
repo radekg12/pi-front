@@ -48,7 +48,6 @@ export class ProductDetailsComponent implements OnInit {
     this.titleService.init();
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
-      console.log(`producy id = ${this.id}`);
       this.getProduct();
       this.getRecommendedProducts();
     });
@@ -92,25 +91,17 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getProduct(): void {
-    console.log(`getProduct(${this.id})`);
     this.productService.getProduct(this.id)
       .subscribe(
         data => {
-          console.log('next 1');
           this.product = data;
-          console.log('next 2');
-          console.log(data);
-          console.log(this.product);
           this.dataSource = this.product.specificationPositions;
           this.noneProductInStack = +this.product.logicalQuantityInStock < 0;
-          console.log('next 3');
-          console.log(this.dataSource);
         },
         error1 => {
-          console.log('ERRORRRR');
-          console.log(error1);
         },
-        () => console.log('COMPLETEEEE'));
+        () => {
+        });
   }
 
   getSlideConfig() {

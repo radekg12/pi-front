@@ -31,7 +31,7 @@ import {SharedModule} from './shared/shared.module';
 import {HomePageComponent} from './home-page/home-page.component';
 import {LoginComponent} from './login/login.component';
 import {JwtAuthorizationInterceptor} from './jwt-authorization.interceptor';
-import {SignUpComponent} from './sign-up/sign-up.component';
+import {EnrollmentComponent} from './enrollment/enrollment.component';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {MySlickCarouselComponent} from './my-slick-carousel/my-slick-carousel.component';
 import {AgmCoreModule} from '@agm/core';
@@ -60,7 +60,7 @@ registerLocaleData(localePl, 'pl');
     SupportComponent,
     HomePageComponent,
     LoginComponent,
-    SignUpComponent,
+    EnrollmentComponent,
     MySlickCarouselComponent,
     ShopLocationsComponent
   ],

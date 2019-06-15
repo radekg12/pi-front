@@ -6,7 +6,7 @@ import {MatSnackBar} from '@angular/material';
 import {TitleService} from '../../services/title.service';
 
 @Component({
-  selector: 'app-personal-info',
+  selector: 'app-customer-details',
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.css']
 })
@@ -88,14 +88,11 @@ export class PersonalInfoComponent implements OnInit {
     this.customerService.saveCustomer(this.customer).subscribe(data => {
         this.saving = false;
         this.customer = data;
-        console.log('updated customer');
-        console.log(this.customer);
         this.addressFormGroup.patchValue(data);
         this.showMessage();
       },
       error => {
         this.saving = false;
-        console.log(error);
       },
       () => this.showMessage()
     );
@@ -123,8 +120,7 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   onSubmit(formGroup: FormGroup): void {
-    console.log('SUBMIT');
-    console.log({value: formGroup.value, valid: formGroup.valid});
+    formGroup.markAllAsTouched();
     this.customer = formGroup.value;
     this.updateCustomer();
   }

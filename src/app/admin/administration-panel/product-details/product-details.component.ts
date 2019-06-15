@@ -120,11 +120,6 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-  onSelectstart(event) {
-    console.log('onSelectstart');
-    console.log(event);
-  }
-
   initSpecificationPosition(): FormGroup {
     return this.formBuilder.group({
       id: [null],
@@ -178,12 +173,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onSubmit(formGroup: FormGroup) {
-    console.log('SUBMIT');
-    console.log({value: formGroup.value, valid: formGroup.valid});
-    console.log('formGroup.getRawValue()');
-    console.log(formGroup.getRawValue());
-    console.log('formGroup.value');
-    console.log(formGroup.value);
+    formGroup.markAllAsTouched();
     this.product = formGroup.getRawValue();
     this.updateProduct();
   }
@@ -193,8 +183,6 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.updateProduct(this.product).subscribe(data => {
         this.saving = false;
         this.product = data;
-        console.log('updated product');
-        console.log(this.product);
         this.productFormGroup.patchValue(data);
         this.showMessage();
       },
@@ -213,11 +201,7 @@ export class ProductDetailsComponent implements OnInit {
       this.productFormGroup.patchValue(data);
 
       this.menuService.getCategoryBySubcategoryId(this.product.subcategory.id).subscribe(categoryData => {
-        console.log('getCategoryBySubcategoryId');
         const categoryId = categoryData.id;
-        console.log(this.category);
-        console.log(`setCategory id=${categoryId} of categories`);
-        console.log(this.categories);
         this.category.setValue(this.categories.filter(c => c.id === categoryId).pop());
 
         this.subcategory.setValue(this.categories.filter(c => c.id === categoryId).pop().subcategories.filter(s => s.id === this.product.subcategory.id).pop());

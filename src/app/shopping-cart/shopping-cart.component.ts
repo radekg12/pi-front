@@ -31,10 +31,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.init();
-    console.log('getProduct');
     this.getProducts();
-    console.log('getProduct_2');
-    console.log(this.cartItems);
   }
 
   getProducts() {
@@ -42,18 +39,14 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   increaseQuantity(item: ShoppingCartPosition) {
-    console.log(`increase quantity: ${item.quantity}; `);
     this.shoppingCartService.updateProduct(+item.product.id, ++item.quantity).subscribe(data => {
-      console.log('increaseQuantity');
       item.quantity = data.quantity;
       this.showMessage('Zmieniono zawartość koszyka');
     });
   }
 
   decreaseQuantity(item: ShoppingCartPosition) {
-    console.log(`reduce quantity: ${item.quantity}; `);
     this.shoppingCartService.updateProduct(+item.product.id, --item.quantity).subscribe(data => {
-      console.log('decreaseQuantity');
       item.quantity = data.quantity;
       this.showMessage('Zmieniono zawartość koszyka');
     });
@@ -68,14 +61,12 @@ export class ShoppingCartComponent implements OnInit {
     }, error1 => {
       this.saving = false;
     });
-    console.log('remove item ');
     this.showMessage('Usunięto produkt z koszyka');
   }
 
   getSumPrice(): number {
     let sum = 0;
     this.cartItems.forEach(i => sum += (+i.product.unitPrice * i.quantity));
-    console.log(`calculate sum: ${sum}`);
     return sum;
   }
 
@@ -83,7 +74,6 @@ export class ShoppingCartComponent implements OnInit {
     this.saving = true;
     this.shoppingCartService.updateProduct(productId, quanity).subscribe(data => {
       this.saving = false;
-      console.log('changeQuantity');
       quanity = data.quantity;
       this.showMessage('Zmieniono zawartość koszyka');
     }, error1 => {
@@ -95,9 +85,5 @@ export class ShoppingCartComponent implements OnInit {
     this.snackBar.open(message, '', {
       duration: 2000,
     });
-  }
-
-  goToPayment() {
-    console.log('goToPayment');
   }
 }

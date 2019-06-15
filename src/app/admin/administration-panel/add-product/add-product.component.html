@@ -15,7 +15,7 @@
 
       <div class="header-select">
         <mat-form-field>
-          <mat-select [formControl]="category" placeholder="Kategoria" required>
+          <mat-select formControlName="category" placeholder="Kategoria" required>
             <mat-option *ngFor="let categoryy of categories" [value]="categoryy">
               {{categoryy.name}}
             </mat-option>
@@ -24,7 +24,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select [formControl]="subcategory" placeholder="Podkategoria" required>
+          <mat-select formControlName="subcategory" placeholder="Podkategoria" required>
             <mat-option *ngFor="let subcategoryy of category.value.subcategories"
                         [disabled]="category.invalid" [value]="subcategoryy">
               {{subcategoryy.name}}
@@ -42,7 +42,7 @@
       <!--<div class="text-title">{{product.name}}</div>-->
       <div class="text-title">
         <mat-form-field>
-          <input [formControl]="name" matInput placeholder="Nazwa">
+          <input formControlname="name" matInput placeholder="Nazwa">
           <mat-error *ngIf="name.hasError('required')">
             Wprowadź nazwę produktu
           </mat-error>
@@ -53,7 +53,7 @@
         <!--<div class="text-title">{{product.company}}</div>-->
         <div class="text-description">
           <mat-form-field>
-            <input [formControl]="company" matInput placeholder="Marka">
+            <input formControlName="company" matInput placeholder="Marka">
             <mat-error *ngIf="company.hasError('required')">
               Wprowadź markę produktu
             </mat-error>
@@ -61,7 +61,7 @@
         </div>
         <div class="text-description">
           <mat-form-field>
-            <input [formControl]="logicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
+            <input formControlName="logicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
                    type="number">
             <mat-error *ngIf="logicalQuantityInStock.hasError('required')">
               Wprowadź dostępną ilość produktów w systemie
@@ -70,7 +70,8 @@
         </div>
         <div class="text-description">
           <mat-form-field>
-            <input [formControl]="physicalQuantityInStock" matInput placeholder="Ilość dostępnych produktów w systemie"
+            <input formControlName="physicalQuantityInStock" matInput
+                   placeholder="Ilość dostępnych produktów w systemie"
                    type="number">
             <mat-error *ngIf="physicalQuantityInStock.hasError('required')">
               Wprowadź dostępną ilość produktów w magazynie
@@ -85,7 +86,7 @@
           <img [src]="imageUrl.value" alt="product image">
           <div class="text-description">
             <mat-form-field>
-              <input [formControl]="imageUrl" matInput placeholder="Ścieżka do zdjęcia" type="url">
+              <input formControlName="imageUrl" matInput placeholder="Ścieżka do zdjęcia" type="url">
               <mat-error *ngIf="imageUrl.hasError('required')">
                 Wprowadź ścieżkę do zdjęcia
               </mat-error>
@@ -97,7 +98,7 @@
           <!--</div>-->
           <div class="card__details__description">
             <mat-form-field>
-            <textarea [formControl]="description" cdkAutosizeMinRows="9" cdkTextareaAutosize matInput
+            <textarea cdkAutosizeMinRows="9" cdkTextareaAutosize formControlName="description" matInput
                       placeholder="Opis"></textarea>
               <mat-error *ngIf="description.hasError('required')">
                 Wprowadź opis produktu
@@ -107,7 +108,7 @@
 
           <div class="card__details__price">
             <mat-form-field>
-              <input [formControl]="unitPrice" appMyCurrencyFormatter matInput placeholder="Cena">
+              <input appMyCurrencyFormatter formControlName="unitPrice" matInput placeholder="Cena">
               <mat-error *ngIf="unitPrice.hasError('required')">
                 Wprowadź cenę produktu
               </mat-error>

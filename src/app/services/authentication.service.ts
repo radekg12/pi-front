@@ -30,42 +30,24 @@ export class AuthenticationService {
   }
 
   register(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(`${this.baseURL}/signup`, customer);
+    return this.http.post<Customer>(`${this.baseURL}/enrollment`, customer);
   }
 
   login(loginModel: Login) {
-    return this.http.post<any>(`${this.baseURL}/signin`, loginModel)
+    return this.http.post<any>(`${this.baseURL}/login`, loginModel)
       .pipe(map((user: User) => {
-        // login successful if there's a jwt token in the response
-        console.log('auth/signin');
-        console.log(user);
-        console.log(user.accessToken);
         if (user && user.accessToken) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-
-
           const token = user.accessToken;
           const helper = new JwtHelperService();
 
           const authorities: string[] = (helper.decodeToken(token)['auth'] as string).split(',');
           const decodedToken = helper.decodeToken(token);
-
-// Other functions
           const expirationDate = helper.getTokenExpirationDate(token);
           const isExpired = helper.isTokenExpired(token);
 
-          console.log(` now: ${new Date()}; `);
-          console.log(` token: ${token}; `);
-          console.log(` decodedToken: ${decodedToken};`);
-          console.log(decodedToken);
-          console.log(` expirationDate: ${expirationDate}; isExpired: ${isExpired}; `);
-
-          console.log('save currentUser to localStorage');
           this.storeAuthenticationToken(JSON.stringify(user), user.rememberMe);
-          console.log('saved');
           this.currentUserSubject.next(user);
         }
-
         return user;
       }));
   }
@@ -103,8 +85,6 @@ export class AuthenticationService {
   }
 
   logout() {
-    // remove user from local storage to log user out
-    console.log('logout');
     localStorage.removeItem('currentUser');
     sessionStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);

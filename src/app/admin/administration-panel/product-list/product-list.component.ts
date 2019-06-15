@@ -33,8 +33,6 @@ export class ProductListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.sort = this.sort;
     });
-    console.log('orders');
-    console.log(this.products);
   }
 
   applyFilter(filterValue: string) {

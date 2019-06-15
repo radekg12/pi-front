@@ -2,9 +2,9 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {AdminRoutingModule} from './admin-routing.module';
-import {PersonalInfoComponent} from './administration-panel/personal-info/personal-info.component';
-import {OrdersComponent} from './administration-panel/my-orders/orders.component';
-import {OrderDetailComponent} from './administration-panel/order-detail/order-detail.component';
+import {CustomerDetailsComponent} from './administration-panel/customer-details/customer-details.component';
+import {OrdersComponent} from './administration-panel/orders/orders.component';
+import {OrderDetailsComponent} from './administration-panel/order-details/order-details.component';
 import {AccountComponent} from './administration-panel/account.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material.module';
@@ -18,8 +18,8 @@ import {TitleService} from '../services/title.service';
 @NgModule({
   declarations: [
     OrdersComponent,
-    OrderDetailComponent,
-    PersonalInfoComponent,
+    OrderDetailsComponent,
+    CustomerDetailsComponent,
     AccountComponent,
     CustomersComponent,
     ProductListComponent,

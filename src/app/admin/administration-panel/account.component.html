@@ -18,12 +18,24 @@
       <mat-divider></mat-divider>
 
       <ul>
-        <li *ngIf="authenticationService.isLoggedInAsAdmin()"><a [routerLinkActiveOptions]="{exact:
-true}" [routerLinkActive]="['active']" [routerLink]="['./personal-info']">Klienci</a></li>
-        <li><a [routerLink]="['./orders']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
-true}">Zamówienia</a></li>
-        <li><a [routerLink]="['./products']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
-true}">Produkty</a></li>
+        <li *ngIf="authenticationService.isLoggedInAsAdmin()">
+          <a [routerLinkActiveOptions]="{exact:true}"
+             [routerLinkActive]="['active']" [routerLink]="['./personal-info']">
+            Klienci
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']"
+             [routerLink]="['./orders']">
+            Zamówienia
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']"
+             [routerLink]="['./products']">
+            Produkty
+          </a>
+        </li>
       </ul>
     </mat-card>
   </div>

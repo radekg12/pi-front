@@ -14,11 +14,11 @@ import {TitleService} from '../../../services/title.service';
 import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
-  selector: 'app-order-detail',
-  templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.css']
+  selector: 'app-order-details',
+  templateUrl: './order-details.component.html',
+  styleUrls: ['./order-details.component.css']
 })
-export class OrderDetailComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'quantity', 'unitPrice', 'subtotal'];
   ordersColumns: string[] = ['orderId', 'date', 'price', 'status'];
   orderStatusCategories: OrderStatusCategoryAll[];
@@ -27,8 +27,8 @@ export class OrderDetailComponent implements OnInit {
 
   public id: number;
   public order: Order;
-  private orders: Order[] = [];
   public dataSource;
+  private orders: Order[] = [];
   private deliveryPosition: OrderPosition;
   private colors = OrderStatusCategoryColor;
 
@@ -81,9 +81,6 @@ export class OrderDetailComponent implements OnInit {
   }
 
   onChange(event: MatSelectChange) {
-    console.log(`on change ${event.value}`);
-    console.log(event);
-    console.log(this.selectedStatusId);
     this.orderService.changeOrderStatus(this.order.id, this.selectedStatusId).subscribe(data => {
       this.order = data;
       this.showMessage();
@@ -103,15 +100,7 @@ export class OrderDetailComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.orders);
       this.setDeliveryPosition();
       this.selectedStatusId = this.order.orderStatus.id;
-
-      console.log('GET ORDER_1');
-      console.log(this.order);
-      console.log(this.orders);
-
     });
-    console.log('GET ORDER');
-    console.log(this.order);
-    console.log(this.orders);
   }
 
   private getCustomer() {

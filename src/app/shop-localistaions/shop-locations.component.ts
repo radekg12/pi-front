@@ -3,7 +3,7 @@ import {Location} from '../models/location.model';
 import {ShopLocationsService} from '../services/shop-locations.service';
 
 @Component({
-  selector: 'app-google-map',
+  selector: 'app-shop-locations',
   templateUrl: './shop-locations.component.html',
   styleUrls: ['./shop-locations.component.css']
 })

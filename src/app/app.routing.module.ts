@@ -15,7 +15,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {AuthGuard} from './guards/auth.guard';
 import {Role} from './models/role.model';
 import {LoginComponent} from './login/login.component';
-import {SignUpComponent} from './sign-up/sign-up.component';
+import {EnrollmentComponent} from './enrollment/enrollment.component';
 import {TitleService} from './services/title.service';
 import {ShopLocationsComponent} from './shop-localistaions/shop-locations.component';
 
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent, data: {title: 'Logowanie'}},
-  {path: 'signup', component: SignUpComponent, data: {title: 'Rejestracja'}},
+  {path: 'signup', component: EnrollmentComponent, data: {title: 'Rejestracja'}},
   {path: 'products', component: ProductListComponent, data: {title: ' Produkty', animation: 'ProductListPage'}},
   {path: 'products/:subcategoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
   {path: 'products/category/:categoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
