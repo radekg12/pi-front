@@ -4,7 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:dev": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
     "build": "ng build",
     "build:githubpage": "ng build --prod --base-href 'https://radekg12.github.io/pi-front/'",
     "publish:githubpage": "ngh --dir dist/portal-app",
