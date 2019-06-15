@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
 
   @HostListener('document:click', ['$event']) clickedOutside($event) {
     if (this.eRef.nativeElement.contains(event.target)) {
-      console.log(event.target);
     } else {
       this.categoriesIsActive = false;
     }
@@ -31,29 +30,23 @@ export class MenuComponent implements OnInit {
     this.categoriesIsActive = false;
   }
 
-  // ngAfterViewInit() {
-  //   this.initMenuAnimation()
-  // }
-
   openCategoryMenu(event): void {
     this.categoriesIsActive = !this.categoriesIsActive;
-    console.log(`isActive? ${this.categoriesIsActive}`);
     event.preventDefault();
   }
 
   goToCategory(event) {
     this.categoriesIsActive = false;
-    console.log(`isActive? ${this.categoriesIsActive}`);
     event.preventDefault();
   }
 
   getCategories(): void {
     this.menuService.getMenuCategories().subscribe(
       data => {
-        console.log('getCategories');
         this.categories = data;
       },
-      e => console.log('error - menu categories')
+      e => {
+      }
     );
   }
 

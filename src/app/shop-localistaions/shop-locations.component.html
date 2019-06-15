@@ -1,0 +1,20 @@
+<div class="text-title">Nasze sklepy</div>
+
+<agm-map [latitude]="customerLocation.lat" [longitude]="customerLocation.lng" [zoom]="zoom">
+  <agm-marker-cluster
+    imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+    <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.lat"
+                [longitude]="marker.lng">
+      <agm-snazzy-info-window [closeWhenOthersOpen]="true" [maxWidth]="200">
+        <ng-template>
+          {{marker.info}}
+        </ng-template>
+      </agm-snazzy-info-window>
+    </agm-marker>
+  </agm-marker-cluster>
+
+  <agm-circle [fillColor]="'red'" [latitude]="customerLocation.lat"
+              [longitude]="customerLocation.lng"
+              [radius]="5000">
+  </agm-circle>
+</agm-map>

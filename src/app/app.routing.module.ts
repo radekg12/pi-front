@@ -17,6 +17,7 @@ import {Role} from './models/role.model';
 import {LoginComponent} from './login/login.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {TitleService} from './services/title.service';
+import {ShopLocationsComponent} from './shop-localistaions/shop-locations.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'support', component: SupportComponent, canActivate: [AuthGuard],
     data: {roles: [Role.User], title: 'Wsparcie'}
+  },
+  {
+    path: 'shops', component: ShopLocationsComponent,
+    data: {title: 'Nasze sklepy'}
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard],

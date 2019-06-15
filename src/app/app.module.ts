@@ -34,6 +34,10 @@ import {JwtAuthorizationInterceptor} from './jwt-authorization.interceptor';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {MySlickCarouselComponent} from './my-slick-carousel/my-slick-carousel.component';
+import {AgmCoreModule} from '@agm/core';
+import {ShopLocationsComponent} from './shop-localistaions/shop-locations.component';
+import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
+import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 
 
 registerLocaleData(localePl, 'pl');
@@ -57,7 +61,8 @@ registerLocaleData(localePl, 'pl');
     HomePageComponent,
     LoginComponent,
     SignUpComponent,
-    MySlickCarouselComponent
+    MySlickCarouselComponent,
+    ShopLocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,14 +76,20 @@ registerLocaleData(localePl, 'pl');
     ReactiveFormsModule,
     SharedModule,
     SlickCarouselModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCRo1Oz_U0C3M_B1acALqd-KIliufSb2FQ'
+    }),
+    AgmSnazzyInfoWindowModule,
+    AgmJsMarkerClustererModule
   ],
   providers: [
     ProductService,
     {provide: LOCALE_ID, useValue: 'pl'},
     {provide: HTTP_INTERCEPTORS, useClass: JwtAuthorizationInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ShopLocationsComponent]
 })
 export class AppModule {
 }
