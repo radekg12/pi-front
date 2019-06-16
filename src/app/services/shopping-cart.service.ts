@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class ShoppingCartService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/shoppingCart`;
+  private baseURL = `${environment.apiUrl}/shopping-carts`;
 
   constructor(private http: HttpClient) {
   }

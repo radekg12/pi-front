@@ -67,7 +67,7 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef fxFlex="45">Produkt</mat-header-cell>
     <mat-cell *matCellDef="let element" fxFlex="45">
-      <a [routerLink]="['/products/detail', element.product.id]"
+      <a [routerLink]="['/products', element.product.id, 'details']"
          [class.disabled]="!element.product.id">{{element?.product.name}}</a></mat-cell>
     <mat-footer-cell *matFooterCellDef fxFlex="45"></mat-footer-cell>
   </ng-container>

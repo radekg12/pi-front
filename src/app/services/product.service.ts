@@ -1,7 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PageEvent} from '@angular/material';
 import {Product} from '../models/product.model';
 import {environment} from '../../environments/environment';
 
@@ -19,7 +18,7 @@ export class ProductService implements OnInit {
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/detail/${id}`);
+    return this.http.get<Product>(`${this.baseUrl}/${id}/details`);
   }
 
   deleteProduct(product: Product): Observable<Product> {
@@ -40,29 +39,17 @@ export class ProductService implements OnInit {
   }
 
   getRecommendedProducts(productId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/${productId}/recommendation`);
-  }
-
-  getAllProductsBySubcategory(subcategoryId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/all/${subcategoryId}`);
-  }
-
-  getProducts(event?: PageEvent): Observable<Product[]> {
-    if (event) {
-      return this.getProductsBySubcategory(event.pageIndex, event.pageSize);
-    } else {
-      return this.getProductsBySubcategory();
-    }
+    return this.http.get<Product[]>(`${this.baseUrl}/${productId}/recommendations`);
   }
 
   getProductsBySubcategory(subcategoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
     const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
-    return this.http.get<Product[]>(`${this.baseUrl}/${subcategoryId || ''}`, {params: params});
+    return this.http.get<Product[]>(`${this.baseUrl}/subcategories/${subcategoryId || ''}`, {params: params});
   }
 
   getProductsByCategory(categoryId?: number, page?: number, size?: number, sort?: string): Observable<Product[]> {
     const params: HttpParams = this.createHttpParams({page, size: size, sort: sort});
-    return this.http.get<Product[]>(`${this.baseUrl}/category/${categoryId || ''}`, {params: params});
+    return this.http.get<Product[]>(`${this.baseUrl}/categories/${categoryId || ''}`, {params: params});
   }
 
   createHttpParams(params: {}): HttpParams {
