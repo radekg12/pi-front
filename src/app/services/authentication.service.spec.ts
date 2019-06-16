@@ -70,14 +70,14 @@ describe('AuthenticationService', () => {
     const user = "jan"
     service.storeAuthenticationToken('jan', true);
     expect(localStorage.getItem('currentUser')).toEqual(user);
-    //expect(sessionStorage.getItem('currentUser')).toEqual(null);
+    expect(sessionStorage.getItem('currentUser')).toEqual(null);
   })
   
   it('username should be save in local storage when remember me has not been choosed', () => {
     const user = "jan"
     service.storeAuthenticationToken(user, false);
     expect(localStorage.getItem('currentUser')).toEqual(null);
-    //expect(sessionStorage.getItem('currentUser')).toEqual(user);
+    expect(sessionStorage.getItem('currentUser')).toEqual(user);
   })
 
 });
