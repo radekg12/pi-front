@@ -14,6 +14,6 @@ export class ShopLocationsService {
   }
 
   getLocations(customerLocation: Location): Observable<Location[]> {
-    return this.http.get<Location[]>(`${this.baseUrl}/${customerLocation.lat}-${customerLocation.lng}`);
+    return this.http.get<Location[]>(`${this.baseUrl}/${customerLocation.latitude}-${customerLocation.longitude}`);
   }
 }

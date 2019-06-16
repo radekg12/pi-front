@@ -1,10 +1,10 @@
 export class Location {
-  constructor(lat: number, lng: number) {
-    this.lat = lat;
-    this.lng = lng;
-  }
+  latitude: number;
+  longitude: number;
+  description?: string;
 
-  lat: number;
-  lng: number;
-  info?: string;
+  constructor(latitude: number, longitude: number) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
 }

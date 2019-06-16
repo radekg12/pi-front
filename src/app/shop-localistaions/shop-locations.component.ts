@@ -19,13 +19,13 @@ export class ShopLocationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.findMe();
-    this.locationsService.getLocations(this.customerLocation).subscribe(data => this.markers = data);
   }
 
   private findMe() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.showPosition(position);
+        this.getClosestShops();
       });
     } else {
       alert('Geolocation is not supported by this browser.');
@@ -33,8 +33,15 @@ export class ShopLocationsComponent implements OnInit {
   }
 
   private showPosition(position: Position) {
-    this.customerLocation.lng = position.coords.longitude;
-    this.customerLocation.lat = position.coords.latitude;
+    this.customerLocation.longitude = position.coords.longitude;
+    this.customerLocation.latitude = position.coords.latitude;
+  }
+
+  private getClosestShops() {
+    this.locationsService.getLocations(this.customerLocation).subscribe(data => {
+      this.markers = data;
+      this.customerLocation = this.markers[0];
+    });
   }
 }
 

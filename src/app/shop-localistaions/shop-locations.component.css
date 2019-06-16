@@ -2,6 +2,10 @@ agm-map {
   height: 400px;
 }
 
+.shop-address {
+  margin-top: 20px;
+}
+
 @media screen and (min-width: 1439px) {
   agm-map {
     height: 800px;

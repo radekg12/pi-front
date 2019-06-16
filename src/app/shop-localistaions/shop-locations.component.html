@@ -1,15 +1,21 @@
 <div class="text-title">Nasze sklepy</div>
 
-<agm-map *ngIf="customerLocation" [latitude]="customerLocation?.lat" [longitude]="customerLocation?.lng" [zoom]="zoom">
+<agm-map *ngIf="customerLocation" [latitude]="customerLocation?.latitude" [longitude]="customerLocation?.longitude"
+         [zoom]="zoom">
   <agm-marker-cluster
     imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-    <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.lat"
-                [longitude]="marker.lng">
+    <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.latitude"
+                [longitude]="marker.longitude">
       <agm-snazzy-info-window [closeWhenOthersOpen]="true" [maxWidth]="200">
         <ng-template>
-          {{marker.info}}
+          {{marker.description}}
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
   </agm-marker-cluster>
 </agm-map>
+
+<div *ngIf="markers && markers[0]" class="shop-address">
+  <div class="text-description">Sklep najbliżej ciebie:</div>
+  <div class="text-description">{{markers[0].description}}</div>
+</div>
