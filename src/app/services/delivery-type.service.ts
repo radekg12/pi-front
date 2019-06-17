@@ -8,7 +8,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class DeliveryTypeService implements OnInit {
-  private baseURL = `${environment.apiUrl}/deliveryType`;
+  private baseURL = `${environment.apiUrl}/delivery-types`;
 
   constructor(private http: HttpClient) {
   }

@@ -22,6 +22,6 @@ export class MenuService implements OnInit {
   }
 
   getCategoryBySubcategoryId(subcategoryId: number): Observable<Category> {
-    return this.http.get<Category>(`${this.baseURL}/subcategory/${subcategoryId}`);
+    return this.http.get<Category>(`${this.baseURL}/${subcategoryId}`);
   }
 }

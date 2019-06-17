@@ -30,7 +30,7 @@ export class AuthenticationService {
   }
 
   register(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(`${this.baseURL}/enrollment`, customer);
+    return this.http.post<Customer>(`${this.baseURL}/register`, customer);
   }
 
   login(loginModel: Login) {

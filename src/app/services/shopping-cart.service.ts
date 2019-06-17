@@ -22,6 +22,7 @@ export class ShoppingCartService implements OnInit {
   }
 
   addProduct(productId: number): Observable<ShoppingCartPosition> {
+    console.log('productId = ' + productId);
     return this.http.post<ShoppingCartPosition>(this.baseURL, productId);
   }
 

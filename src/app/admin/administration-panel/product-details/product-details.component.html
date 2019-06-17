@@ -33,7 +33,7 @@
 
         <mat-form-field>
           <mat-select formControlName="subcategory" placeholder="Podkategoria" required>
-            <mat-option (selectstart)="onSelectstart($event)" *ngFor="let subcategoryy of category.value.subcategories"
+            <mat-option *ngFor="let subcategoryy of category.value.subcategories"
                         [disabled]="category.invalid" [value]="subcategoryy">
               {{subcategoryy.name}}
             </mat-option>

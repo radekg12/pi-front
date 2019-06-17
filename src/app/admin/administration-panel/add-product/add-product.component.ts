@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../models/product.model';
 import {Category} from '../../../models/category-group.model';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {MenuService} from '../../../services/menu.service';
@@ -22,7 +22,6 @@ export class AddProductComponent implements OnInit {
   displayedColumns: string[] = columns;
   categories: Category[];
   productFormGroup: FormGroup;
-  category: FormControl;
   saving = false;
 
   constructor(private route: ActivatedRoute,
@@ -76,6 +75,10 @@ export class AddProductComponent implements OnInit {
     return this.productFormGroup.get('specificationPositions') as FormArray;
   }
 
+  get category() {
+    return this.productFormGroup.get('category');
+  }
+
   get subcategory() {
     return this.productFormGroup.get('subcategory');
   }
@@ -89,8 +92,6 @@ export class AddProductComponent implements OnInit {
   }
 
   configForms() {
-    this.category = new FormControl('', [Validators.required]);
-
     this.productFormGroup = this.formBuilder.group({
       id: [{value: '', disabled: true}],
       name: ['', Validators.required],
@@ -101,6 +102,7 @@ export class AddProductComponent implements OnInit {
       physicalQuantityInStock: ['', Validators.required],
       unitPrice: ['', Validators.required],
       subcategory: ['', Validators.required],
+      category: ['', Validators.required],
       // specificationPositions: this.formBuilder.array([this.initSpecificationPosition()])
 
       specificationPositions: this.formBuilder.array([
