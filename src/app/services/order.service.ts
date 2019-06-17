@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
 export class OrderService implements OnInit {
 
   private baseURL = `${environment.apiUrl}/orders`;
+  private accountURL = `${environment.apiUrl}/account`;
 
   constructor(private http: HttpClient) {
   }
@@ -22,7 +23,7 @@ export class OrderService implements OnInit {
   }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseURL);
+    return this.http.get<Order[]>(`${this.accountURL}/orders`);
   }
 
   getOrder(orderId: number): Observable<Order> {

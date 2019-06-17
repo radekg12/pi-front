@@ -9,7 +9,8 @@ import {environment} from '../../environments/environment';
 })
 export class CustomerService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/customer`;
+  private baseURL = `${environment.apiUrl}/customers`;
+  private accountURL = `${environment.apiUrl}/account`;
 
   constructor(private http: HttpClient) {
   }
@@ -18,7 +19,7 @@ export class CustomerService implements OnInit {
   }
 
   getCustomer(): Observable<Customer> {
-    return this.http.get<Customer>(this.baseURL);
+    return this.http.get<Customer>(`${this.accountURL}/my-data`);
   }
 
   getCustomerById(customerId: number): Observable<Customer> {
@@ -29,11 +30,11 @@ export class CustomerService implements OnInit {
     return this.http.get<Customer[]>(`${this.baseURL}/all`);
   }
 
-  saveCustomer(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(this.baseURL, customer);
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.accountURL}/my-data`, customer);
   }
 
   getCustomerByOrderId(orderId: number): Observable<Customer> {
-    return this.http.get<Customer>(`${this.baseURL}/byOrderId/${orderId}`);
+    return this.http.get<Customer>(`${this.baseURL}/order/${orderId}`);
   }
 }
