@@ -42,7 +42,7 @@
       <!--<div class="text-title">{{product.name}}</div>-->
       <div class="text-title">
         <mat-form-field>
-          <input formControlname="name" matInput placeholder="Nazwa">
+          <input formControlName="name" matInput placeholder="Nazwa">
           <mat-error *ngIf="name.hasError('required')">
             Wprowadź nazwę produktu
           </mat-error>

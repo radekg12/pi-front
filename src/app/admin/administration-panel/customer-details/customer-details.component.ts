@@ -113,7 +113,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   updateCustomer(): void {
     this.saving = true;
-    this.customerService.saveCustomer(this.customer).subscribe(data => {
+    this.customerService.updateCustomer(this.customer).subscribe(data => {
         this.saving = false;
         this.customer = data;
         this.addressFormGroup.patchValue(data);

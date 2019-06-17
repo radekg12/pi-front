@@ -12,7 +12,7 @@ import {environment} from '../../environments/environment';
 })
 export class PaymentService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/payu/make/payment`;
+  private baseURL = `${environment.apiUrl}/payment/payu`;
 
 
   constructor(private http: HttpClient) {

@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class ShoppingCartService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/shoppingCart`;
+  private baseURL = `${environment.apiUrl}/shopping-carts`;
 
   constructor(private http: HttpClient) {
   }
@@ -22,6 +22,7 @@ export class ShoppingCartService implements OnInit {
   }
 
   addProduct(productId: number): Observable<ShoppingCartPosition> {
+    console.log('productId = ' + productId);
     return this.http.post<ShoppingCartPosition>(this.baseURL, productId);
   }
 

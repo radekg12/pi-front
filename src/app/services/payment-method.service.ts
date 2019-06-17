@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class PaymentMethodService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/paymentMethod`;
+  private baseURL = `${environment.apiUrl}/payment-methods`;
 
 
   constructor(private http: HttpClient) {

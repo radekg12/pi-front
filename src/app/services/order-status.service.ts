@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class OrderStatusService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/status`;
+  private baseURL = `${environment.apiUrl}/statuses`;
 
   constructor(private http: HttpClient) {
   }

@@ -37,7 +37,7 @@
                         [config]="getSlideConfig()"
                         class="carousel">
 
-      <a *ngFor="let product of recommendedProducts" [routerLink]="['/products/detail', product?.id]" class="slide"
+      <a *ngFor="let product of recommendedProducts" [routerLink]="['/products', product?.id, 'details']" class="slide"
          ngxSlickItem>
         <mat-card>
           <img [src]="product.imageUrl" mat-card-image>

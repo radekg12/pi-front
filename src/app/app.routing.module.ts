@@ -23,11 +23,11 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent, data: {title: 'Logowanie'}},
-  {path: 'signup', component: EnrollmentComponent, data: {title: 'Rejestracja'}},
+  {path: 'sign-up', component: EnrollmentComponent, data: {title: 'Rejestracja'}},
   {path: 'products', component: ProductListComponent, data: {title: ' Produkty', animation: 'ProductListPage'}},
   {path: 'products/:subcategoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
   {path: 'products/category/:categoryId', component: ProductListComponent, data: {animation: 'ProductListPage'}},
-  {path: 'products/detail/:id', component: ProductDetailsComponent, data: {animation: 'ProductDetailsPage'}},
+  {path: 'products/:id/details', component: ProductDetailsComponent, data: {animation: 'ProductDetailsPage'}},
   {
     path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard],
     data: {roles: [Role.User], title: 'Koszyk'}

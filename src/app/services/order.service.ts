@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
 export class OrderService implements OnInit {
 
   private baseURL = `${environment.apiUrl}/orders`;
+  private accountURL = `${environment.apiUrl}/account`;
 
   constructor(private http: HttpClient) {
   }
@@ -18,11 +19,11 @@ export class OrderService implements OnInit {
   }
 
   getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.baseURL}/all`);
+    return this.http.get<Order[]>(`${this.baseURL}`);
   }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseURL);
+    return this.http.get<Order[]>(`${this.accountURL}/orders`);
   }
 
   getOrder(orderId: number): Observable<Order> {
@@ -30,10 +31,10 @@ export class OrderService implements OnInit {
   }
 
   changeOrderStatus(orderId: number, statusId: number) {
-    return this.http.post<Order>(`${this.baseURL}/${orderId}`, {}, {params: new HttpParams().set('statusId', String(statusId))});
+    return this.http.put<Order>(`${this.baseURL}/${orderId}`, {}, {params: new HttpParams().set('statusId', String(statusId))});
   }
 
   getOrdersByCustomerId(customerId: number): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.baseURL}/byCustomer/${customerId}`);
+    return this.http.get<Order[]>(`${this.baseURL}/customer/${customerId}`);
   }
 }

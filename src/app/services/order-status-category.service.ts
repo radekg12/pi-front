@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class OrderStatusCategoryService implements OnInit {
 
-  private baseURL = `${environment.apiUrl}/statusCategory`;
+  private baseURL = `${environment.apiUrl}/status-categories`;
 
   constructor(private http: HttpClient) {
   }
