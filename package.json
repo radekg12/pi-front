@@ -22,7 +22,7 @@
     "@agm/core": "^1.0.0-beta.6",
     "@agm/js-marker-clusterer": "^1.0.0-beta.6",
     "@agm/snazzy-info-window": "^1.0.0-beta.6",
-    "@angular-devkit/build-angular": "^0.800.2",
+    "@angular-devkit/build-angular": "^15.0.4",
     "@angular-devkit/schematics": "^8.0.2",
     "@angular/animations": "^8.0.0",
     "@angular/cdk": "^8.0.0",
@@ -63,7 +63,7 @@
     "rxjs": "^6.5.2",
     "slick-carousel": "^1.8.1",
     "snazzy-info-window": "^1.1.1",
-    "ts-loader": "^6.0.2",
+    "ts-loader": "^9.4.2",
     "tslint-angular": "^3.0.2",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.9.1"
